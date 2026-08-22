@@ -17,6 +17,7 @@ const apps = [
   {
     name: "FreeTimer",
     play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.freetimer.android",
+    windows: "https://apps.microsoft.com/detail/9NCR1DNFJCP6",
     icon: "/apps/freetimer.png",
   },
 ] as const;
@@ -109,6 +110,17 @@ export function Home() {
                   >
                     Google Play
                   </a>
+                  {"windows" in app ? (
+                    <>
+                      <span className="mx-1.5 text-line">·</span>
+                      <a
+                        href={`${app.windows}?hl=${locale === "ko" ? "ko-kr" : "en-us"}`}
+                        className="text-accent underline-offset-4 hover:underline"
+                      >
+                        Microsoft Store
+                      </a>
+                    </>
+                  ) : null}
                 </p>
               </div>
             </article>
