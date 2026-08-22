@@ -6,16 +6,19 @@ import { copy, type Locale } from "../lib/copy";
 const apps = [
   {
     name: "Treadmill Cadence",
+    status: "testing",
     play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.treadmillcadence",
     icon: "/apps/treadmill-cadence.png",
   },
   {
     name: "SayNote",
+    status: "released",
     play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.saynote.android",
     icon: "/apps/saynote.png",
   },
   {
     name: "FreeTimer",
+    status: "testing",
     play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.freetimer.android",
     windows: "https://apps.microsoft.com/detail/9NCR1DNFJCP6",
     icon: "/apps/freetimer.png",
@@ -97,7 +100,7 @@ export function Home() {
                     {app.name}
                   </h2>
                   <span className="rounded-full border border-line px-2 py-0.5 text-xs text-muted">
-                    {t.status}
+                    {t.status[app.status]}
                   </span>
                 </div>
                 <p className="mt-2 text-[15px] leading-6 text-muted">

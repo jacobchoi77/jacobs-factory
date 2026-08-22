@@ -3,7 +3,10 @@ export type Locale = "ko" | "en";
 export const copy = {
   ko: {
     tagline: "바이브 코딩으로 1인 개발 중입니다.",
-    status: "공개 테스트",
+    status: {
+      testing: "공개 테스트",
+      released: "정식 출시",
+    },
     contact: "문의",
     apps: {
       "Treadmill Cadence": "폰 마이크로 러닝머신 케이던스를 잽니다.",
@@ -13,7 +16,10 @@ export const copy = {
   },
   en: {
     tagline: "A one-person studio, building with vibe coding.",
-    status: "Public testing",
+    status: {
+      testing: "Public testing",
+      released: "Released",
+    },
     contact: "Contact",
     apps: {
       "Treadmill Cadence":
