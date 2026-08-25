@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "catalog": {
+    "youtube": {
+      "180": [
+        "https://www.youtube.com/watch?v=8z6GKCwHZuE"
+      ]
+    },
+    "tidal": {
+      "180": [
+        "https://tidal.com/browse/album/86593904"
+      ]
+    },
+    "spotify": {}
+  }
+}
