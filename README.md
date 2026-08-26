@@ -28,4 +28,6 @@ git push -u origin main
 4. Framework Preset은 Next.js 그대로 두고 Deploy를 누릅니다.
 5. 끝나면 `*.vercel.app` 주소가 생깁니다. Play Console / Microsoft Partner Center의 개발자 웹사이트를 이 주소로 바꿉니다.
 
+AdMob `app-ads.txt`는 `public/app-ads.txt`에 있고, 배포 후 **https://jacobs-factory.vercel.app/app-ads.txt** 에서 한 줄 텍스트가 보여야 합니다. Play Console 개발자 웹사이트는 경로 없이 `https://jacobs-factory.vercel.app` 이어야 합니다.
+
 도메인은 나중에 Vercel Project Settings → Domains에서 연결하면 됩니다.
