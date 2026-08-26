@@ -18,7 +18,7 @@ const apps = [
   },
   {
     name: "FreeTimer",
-    status: "testing",
+    status: "released",
     play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.freetimer.android",
     windows: "https://apps.microsoft.com/detail/9NCR1DNFJCP6",
     icon: "/apps/freetimer.png",
