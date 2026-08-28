@@ -5,10 +5,10 @@ import { copy, type Locale } from "../lib/copy";
 
 const apps = [
   {
-    name: "Treadmill Cadence",
-    status: "testing",
+    name: "Play Cadence",
+    status: "developing",
     play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.treadmillcadence",
-    icon: "/apps/treadmill-cadence.png",
+    icon: "/apps/play-cadence.png",
   },
   {
     name: "SayNote",
