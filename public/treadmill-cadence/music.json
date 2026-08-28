@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "catalog": {
+    "youtube": {
+      "180": [
+        "https://www.youtube.com/watch?v=8z6GKCwHZuE",
+        "https://www.youtube.com/watch?v=5TziMYg7UeM&list=RD5TziMYg7UeM&start_radio=1",
+        "https://www.youtube.com/watch?v=_T9j8zHLX2I&list=PL9zk9QkRjpICwezSW0LBaNRcUyrF9XqCE",
+        "https://www.youtube.com/watch?v=u2eyM-tS6QI&list=RDu2eyM-tS6QI&start_radio=1"
+      ]
+    },
+    "tidal": {
+      "180": [
+        "https://tidal.com/track/329767652"
+      ]
+    },
+    "spotify": {}
+  }
+}
