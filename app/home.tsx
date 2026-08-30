@@ -8,6 +8,7 @@ const apps = [
     name: "Play Cadence",
     status: "developing",
     play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.treadmillcadence",
+    editor: "/treadmill-cadence/track-editor/",
     icon: "/apps/play-cadence.png",
   },
   {
@@ -113,6 +114,17 @@ export function Home() {
                   >
                     Google Play
                   </a>
+                  {"editor" in app ? (
+                    <>
+                      <span className="mx-1.5 text-line">·</span>
+                      <a
+                        href={app.editor}
+                        className="text-accent underline-offset-4 hover:underline"
+                      >
+                        {t.trackEditor}
+                      </a>
+                    </>
+                  ) : null}
                   {"windows" in app ? (
                     <>
                       <span className="mx-1.5 text-line">·</span>

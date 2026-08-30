@@ -9,6 +9,7 @@ export const copy = {
       released: "정식 출시",
     },
     contact: "문의",
+    trackEditor: "트랙에디터",
     apps: {
       "Play Cadence": "케이던스를 맞추는 러닝머신 게임입니다.",
       SayNote: "말하기와 메모를 한곳에서 적습니다.",
@@ -23,6 +24,7 @@ export const copy = {
       released: "Released",
     },
     contact: "Contact",
+    trackEditor: "트랙에디터",
     apps: {
       "Play Cadence": "A treadmill game you play by matching cadence.",
       SayNote: "Speak and write notes in one place.",
