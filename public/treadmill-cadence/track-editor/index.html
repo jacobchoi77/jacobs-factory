@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Play Cadence — Track editor</title>
+  <link rel="stylesheet" href="editor.css" />
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1>Play Cadence</h1>
+      <p class="sub">트랙 편집기 · 헌법으로 검사 · catalog.json</p>
+    </div>
+    <div class="top-actions">
+      <label class="file">
+        열기
+        <input id="file" type="file" accept="application/json,.json" />
+      </label>
+      <button type="button" id="save">JSON 받기</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="pane list-pane">
+      <div class="chips" id="minute-chips"></div>
+      <div class="list" id="track-list"></div>
+      <div class="list-actions">
+        <button type="button" id="new-track">새 트랙</button>
+        <button type="button" id="dup-track">복제</button>
+        <button type="button" id="del-track" class="danger">삭제</button>
+      </div>
+    </aside>
+
+    <section class="pane editor-pane">
+      <canvas id="canvas" width="960" height="360"></canvas>
+      <p class="hint">클릭으로 꼭짓점 · 끌어 옮기기 · Delete 삭제 · Shift+클릭은 걷기</p>
+    </section>
+
+    <aside class="pane fields-pane">
+      <label>그룹
+        <select id="group"></select>
+      </label>
+      <label>모양 (shape)
+        <input id="shape" type="text" autocomplete="off" />
+      </label>
+      <label>제목 키
+        <input id="title" type="text" autocomplete="off" />
+      </label>
+      <label>분
+        <select id="minutes"></select>
+      </label>
+      <p class="id-line">id <code id="track-id"></code></p>
+      <p class="id-note">id가 랭킹 칸입니다. 점수가 붙은 id의 꼭짓점은 바꾸지 마세요.</p>
+
+      <fieldset>
+        <legend>고른 꼭짓점</legend>
+        <label>t (초)
+          <input id="vert-t" type="number" min="0" step="5" />
+        </label>
+        <label>SPM
+          <input id="vert-spm" type="number" min="140" max="220" step="5" />
+        </label>
+        <label class="check">
+          <input id="vert-walk" type="checkbox" />
+          걷기 · 무목표
+        </label>
+      </fieldset>
+
+      <div id="errors" class="errors" hidden></div>
+      <p class="ok" id="ok" hidden>헌법 통과 · 천장 <span id="ceiling"></span></p>
+    </aside>
+  </main>
+  <script src="editor.js"></script>
+</body>
+</html>
