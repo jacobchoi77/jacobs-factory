@@ -110,6 +110,8 @@ export function Home() {
                 <p className="mt-3 text-sm">
                   <a
                     href={`${app.play}&hl=${locale}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-accent underline-offset-4 hover:underline"
                   >
                     Google Play
@@ -119,6 +121,8 @@ export function Home() {
                       <span className="mx-1.5 text-line">·</span>
                       <a
                         href={app.editor}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-accent underline-offset-4 hover:underline"
                       >
                         {t.trackEditor}
@@ -130,6 +134,8 @@ export function Home() {
                       <span className="mx-1.5 text-line">·</span>
                       <a
                         href={`${app.windows}?hl=${locale === "ko" ? "ko-kr" : "en-us"}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-accent underline-offset-4 hover:underline"
                       >
                         Microsoft Store
@@ -146,6 +152,8 @@ export function Home() {
           {t.contact}{" "}
           <a
             href="mailto:jacobchoi77@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-foreground underline-offset-4 hover:underline"
           >
             jacobchoi77@gmail.com
