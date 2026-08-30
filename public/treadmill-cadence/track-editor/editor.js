@@ -1,4 +1,8 @@
 const FILTERS = [10, 20, 30, 40];
+const PUBLISH_API = "/api/treadmill-cadence/catalog";
+const GITHUB_CONTENTS =
+  "https://api.github.com/repos/jacobchoi77/jacobs-factory/contents/public/treadmill-cadence/catalog.json";
+const TOKEN_KEY = "play-cadence.github-token";
 const GROUPS = ["beginner", "intermediate", "advanced", "marathoner"];
 const GROUP_KO = {
   beginner: "초심자",
@@ -458,18 +462,120 @@ function bindFields() {
   });
 
   $("save").addEventListener("click", () => {
-    const bad = state.catalog.tracks.filter((t) => validate(t).errors.length);
-    if (bad.length && !confirm(`${bad.length}개가 헌법에 안 맞습니다. 그래도 받겠습니까?`)) return;
-    state.catalog.tracks.forEach((t) => {
-      t.ceiling = ceilingOf(t.vertices);
-    });
-    const blob = new Blob([JSON.stringify(state.catalog, null, 2) + "\n"], { type: "application/json" });
+    const text = catalogText();
+    if (!text) return;
+    const blob = new Blob([text], { type: "application/json" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
     a.download = "catalog.json";
     a.click();
     URL.revokeObjectURL(a.href);
   });
+
+  $("publish").addEventListener("click", () => {
+    publishCatalog();
+  });
+}
+
+function catalogText() {
+  const bad = state.catalog.tracks.filter((t) => validate(t).errors.length);
+  if (bad.length && !confirm(`${bad.length}개가 헌법에 안 맞습니다. 그래도 받겠습니까?`)) return null;
+  state.catalog.tracks.forEach((t) => {
+    t.ceiling = ceilingOf(t.vertices);
+  });
+  return JSON.stringify(state.catalog, null, 2) + "\n";
+}
+
+function setPublishStatus(text) {
+  const el = $("publish-status");
+  if (el) el.textContent = text;
+}
+
+function githubToken() {
+  let token = localStorage.getItem(TOKEN_KEY) || "";
+  if (!token) {
+    token = (prompt("GitHub 토큰 (contents:write). 이 브라우저에만 남습니다.") || "").trim();
+    if (token) localStorage.setItem(TOKEN_KEY, token);
+  }
+  return token;
+}
+
+function utf8ToB64(text) {
+  const bytes = new TextEncoder().encode(text);
+  let bin = "";
+  bytes.forEach((b) => {
+    bin += String.fromCharCode(b);
+  });
+  return btoa(bin);
+}
+
+async function publishViaGithub(text, token) {
+  const headers = {
+    Authorization: `Bearer ${token}`,
+    Accept: "application/vnd.github+json",
+    "X-GitHub-Api-Version": "2022-11-28",
+  };
+  const current = await fetch(GITHUB_CONTENTS, { headers });
+  if (current.status === 401 || current.status === 403) {
+    localStorage.removeItem(TOKEN_KEY);
+    throw new Error("토큰이 거부됐습니다. 다시 올리기 하세요.");
+  }
+  if (!current.ok) throw new Error(`GitHub 읽기 ${current.status}`);
+  const meta = await current.json();
+  const put = await fetch(GITHUB_CONTENTS, {
+    method: "PUT",
+    headers: { ...headers, "Content-Type": "application/json" },
+    body: JSON.stringify({
+      message: "트랙 카탈로그를 에디터에서 올린다",
+      content: utf8ToB64(text),
+      sha: meta.sha,
+    }),
+  });
+  if (!put.ok) throw new Error(`GitHub 쓰기 ${put.status}`);
+}
+
+async function postCatalog(text, token) {
+  const headers = { "Content-Type": "application/json" };
+  if (token) headers.Authorization = `Bearer ${token}`;
+  return fetch(PUBLISH_API, { method: "POST", headers, body: text });
+}
+
+async function publishCatalog() {
+  const text = catalogText();
+  if (!text) return;
+  const button = $("publish");
+  button.disabled = true;
+  setPublishStatus("올리는 중…");
+  try {
+    let api = await postCatalog(text);
+    if (api.status === 401 || api.status === 501) {
+      const token = githubToken();
+      if (!token) {
+        setPublishStatus("토큰이 없어 올리지 못했습니다.");
+        return;
+      }
+      api = await postCatalog(text, token);
+    }
+    if (api.ok) {
+      setPublishStatus("올렸습니다. 앱은 다시 켜면 반영됩니다.");
+      return;
+    }
+    if (api.status !== 404) {
+      const err = await api.json().catch(() => ({}));
+      throw new Error(err.error || `올리기 ${api.status}`);
+    }
+    const token = githubToken();
+    if (!token) {
+      setPublishStatus("토큰이 없어 올리지 못했습니다.");
+      return;
+    }
+    await publishViaGithub(text, token);
+    setPublishStatus("올렸습니다. 앱은 다시 켜면 반영됩니다.");
+  } catch (err) {
+    setPublishStatus(err.message || "올리기에 실패했습니다.");
+  } finally {
+    button.disabled = false;
+  }
 }
 
 function loadCatalog(raw) {
@@ -518,7 +624,6 @@ async function boot() {
       loadCatalog(data);
       return;
     } catch {
-      /* HTML 200, file://, or missing */
     }
   }
   render();
