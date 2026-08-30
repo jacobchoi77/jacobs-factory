@@ -6,12 +6,13 @@ const GROUP_KO = {
   advanced: "상급",
   marathoner: "마라토너",
 };
-const MIN_SPM = 140;
+const MIN_SPM = 100;
 const MAX_SPM = 220;
 const MIN_SCORED = 20;
 const MIN_WALK = 45;
 const WARMUP_S = 90;
 const PAD = 28;
+const PAD_BOTTOM = 36;
 const LINE = "#00d4e0";
 const WALK = "#8b97a3";
 
@@ -58,7 +59,7 @@ function validate(track) {
       if (seg.dur < MIN_WALK) errors.push(`걷기 ${seg.dur}초 < ${MIN_WALK}`);
       continue;
     }
-    if (seg.spm < MIN_SPM || seg.spm > MAX_SPM) errors.push(`SPM ${seg.spm}은 140–220 밖`);
+    if (seg.spm < MIN_SPM || seg.spm > MAX_SPM) errors.push(`SPM ${seg.spm}은 ${MIN_SPM}–${MAX_SPM} 밖`);
     if (seg.dur < MIN_SCORED) errors.push(`채점 ${seg.dur}초 < ${MIN_SCORED}`);
     if (ceiling == null || seg.spm > ceiling) {
       ceiling = seg.spm;
@@ -162,8 +163,14 @@ function plotRect(canvas) {
     x: PAD,
     y: PAD,
     w: canvas.width - PAD * 2,
-    h: canvas.height - PAD * 2,
+    h: canvas.height - PAD - PAD_BOTTOM,
   };
+}
+
+function minuteStep(minutes) {
+  if (minutes <= 10) return 1;
+  if (minutes <= 20) return 2;
+  return 5;
 }
 
 function xy(canvas, minutes, t, spm) {
@@ -201,16 +208,32 @@ function draw() {
 
   ctx.strokeStyle = "#2a3038";
   ctx.lineWidth = 1;
-  for (const spm of [140, 160, 180, 200, 220]) {
+  ctx.font = "11px system-ui";
+  for (let spm = MIN_SPM; spm <= MAX_SPM; spm += 20) {
     const p = xy(canvas, minutes, 0, spm);
     ctx.beginPath();
     ctx.moveTo(r.x, p.y);
     ctx.lineTo(r.x + r.w, p.y);
     ctx.stroke();
     ctx.fillStyle = "#8b97a3";
-    ctx.font = "11px system-ui";
+    ctx.textAlign = "left";
     ctx.fillText(String(spm), 6, p.y + 4);
   }
+
+  const step = minuteStep(minutes);
+  ctx.textAlign = "center";
+  for (let m = 0; m <= minutes; m += 1) {
+    const p = xy(canvas, minutes, m * 60, MIN_SPM);
+    ctx.beginPath();
+    ctx.moveTo(p.x, r.y);
+    ctx.lineTo(p.x, r.y + r.h);
+    ctx.stroke();
+    if (m % step === 0) {
+      ctx.fillStyle = "#8b97a3";
+      ctx.fillText(`${m}분`, p.x, r.y + r.h + 16);
+    }
+  }
+  ctx.textAlign = "left";
 
   if (!track) return;
   const verts = track.vertices;
