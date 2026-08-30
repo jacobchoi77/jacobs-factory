@@ -6,7 +6,7 @@ const GROUP_KO = {
   advanced: "상급",
   marathoner: "마라토너",
 };
-const MIN_SPM = 140;
+const MIN_SPM = 100;
 const MAX_SPM = 220;
 const MIN_SCORED = 20;
 const MIN_WALK = 45;
@@ -58,7 +58,7 @@ function validate(track) {
       if (seg.dur < MIN_WALK) errors.push(`걷기 ${seg.dur}초 < ${MIN_WALK}`);
       continue;
     }
-    if (seg.spm < MIN_SPM || seg.spm > MAX_SPM) errors.push(`SPM ${seg.spm}은 140–220 밖`);
+    if (seg.spm < MIN_SPM || seg.spm > MAX_SPM) errors.push(`SPM ${seg.spm}은 ${MIN_SPM}–${MAX_SPM} 밖`);
     if (seg.dur < MIN_SCORED) errors.push(`채점 ${seg.dur}초 < ${MIN_SCORED}`);
     if (ceiling == null || seg.spm > ceiling) {
       ceiling = seg.spm;
@@ -201,7 +201,7 @@ function draw() {
 
   ctx.strokeStyle = "#2a3038";
   ctx.lineWidth = 1;
-  for (const spm of [140, 160, 180, 200, 220]) {
+  for (let spm = MIN_SPM; spm <= MAX_SPM; spm += 20) {
     const p = xy(canvas, minutes, 0, spm);
     ctx.beginPath();
     ctx.moveTo(r.x, p.y);
