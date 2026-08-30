@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Play Cadence — Track editor</title>
+  <link rel="stylesheet" href="/treadmill-cadence/track-editor/editor.css" />
   <link rel="stylesheet" href="editor.css" />
 </head>
 <body>
@@ -71,6 +72,17 @@
       <p class="ok" id="ok" hidden>헌법 통과 · 천장 <span id="ceiling"></span></p>
     </aside>
   </main>
-  <script src="editor.js"></script>
+  <script>
+    (function () {
+      var s = document.createElement("script");
+      s.src = "/treadmill-cadence/track-editor/editor.js";
+      s.onerror = function () {
+        var r = document.createElement("script");
+        r.src = "editor.js";
+        document.body.appendChild(r);
+      };
+      document.body.appendChild(s);
+    })();
+  </script>
 </body>
 </html>

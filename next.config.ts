@@ -1,7 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      {
+        source: "/treadmill-cadence/track-editor",
+        destination: "/treadmill-cadence/track-editor/",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

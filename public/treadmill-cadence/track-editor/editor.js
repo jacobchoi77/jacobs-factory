@@ -481,19 +481,21 @@ async function boot() {
   bindCanvas();
   bindFields();
   const paths = [
-    "../../tracks/catalog.json",
-    "/tracks/catalog.json",
     "/treadmill-cadence/catalog.json",
     "../catalog.json",
+    "../../tracks/catalog.json",
+    "/tracks/catalog.json",
   ];
   for (const path of paths) {
     try {
       const res = await fetch(path);
       if (!res.ok) continue;
-      loadCatalog(await res.json());
+      const data = await res.json();
+      if (!data || !Array.isArray(data.tracks)) continue;
+      loadCatalog(data);
       return;
     } catch {
-      /* file:// or missing */
+      /* HTML 200, file://, or missing */
     }
   }
   render();
