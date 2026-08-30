@@ -19,6 +19,8 @@
         <input id="file" type="file" accept="application/json,.json" />
       </label>
       <button type="button" id="save">JSON 받기</button>
+      <button type="button" id="publish">올리기</button>
+      <span class="publish-status" id="publish-status"></span>
     </div>
   </header>
 
@@ -75,10 +77,10 @@
   <script>
     (function () {
       var s = document.createElement("script");
-      s.src = "/treadmill-cadence/track-editor/editor.js?v=2";
+      s.src = "/treadmill-cadence/track-editor/editor.js?v=3";
       s.onerror = function () {
         var r = document.createElement("script");
-        r.src = "editor.js?v=2";
+        r.src = "editor.js?v=3";
         document.body.appendChild(r);
       };
       document.body.appendChild(s);

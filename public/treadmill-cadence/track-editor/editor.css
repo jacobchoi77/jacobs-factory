@@ -22,7 +22,7 @@ button, input, select { font: inherit; color: inherit; }
 }
 h1 { margin: 0; font-size: 20px; }
 .sub { margin: 4px 0 0; color: var(--muted); }
-.top-actions { display: flex; gap: 8px; }
+.top-actions { display: flex; align-items: center; gap: 8px; }
 .file { position: relative; overflow: hidden; }
 .file input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
 
@@ -35,6 +35,8 @@ button, .file {
 }
 button:hover, .file:hover { border-color: var(--line); }
 button.danger { color: var(--err); }
+button:disabled { opacity: 0.55; cursor: default; }
+.publish-status { color: var(--muted); font-size: 12px; max-width: 220px; }
 
 .layout {
   display: grid;
