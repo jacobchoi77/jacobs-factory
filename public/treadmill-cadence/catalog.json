@@ -18,7 +18,7 @@
       "id": "beginner-pulse-10",
       "group": "beginner",
       "shape": "pulse",
-      "title": "pulse",
+      "title": "pulse-160",
       "minutes": 10,
       "ceiling": 160,
       "vertices": [
@@ -1338,7 +1338,7 @@
       "id": "beginner-breeze-10",
       "group": "beginner",
       "shape": "breeze",
-      "title": "breeze",
+      "title": "breeze-165",
       "minutes": 10,
       "ceiling": 165,
       "vertices": [
@@ -2924,123 +2924,43 @@
       "shape": "pulse",
       "title": "pulse",
       "minutes": 10,
-      "ceiling": 170,
+      "ceiling": 180,
       "vertices": [
         {
           "t": 0,
-          "spm": 150
-        },
-        {
-          "t": 20,
-          "spm": 160
-        },
-        {
-          "t": 40,
-          "spm": 170
+          "spm": 100
         },
         {
           "t": 60,
-          "spm": 160
-        },
-        {
-          "t": 80,
-          "spm": 150
-        },
-        {
-          "t": 100,
-          "spm": 160
+          "spm": 180
         },
         {
           "t": 120,
-          "spm": 170
-        },
-        {
-          "t": 140,
-          "spm": 160
-        },
-        {
-          "t": 160,
-          "spm": 150
+          "spm": 100
         },
         {
           "t": 180,
-          "spm": 160
-        },
-        {
-          "t": 200,
-          "spm": 170
-        },
-        {
-          "t": 220,
-          "spm": 160
+          "spm": 180
         },
         {
           "t": 240,
-          "spm": 150
-        },
-        {
-          "t": 260,
-          "spm": 160
-        },
-        {
-          "t": 280,
-          "spm": 170
+          "spm": 100
         },
         {
           "t": 300,
-          "spm": 160
-        },
-        {
-          "t": 320,
-          "spm": 150
-        },
-        {
-          "t": 340,
-          "spm": 160
+          "spm": 180
         },
         {
           "t": 360,
-          "spm": 170
-        },
-        {
-          "t": 380,
-          "spm": 160
-        },
-        {
-          "t": 400,
-          "spm": 150
+          "spm": 100
         },
         {
           "t": 420,
-          "spm": 160
-        },
-        {
-          "t": 440,
-          "spm": 170
-        },
-        {
-          "t": 460,
-          "spm": 160
+          "spm": 180
         },
         {
           "t": 480,
-          "spm": 150
-        },
-        {
-          "t": 500,
-          "spm": 160
-        },
-        {
-          "t": 520,
-          "spm": 170
-        },
-        {
-          "t": 540,
-          "spm": 160
-        },
-        {
-          "t": 560,
-          "spm": 170
+          "spm": 100
         }
       ]
     },
@@ -4151,96 +4071,6 @@
       ]
     },
     {
-      "id": "intermediate-hills-160-170-10",
-      "group": "intermediate",
-      "shape": "hills-160-170",
-      "title": "hills_160_170",
-      "minutes": 10,
-      "ceiling": 170,
-      "vertices": [
-        {
-          "t": 0,
-          "spm": 160
-        },
-        {
-          "t": 30,
-          "spm": 170
-        },
-        {
-          "t": 60,
-          "spm": 160
-        },
-        {
-          "t": 90,
-          "spm": 170
-        },
-        {
-          "t": 120,
-          "spm": 160
-        },
-        {
-          "t": 150,
-          "spm": 170
-        },
-        {
-          "t": 180,
-          "spm": 160
-        },
-        {
-          "t": 210,
-          "spm": 170
-        },
-        {
-          "t": 240,
-          "spm": 160
-        },
-        {
-          "t": 270,
-          "spm": 170
-        },
-        {
-          "t": 300,
-          "spm": 160
-        },
-        {
-          "t": 330,
-          "spm": 170
-        },
-        {
-          "t": 360,
-          "spm": 160
-        },
-        {
-          "t": 390,
-          "spm": 170
-        },
-        {
-          "t": 420,
-          "spm": 160
-        },
-        {
-          "t": 450,
-          "spm": 170
-        },
-        {
-          "t": 480,
-          "spm": 160
-        },
-        {
-          "t": 510,
-          "spm": 170
-        },
-        {
-          "t": 540,
-          "spm": 160
-        },
-        {
-          "t": 570,
-          "spm": 170
-        }
-      ]
-    },
-    {
       "id": "intermediate-hills-160-170-20",
       "group": "intermediate",
       "shape": "hills-160-170",
@@ -4991,36 +4821,6 @@
       ]
     },
     {
-      "id": "intermediate-hold-170-10",
-      "group": "intermediate",
-      "shape": "hold-170",
-      "title": "hold_170",
-      "minutes": 10,
-      "ceiling": 170,
-      "vertices": [
-        {
-          "t": 0,
-          "spm": 150
-        },
-        {
-          "t": 20,
-          "spm": 160
-        },
-        {
-          "t": 40,
-          "spm": 170
-        },
-        {
-          "t": 560,
-          "spm": 160
-        },
-        {
-          "t": 580,
-          "spm": 150
-        }
-      ]
-    },
-    {
       "id": "intermediate-hold-170-20",
       "group": "intermediate",
       "shape": "hold-170",
@@ -5107,112 +4907,6 @@
         {
           "t": 2380,
           "spm": 150
-        }
-      ]
-    },
-    {
-      "id": "intermediate-ripples-10",
-      "group": "intermediate",
-      "shape": "ripples",
-      "title": "ripples",
-      "minutes": 10,
-      "ceiling": 175,
-      "vertices": [
-        {
-          "t": 0,
-          "spm": 160
-        },
-        {
-          "t": 25,
-          "spm": 175
-        },
-        {
-          "t": 50,
-          "spm": 160
-        },
-        {
-          "t": 75,
-          "spm": 175
-        },
-        {
-          "t": 100,
-          "spm": 160
-        },
-        {
-          "t": 125,
-          "spm": 175
-        },
-        {
-          "t": 150,
-          "spm": 160
-        },
-        {
-          "t": 175,
-          "spm": 175
-        },
-        {
-          "t": 200,
-          "spm": 160
-        },
-        {
-          "t": 225,
-          "spm": 175
-        },
-        {
-          "t": 250,
-          "spm": 160
-        },
-        {
-          "t": 275,
-          "spm": 175
-        },
-        {
-          "t": 300,
-          "spm": 160
-        },
-        {
-          "t": 325,
-          "spm": 175
-        },
-        {
-          "t": 350,
-          "spm": 160
-        },
-        {
-          "t": 375,
-          "spm": 175
-        },
-        {
-          "t": 400,
-          "spm": 160
-        },
-        {
-          "t": 425,
-          "spm": 175
-        },
-        {
-          "t": 450,
-          "spm": 160
-        },
-        {
-          "t": 475,
-          "spm": 175
-        },
-        {
-          "t": 500,
-          "spm": 160
-        },
-        {
-          "t": 525,
-          "spm": 175
-        },
-        {
-          "t": 550,
-          "spm": 160
-        },
-        {
-          "t": 575,
-          "spm": 175
         }
       ]
     },
@@ -6111,52 +5805,6 @@
       ]
     },
     {
-      "id": "intermediate-recover-climb-10",
-      "group": "intermediate",
-      "shape": "recover-climb",
-      "title": "recover_climb",
-      "minutes": 10,
-      "ceiling": 175,
-      "vertices": [
-        {
-          "t": 0,
-          "spm": 160
-        },
-        {
-          "t": 60,
-          "spm": null
-        },
-        {
-          "t": 105,
-          "spm": 150
-        },
-        {
-          "t": 125,
-          "spm": 160
-        },
-        {
-          "t": 145,
-          "spm": 170
-        },
-        {
-          "t": 165,
-          "spm": 175
-        },
-        {
-          "t": 540,
-          "spm": 170
-        },
-        {
-          "t": 560,
-          "spm": 160
-        },
-        {
-          "t": 580,
-          "spm": 150
-        }
-      ]
-    },
-    {
       "id": "intermediate-recover-climb-20",
       "group": "intermediate",
       "shape": "recover-climb",
@@ -6291,112 +5939,6 @@
         {
           "t": 2380,
           "spm": 150
-        }
-      ]
-    },
-    {
-      "id": "advanced-hills-frequent-10",
-      "group": "advanced",
-      "shape": "hills-frequent",
-      "title": "hills_frequent",
-      "minutes": 10,
-      "ceiling": 180,
-      "vertices": [
-        {
-          "t": 0,
-          "spm": 160
-        },
-        {
-          "t": 25,
-          "spm": 180
-        },
-        {
-          "t": 50,
-          "spm": 160
-        },
-        {
-          "t": 75,
-          "spm": 180
-        },
-        {
-          "t": 100,
-          "spm": 160
-        },
-        {
-          "t": 125,
-          "spm": 180
-        },
-        {
-          "t": 150,
-          "spm": 160
-        },
-        {
-          "t": 175,
-          "spm": 180
-        },
-        {
-          "t": 200,
-          "spm": 160
-        },
-        {
-          "t": 225,
-          "spm": 180
-        },
-        {
-          "t": 250,
-          "spm": 160
-        },
-        {
-          "t": 275,
-          "spm": 180
-        },
-        {
-          "t": 300,
-          "spm": 160
-        },
-        {
-          "t": 325,
-          "spm": 180
-        },
-        {
-          "t": 350,
-          "spm": 160
-        },
-        {
-          "t": 375,
-          "spm": 180
-        },
-        {
-          "t": 400,
-          "spm": 160
-        },
-        {
-          "t": 425,
-          "spm": 180
-        },
-        {
-          "t": 450,
-          "spm": 160
-        },
-        {
-          "t": 475,
-          "spm": 180
-        },
-        {
-          "t": 500,
-          "spm": 160
-        },
-        {
-          "t": 525,
-          "spm": 180
-        },
-        {
-          "t": 550,
-          "spm": 160
-        },
-        {
-          "t": 575,
-          "spm": 180
         }
       ]
     },
@@ -7295,36 +6837,6 @@
       ]
     },
     {
-      "id": "advanced-jumps-big-10",
-      "group": "advanced",
-      "shape": "jumps-big",
-      "title": "jumps_big",
-      "minutes": 10,
-      "ceiling": 190,
-      "vertices": [
-        {
-          "t": 0,
-          "spm": 150
-        },
-        {
-          "t": 25,
-          "spm": 170
-        },
-        {
-          "t": 50,
-          "spm": 190
-        },
-        {
-          "t": 550,
-          "spm": 170
-        },
-        {
-          "t": 575,
-          "spm": 150
-        }
-      ]
-    },
-    {
       "id": "advanced-jumps-big-20",
       "group": "advanced",
       "shape": "jumps-big",
@@ -7411,68 +6923,6 @@
         {
           "t": 2375,
           "spm": 150
-        }
-      ]
-    },
-    {
-      "id": "advanced-hold-180-cut-10",
-      "group": "advanced",
-      "shape": "hold-180-cut",
-      "title": "hold_180_cut",
-      "minutes": 10,
-      "ceiling": 180,
-      "vertices": [
-        {
-          "t": 0,
-          "spm": 180
-        },
-        {
-          "t": 70,
-          "spm": 160
-        },
-        {
-          "t": 95,
-          "spm": 180
-        },
-        {
-          "t": 165,
-          "spm": 160
-        },
-        {
-          "t": 190,
-          "spm": 180
-        },
-        {
-          "t": 260,
-          "spm": 160
-        },
-        {
-          "t": 285,
-          "spm": 180
-        },
-        {
-          "t": 355,
-          "spm": 160
-        },
-        {
-          "t": 380,
-          "spm": 180
-        },
-        {
-          "t": 450,
-          "spm": 160
-        },
-        {
-          "t": 475,
-          "spm": 180
-        },
-        {
-          "t": 545,
-          "spm": 160
-        },
-        {
-          "t": 570,
-          "spm": 180
         }
       ]
     },
@@ -7954,132 +7404,6 @@
         },
         {
           "t": 2375,
-          "spm": 180
-        }
-      ]
-    },
-    {
-      "id": "advanced-sawtooth-10",
-      "group": "advanced",
-      "shape": "sawtooth",
-      "title": "sawtooth",
-      "minutes": 10,
-      "ceiling": 180,
-      "vertices": [
-        {
-          "t": 0,
-          "spm": 160
-        },
-        {
-          "t": 20,
-          "spm": 170
-        },
-        {
-          "t": 40,
-          "spm": 180
-        },
-        {
-          "t": 60,
-          "spm": 170
-        },
-        {
-          "t": 80,
-          "spm": 160
-        },
-        {
-          "t": 100,
-          "spm": 170
-        },
-        {
-          "t": 120,
-          "spm": 180
-        },
-        {
-          "t": 140,
-          "spm": 170
-        },
-        {
-          "t": 160,
-          "spm": 160
-        },
-        {
-          "t": 180,
-          "spm": 170
-        },
-        {
-          "t": 200,
-          "spm": 180
-        },
-        {
-          "t": 220,
-          "spm": 170
-        },
-        {
-          "t": 240,
-          "spm": 160
-        },
-        {
-          "t": 260,
-          "spm": 170
-        },
-        {
-          "t": 280,
-          "spm": 180
-        },
-        {
-          "t": 300,
-          "spm": 170
-        },
-        {
-          "t": 320,
-          "spm": 160
-        },
-        {
-          "t": 340,
-          "spm": 170
-        },
-        {
-          "t": 360,
-          "spm": 180
-        },
-        {
-          "t": 380,
-          "spm": 170
-        },
-        {
-          "t": 400,
-          "spm": 160
-        },
-        {
-          "t": 420,
-          "spm": 170
-        },
-        {
-          "t": 440,
-          "spm": 180
-        },
-        {
-          "t": 460,
-          "spm": 170
-        },
-        {
-          "t": 480,
-          "spm": 160
-        },
-        {
-          "t": 500,
-          "spm": 170
-        },
-        {
-          "t": 520,
-          "spm": 180
-        },
-        {
-          "t": 540,
-          "spm": 170
-        },
-        {
-          "t": 560,
           "spm": 180
         }
       ]
@@ -9191,36 +8515,6 @@
       ]
     },
     {
-      "id": "advanced-climb-190-10",
-      "group": "advanced",
-      "shape": "climb-190",
-      "title": "climb_190",
-      "minutes": 10,
-      "ceiling": 190,
-      "vertices": [
-        {
-          "t": 0,
-          "spm": 150
-        },
-        {
-          "t": 20,
-          "spm": 170
-        },
-        {
-          "t": 40,
-          "spm": 190
-        },
-        {
-          "t": 560,
-          "spm": 170
-        },
-        {
-          "t": 580,
-          "spm": 150
-        }
-      ]
-    },
-    {
       "id": "advanced-climb-190-20",
       "group": "advanced",
       "shape": "climb-190",
@@ -9368,31 +8662,7 @@
       "vertices": [
         {
           "t": 0,
-          "spm": 150
-        },
-        {
-          "t": 20,
-          "spm": 160
-        },
-        {
-          "t": 40,
-          "spm": 170
-        },
-        {
-          "t": 60,
           "spm": 180
-        },
-        {
-          "t": 540,
-          "spm": 170
-        },
-        {
-          "t": 560,
-          "spm": 160
-        },
-        {
-          "t": 580,
-          "spm": 150
         }
       ]
     },
@@ -9511,36 +8781,6 @@
       ]
     },
     {
-      "id": "marathoner-hold-180-long-10",
-      "group": "marathoner",
-      "shape": "hold-180-long",
-      "title": "hold_180_long",
-      "minutes": 10,
-      "ceiling": 180,
-      "vertices": [
-        {
-          "t": 0,
-          "spm": 160
-        },
-        {
-          "t": 20,
-          "spm": 170
-        },
-        {
-          "t": 40,
-          "spm": 180
-        },
-        {
-          "t": 560,
-          "spm": 170
-        },
-        {
-          "t": 580,
-          "spm": 160
-        }
-      ]
-    },
-    {
       "id": "marathoner-hold-180-long-20",
       "group": "marathoner",
       "shape": "hold-180-long",
@@ -9631,36 +8871,6 @@
       ]
     },
     {
-      "id": "marathoner-lock-170-10",
-      "group": "marathoner",
-      "shape": "lock-170",
-      "title": "lock_170",
-      "minutes": 10,
-      "ceiling": 170,
-      "vertices": [
-        {
-          "t": 0,
-          "spm": 150
-        },
-        {
-          "t": 20,
-          "spm": 160
-        },
-        {
-          "t": 40,
-          "spm": 170
-        },
-        {
-          "t": 560,
-          "spm": 160
-        },
-        {
-          "t": 580,
-          "spm": 150
-        }
-      ]
-    },
-    {
       "id": "marathoner-lock-170-20",
       "group": "marathoner",
       "shape": "lock-170",
@@ -9747,44 +8957,6 @@
         {
           "t": 2380,
           "spm": 150
-        }
-      ]
-    },
-    {
-      "id": "marathoner-late-surge-10",
-      "group": "marathoner",
-      "shape": "late-surge",
-      "title": "late_surge",
-      "minutes": 10,
-      "ceiling": 190,
-      "vertices": [
-        {
-          "t": 0,
-          "spm": 150
-        },
-        {
-          "t": 20,
-          "spm": 160
-        },
-        {
-          "t": 40,
-          "spm": 170
-        },
-        {
-          "t": 480,
-          "spm": 180
-        },
-        {
-          "t": 520,
-          "spm": 190
-        },
-        {
-          "t": 560,
-          "spm": 180
-        },
-        {
-          "t": 580,
-          "spm": 170
         }
       ]
     },
@@ -9899,52 +9071,6 @@
         {
           "t": 2380,
           "spm": 170
-        }
-      ]
-    },
-    {
-      "id": "marathoner-classic-190-10",
-      "group": "marathoner",
-      "shape": "classic-190",
-      "title": "classic_190",
-      "minutes": 10,
-      "ceiling": 190,
-      "vertices": [
-        {
-          "t": 0,
-          "spm": 150
-        },
-        {
-          "t": 20,
-          "spm": 160
-        },
-        {
-          "t": 40,
-          "spm": 170
-        },
-        {
-          "t": 60,
-          "spm": 180
-        },
-        {
-          "t": 80,
-          "spm": 190
-        },
-        {
-          "t": 520,
-          "spm": 180
-        },
-        {
-          "t": 540,
-          "spm": 170
-        },
-        {
-          "t": 560,
-          "spm": 160
-        },
-        {
-          "t": 580,
-          "spm": 150
         }
       ]
     },
@@ -10083,6 +9209,220 @@
         {
           "t": 2380,
           "spm": 150
+        }
+      ]
+    },
+    {
+      "id": "advanced-pulse-10",
+      "group": "advanced",
+      "shape": "pulse",
+      "title": "pulse",
+      "minutes": 10,
+      "ceiling": 190,
+      "vertices": [
+        {
+          "t": 0,
+          "spm": 100
+        },
+        {
+          "t": 60,
+          "spm": 190
+        },
+        {
+          "t": 120,
+          "spm": 100
+        },
+        {
+          "t": 180,
+          "spm": 190
+        },
+        {
+          "t": 240,
+          "spm": 100
+        },
+        {
+          "t": 305,
+          "spm": 190
+        },
+        {
+          "t": 360,
+          "spm": 100
+        },
+        {
+          "t": 420,
+          "spm": 190
+        },
+        {
+          "t": 480,
+          "spm": 100
+        }
+      ]
+    },
+    {
+      "id": "intermediate-breeze-10",
+      "group": "intermediate",
+      "shape": "breeze",
+      "title": "breeze",
+      "minutes": 10,
+      "ceiling": 180,
+      "vertices": [
+        {
+          "t": 0,
+          "spm": 100
+        },
+        {
+          "t": 60,
+          "spm": 150
+        },
+        {
+          "t": 125,
+          "spm": 180
+        },
+        {
+          "t": 180,
+          "spm": 150
+        },
+        {
+          "t": 240,
+          "spm": 100
+        },
+        {
+          "t": 300,
+          "spm": 150
+        },
+        {
+          "t": 360,
+          "spm": 180
+        },
+        {
+          "t": 480,
+          "spm": 150
+        },
+        {
+          "t": 540,
+          "spm": 100
+        }
+      ]
+    },
+    {
+      "id": "intermediate-hills-shallow-10",
+      "group": "intermediate",
+      "shape": "hills-shallow",
+      "title": "hills_shallow",
+      "minutes": 10,
+      "ceiling": 180,
+      "vertices": [
+        {
+          "t": 0,
+          "spm": 120
+        },
+        {
+          "t": 60,
+          "spm": 140
+        },
+        {
+          "t": 120,
+          "spm": 160
+        },
+        {
+          "t": 225,
+          "spm": 180
+        },
+        {
+          "t": 360,
+          "spm": 160
+        },
+        {
+          "t": 470,
+          "spm": 140
+        },
+        {
+          "t": 540,
+          "spm": 120
+        }
+      ]
+    },
+    {
+      "id": "advanced-breeze-10",
+      "group": "advanced",
+      "shape": "breeze",
+      "title": "breeze",
+      "minutes": 10,
+      "ceiling": 190,
+      "vertices": [
+        {
+          "t": 0,
+          "spm": 160
+        },
+        {
+          "t": 60,
+          "spm": 180
+        },
+        {
+          "t": 120,
+          "spm": 190
+        },
+        {
+          "t": 180,
+          "spm": 180
+        },
+        {
+          "t": 240,
+          "spm": 160
+        },
+        {
+          "t": 300,
+          "spm": 180
+        },
+        {
+          "t": 360,
+          "spm": 190
+        },
+        {
+          "t": 480,
+          "spm": 180
+        },
+        {
+          "t": 540,
+          "spm": 160
+        }
+      ]
+    },
+    {
+      "id": "advanced-hills-shallow-10",
+      "group": "advanced",
+      "shape": "hills-shallow",
+      "title": "hills_shallow",
+      "minutes": 10,
+      "ceiling": 190,
+      "vertices": [
+        {
+          "t": 0,
+          "spm": 160
+        },
+        {
+          "t": 60,
+          "spm": 180
+        },
+        {
+          "t": 180,
+          "spm": 190
+        },
+        {
+          "t": 240,
+          "spm": 180
+        },
+        {
+          "t": 360,
+          "spm": 190
+        },
+        {
+          "t": 420,
+          "spm": 180
+        },
+        {
+          "t": 540,
+          "spm": 160
         }
       ]
     }
