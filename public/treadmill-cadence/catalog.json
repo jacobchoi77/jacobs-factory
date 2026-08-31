@@ -15,10 +15,10 @@
   ],
   "tracks": [
     {
-      "id": "beginner-hold-easy-10",
+      "id": "beginner-pulse-10",
       "group": "beginner",
-      "shape": "hold-easy",
-      "title": "hold_easy",
+      "shape": "pulse",
+      "title": "pulse-160",
       "minutes": 10,
       "ceiling": 160,
       "vertices": [
@@ -1335,92 +1335,48 @@
       ]
     },
     {
-      "id": "beginner-ripples-small-10",
+      "id": "beginner-breeze-10",
       "group": "beginner",
-      "shape": "ripples-small",
-      "title": "ripples_small",
+      "shape": "breeze",
+      "title": "breeze-165",
       "minutes": 10,
       "ceiling": 165,
       "vertices": [
         {
           "t": 0,
-          "spm": 155
-        },
-        {
-          "t": 30,
-          "spm": 165
+          "spm": 100
         },
         {
           "t": 60,
-          "spm": 155
-        },
-        {
-          "t": 90,
-          "spm": 165
+          "spm": 150
         },
         {
           "t": 120,
-          "spm": 155
-        },
-        {
-          "t": 150,
           "spm": 165
         },
         {
           "t": 180,
-          "spm": 155
-        },
-        {
-          "t": 210,
-          "spm": 165
+          "spm": 150
         },
         {
           "t": 240,
-          "spm": 155
-        },
-        {
-          "t": 270,
-          "spm": 165
+          "spm": 100
         },
         {
           "t": 300,
-          "spm": 155
-        },
-        {
-          "t": 330,
-          "spm": 165
+          "spm": 150
         },
         {
           "t": 360,
-          "spm": 155
-        },
-        {
-          "t": 390,
-          "spm": 165
-        },
-        {
-          "t": 420,
-          "spm": 155
-        },
-        {
-          "t": 450,
           "spm": 165
         },
         {
           "t": 480,
-          "spm": 155
-        },
-        {
-          "t": 510,
-          "spm": 165
+          "spm": 150
         },
         {
           "t": 540,
-          "spm": 155
-        },
-        {
-          "t": 570,
-          "spm": 165
+          "spm": 100
         }
       ]
     },
@@ -2180,87 +2136,35 @@
       "shape": "hills-shallow",
       "title": "hills_shallow",
       "minutes": 10,
-      "ceiling": 165,
+      "ceiling": 180,
       "vertices": [
         {
           "t": 0,
-          "spm": 150
-        },
-        {
-          "t": 30,
-          "spm": 165
+          "spm": 100
         },
         {
           "t": 60,
-          "spm": 150
-        },
-        {
-          "t": 90,
-          "spm": 165
+          "spm": 140
         },
         {
           "t": 120,
-          "spm": 150
+          "spm": 160
         },
         {
-          "t": 150,
-          "spm": 165
+          "t": 215,
+          "spm": 180
         },
         {
-          "t": 180,
-          "spm": 150
-        },
-        {
-          "t": 210,
-          "spm": 165
-        },
-        {
-          "t": 240,
-          "spm": 150
-        },
-        {
-          "t": 270,
-          "spm": 165
-        },
-        {
-          "t": 300,
-          "spm": 150
-        },
-        {
-          "t": 330,
-          "spm": 165
+          "t": 260,
+          "spm": 160
         },
         {
           "t": 360,
-          "spm": 150
-        },
-        {
-          "t": 390,
-          "spm": 165
-        },
-        {
-          "t": 420,
-          "spm": 150
-        },
-        {
-          "t": 450,
-          "spm": 165
-        },
-        {
-          "t": 480,
-          "spm": 150
-        },
-        {
-          "t": 510,
-          "spm": 165
+          "spm": 140
         },
         {
           "t": 540,
-          "spm": 150
-        },
-        {
-          "t": 570,
-          "spm": 165
+          "spm": 100
         }
       ]
     },
