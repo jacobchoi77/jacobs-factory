@@ -18,7 +18,7 @@
       "id": "beginner-pulse-10",
       "group": "beginner",
       "shape": "pulse",
-      "title": "pulse-160",
+      "title": "pulse",
       "minutes": 10,
       "ceiling": 160,
       "vertices": [
@@ -1338,7 +1338,7 @@
       "id": "beginner-breeze-10",
       "group": "beginner",
       "shape": "breeze",
-      "title": "breeze-165",
+      "title": "breeze",
       "minutes": 10,
       "ceiling": 165,
       "vertices": [
@@ -2919,10 +2919,10 @@
       ]
     },
     {
-      "id": "intermediate-stairs-170-10",
+      "id": "intermediate-pulse-10",
       "group": "intermediate",
-      "shape": "stairs-170",
-      "title": "stairs_170",
+      "shape": "pulse",
+      "title": "pulse",
       "minutes": 10,
       "ceiling": 170,
       "vertices": [
