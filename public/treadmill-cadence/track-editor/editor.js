@@ -76,9 +76,24 @@ function validate(track) {
   return { errors, ceiling: ceiling ?? 0 };
 }
 
+function shapeSlug(track) {
+  let shape = (track.shape || "new").trim().replace(/_/g, "-");
+  shape = shape.replace(/-\d+$/, "");
+  return shape || "new";
+}
+
 function makeId(track) {
-  const shape = (track.shape || "new").trim().replace(/_/g, "-");
-  return `${track.group}-${shape}-${track.minutes}`;
+  const ceiling = track.ceiling || ceilingOf(track.vertices || []);
+  return `${track.group}-${shapeSlug(track)}-${ceiling}-${track.minutes}`;
+}
+
+function applyId(track) {
+  const next = makeId(track);
+  if (next === track.id) return;
+  if (state.catalog.tracks.some((t) => t.id === next && t !== track)) return;
+  const wasSelected = state.selectedId === track.id;
+  track.id = next;
+  if (wasSelected) state.selectedId = next;
 }
 
 function selected() {
@@ -156,6 +171,8 @@ function renderFields() {
   }
   const { errors, ceiling } = validate(track);
   track.ceiling = ceiling;
+  applyId(track);
+  $("track-id").textContent = track.id;
   $("ceiling").textContent = String(ceiling);
   $("ok").hidden = errors.length > 0;
   $("errors").hidden = errors.length === 0;
@@ -367,12 +384,8 @@ function bindFields() {
     track.shape = $("shape").value.trim() || "new";
     track.title = $("title").value.trim() || track.shape.replace(/-/g, "_");
     track.minutes = Number($("minutes").value);
-    const next = makeId(track);
-    if (next !== track.id && state.catalog.tracks.some((t) => t.id === next && t !== track)) {
-      return;
-    }
-    track.id = next;
-    state.selectedId = next;
+    applyId(track);
+    state.selectedId = track.id;
     state.minutes = track.minutes;
     render();
   };
@@ -416,7 +429,6 @@ function bindFields() {
   $("new-track").addEventListener("click", () => {
     const shape = `custom-${Date.now().toString(36).slice(-4)}`;
     const track = {
-      id: `beginner-${shape}-${state.minutes}`,
       group: "beginner",
       shape,
       title: shape.replace(/-/g, "_"),
@@ -428,6 +440,7 @@ function bindFields() {
         { t: state.minutes * 60 - 20, spm: 150 },
       ],
     };
+    track.id = makeId(track);
     state.catalog.tracks.push(track);
     state.selectedId = track.id;
     state.selectedVert = 0;
@@ -482,6 +495,7 @@ function catalogText() {
   if (bad.length && !confirm(`${bad.length}개가 헌법에 안 맞습니다. 그래도 받겠습니까?`)) return null;
   state.catalog.tracks.forEach((t) => {
     t.ceiling = ceilingOf(t.vertices);
+    applyId(t);
   });
   return JSON.stringify(state.catalog, null, 2) + "\n";
 }
@@ -624,6 +638,7 @@ async function boot() {
       loadCatalog(data);
       return;
     } catch {
+      /* HTML 200, file://, or missing */
     }
   }
   render();
