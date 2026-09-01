@@ -53,6 +53,7 @@
       <p class="id-line">id <code id="track-id"></code></p>
       <p class="id-line">제목 <code id="track-title"></code></p>
       <p class="id-note">모양만 적으면 됩니다. id는 그룹-모양-천장-분, 제목은 모양-천장. 점수가 붙은 id의 꼭짓점은 바꾸지 마세요.</p>
+      <button type="button" id="board-open">랭킹</button>
 
       <fieldset>
         <legend>고른 꼭짓점</legend>
@@ -72,13 +73,30 @@
       <p class="ok" id="ok" hidden>헌법 통과 · 천장 <span id="ceiling"></span></p>
     </aside>
   </main>
+
+  <div id="board-dialog" class="dialog" hidden>
+    <div class="dialog-card">
+      <header class="dialog-top">
+        <div>
+          <h2>랭킹</h2>
+          <p id="board-track" class="sub"></p>
+        </div>
+        <button type="button" id="board-close">닫기</button>
+      </header>
+      <p id="board-status" class="board-status"></p>
+      <div id="board-rows" class="board-rows"></div>
+      <div class="dialog-actions">
+        <button type="button" id="board-reset" class="danger">이 트랙 리셋</button>
+      </div>
+    </div>
+  </div>
   <script>
     (function () {
       var s = document.createElement("script");
-      s.src = "/treadmill-cadence/track-editor/editor.js?v=5";
+      s.src = "/treadmill-cadence/track-editor/editor.js?v=6";
       s.onerror = function () {
         var r = document.createElement("script");
-        r.src = "editor.js?v=5";
+        r.src = "editor.js?v=6";
         document.body.appendChild(r);
       };
       document.body.appendChild(s);

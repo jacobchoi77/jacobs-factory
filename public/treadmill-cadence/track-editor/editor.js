@@ -1,5 +1,9 @@
 const FILTERS = [10, 20, 30, 40];
 const PUBLISH_API = "/api/treadmill-cadence/catalog";
+const BOARD_APIS = [
+  "/api/treadmill-cadence/board",
+  "https://jacobs-factory.vercel.app/api/treadmill-cadence/board",
+];
 const GITHUB_CONTENTS =
   "https://api.github.com/repos/jacobchoi77/jacobs-factory/contents/public/treadmill-cadence/catalog.json";
 const TOKEN_KEY = "play-cadence.github-token";
@@ -162,6 +166,7 @@ function renderFields() {
     $("track-title").textContent = "—";
     $("errors").hidden = true;
     $("ok").hidden = true;
+    $("board-open").disabled = true;
     return;
   }
   $("group").value = track.group;
@@ -186,6 +191,7 @@ function renderFields() {
   $("ok").hidden = errors.length > 0;
   $("errors").hidden = errors.length === 0;
   $("errors").innerHTML = errors.map((e) => `<p>${e}</p>`).join("");
+  $("board-open").disabled = false;
 }
 
 function plotRect(canvas) {
@@ -494,6 +500,17 @@ function bindFields() {
   $("publish").addEventListener("click", () => {
     publishCatalog();
   });
+  $("board-open").addEventListener("click", () => openBoard());
+  $("board-close").addEventListener("click", () => closeBoard());
+  $("board-reset").addEventListener("click", () => resetBoard());
+  $("board-dialog").addEventListener("click", (e) => {
+    if (e.target === $("board-dialog")) closeBoard();
+  });
+  $("board-rows").addEventListener("click", (e) => {
+    const button = e.target.closest("[data-player]");
+    if (!button) return;
+    removeBoardRow(button.dataset.player);
+  });
 }
 
 function catalogText() {
@@ -515,6 +532,167 @@ function githubToken() {
     if (token) localStorage.setItem(TOKEN_KEY, token);
   }
   return token;
+}
+
+function escapeHtml(text) {
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function playerSuffix(playerId) {
+  const digits = String(playerId || "").replace(/[^0-9a-fA-F]/g, "");
+  return digits.slice(-4).toUpperCase() || "----";
+}
+
+function setBoardStatus(text) {
+  $("board-status").textContent = text || "";
+}
+
+function closeBoard() {
+  $("board-dialog").hidden = true;
+}
+
+async function boardRequest(path, opts) {
+  let last = null;
+  for (const base of BOARD_APIS) {
+    try {
+      const res = await fetch(`${base}${path}`, opts);
+      if (res.status === 404) {
+        last = res;
+        continue;
+      }
+      return res;
+    } catch (err) {
+      last = err;
+    }
+  }
+  if (last instanceof Response) return last;
+  throw last || new Error("board unreachable");
+}
+
+async function loadBoard(forceAdmin) {
+  const track = selected();
+  if (!track) return;
+  $("board-track").textContent = track.id;
+  setBoardStatus("불러오는 중…");
+  $("board-rows").innerHTML = "";
+  const stored = localStorage.getItem(TOKEN_KEY) || "";
+  const token = forceAdmin ? githubToken() : stored;
+  if (forceAdmin && !token) {
+    setBoardStatus("토큰이 없어 관리할 수 없습니다.");
+    return;
+  }
+  const qs = `?track=${encodeURIComponent(track.id)}${token ? "&admin=1" : ""}`;
+  const headers = { Accept: "application/json" };
+  if (token) headers.Authorization = `Bearer ${token}`;
+  const res = await boardRequest(qs, { headers });
+  if ((res.status === 401 || res.status === 403) && token) {
+    localStorage.removeItem(TOKEN_KEY);
+    setBoardStatus("토큰이 거부됐습니다. 다시 시도하세요.");
+    return loadBoard(false);
+  }
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    setBoardStatus(err.error || `보드 ${res.status}`);
+    return;
+  }
+  const data = await res.json();
+  const rows = Array.isArray(data.rows) ? data.rows : [];
+  const count = rows.length ? `${rows.length}명` : "아직 없음";
+  setBoardStatus(token ? count : `${count}. 삭제·리셋은 올리기 토큰이 필요합니다.`);
+  if (!rows.length) {
+    $("board-rows").innerHTML = `<p class="board-empty">이 트랙에 올라간 점수가 없습니다.</p>`;
+    return;
+  }
+  $("board-rows").innerHTML = rows
+    .map((row) => {
+      const suffix = playerSuffix(row.playerId);
+      const del = row.playerId
+        ? `<button type="button" class="danger" data-player="${escapeHtml(row.playerId)}">삭제</button>`
+        : "";
+      return `<div class="board-row">
+        <span>${row.rank}</span>
+        <span>${escapeHtml(row.name || "")}</span>
+        <span>${row.score}</span>
+        <span class="sub">${suffix}</span>
+        ${del}
+      </div>`;
+    })
+    .join("");
+}
+
+async function openBoard() {
+  if (!selected()) return;
+  $("board-dialog").hidden = false;
+  await loadBoard(false);
+}
+
+async function resetBoard() {
+  const track = selected();
+  if (!track) return;
+  if (!confirm(`${track.id} 랭킹을 전부 지웁니다.`)) return;
+  if (!confirm("되돌릴 수 없습니다. 지울까요?")) return;
+  const token = githubToken();
+  if (!token) {
+    setBoardStatus("토큰이 없어 리셋하지 못했습니다.");
+    return;
+  }
+  setBoardStatus("지우는 중…");
+  const res = await boardRequest("", {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ trackId: track.id }),
+  });
+  if (res.status === 401 || res.status === 403) {
+    localStorage.removeItem(TOKEN_KEY);
+    setBoardStatus("토큰이 거부됐습니다. 다시 올리기 하세요.");
+    return;
+  }
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    setBoardStatus(err.error || `리셋 ${res.status}`);
+    return;
+  }
+  await loadBoard(true);
+}
+
+async function removeBoardRow(playerId) {
+  const track = selected();
+  if (!track || !playerId) return;
+  if (!confirm("이 줄을 지울까요?")) return;
+  const token = githubToken();
+  if (!token) {
+    setBoardStatus("토큰이 없어 삭제하지 못했습니다.");
+    return;
+  }
+  setBoardStatus("지우는 중…");
+  const res = await boardRequest("", {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ trackId: track.id, playerId }),
+  });
+  if (res.status === 401 || res.status === 403) {
+    localStorage.removeItem(TOKEN_KEY);
+    setBoardStatus("토큰이 거부됐습니다. 다시 올리기 하세요.");
+    return;
+  }
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    setBoardStatus(err.error || `삭제 ${res.status}`);
+    return;
+  }
+  await loadBoard(true);
 }
 
 function utf8ToB64(text) {

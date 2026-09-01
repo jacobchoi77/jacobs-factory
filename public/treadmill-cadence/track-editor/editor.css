@@ -92,6 +92,50 @@ fieldset { border: 1px solid var(--border); border-radius: 8px; margin: 16px 0; 
 .errors p { margin: 0 0 6px; }
 .ok { color: var(--ok); }
 
+.dialog {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 20;
+}
+.dialog[hidden] { display: none; }
+.dialog-card {
+  width: min(560px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+.dialog-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.dialog-top h2 { margin: 0; font-size: 18px; }
+.dialog-actions { display: flex; justify-content: flex-end; margin-top: 12px; }
+.board-status { margin: 0 0 10px; color: var(--muted); font-size: 12px; }
+.board-rows { display: flex; flex-direction: column; gap: 6px; }
+.board-row {
+  display: grid;
+  grid-template-columns: 28px 1fr auto auto auto;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 10px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.board-row .sub { font-size: 12px; color: var(--muted); }
+.board-empty { color: var(--muted); margin: 8px 0; }
+
 @media (max-width: 960px) {
   .layout { grid-template-columns: 1fr; height: auto; }
   .list-pane, .fields-pane { border: 0; }
