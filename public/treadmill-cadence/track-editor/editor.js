@@ -82,15 +82,22 @@ function shapeSlug(track) {
   return shape || "new";
 }
 
+function makeTitle(track) {
+  const ceiling = track.ceiling || ceilingOf(track.vertices || []);
+  return `${shapeSlug(track)}-${ceiling}`;
+}
+
 function makeId(track) {
   const ceiling = track.ceiling || ceilingOf(track.vertices || []);
   return `${track.group}-${shapeSlug(track)}-${ceiling}-${track.minutes}`;
 }
 
-function applyId(track) {
+function applyMeta(track) {
+  track.shape = shapeSlug(track);
+  track.ceiling = ceilingOf(track.vertices || []);
+  track.title = makeTitle(track);
   const next = makeId(track);
-  if (next === track.id) return;
-  if (state.catalog.tracks.some((t) => t.id === next && t !== track)) return;
+  if (next !== track.id && state.catalog.tracks.some((t) => t.id === next && t !== track)) return;
   const wasSelected = state.selectedId === track.id;
   track.id = next;
   if (wasSelected) state.selectedId = next;
@@ -147,20 +154,21 @@ function renderList() {
 function renderFields() {
   const track = selected();
   const disabled = !track;
-  for (const id of ["group", "shape", "title", "minutes", "vert-t", "vert-spm", "vert-walk"]) {
+  for (const id of ["group", "shape", "minutes", "vert-t", "vert-spm", "vert-walk"]) {
     $(id).disabled = disabled;
   }
   if (!track) {
     $("track-id").textContent = "—";
+    $("track-title").textContent = "—";
     $("errors").hidden = true;
     $("ok").hidden = true;
     return;
   }
   $("group").value = track.group;
   $("shape").value = track.shape;
-  $("title").value = track.title;
   $("minutes").value = String(track.minutes);
   $("track-id").textContent = track.id;
+  $("track-title").textContent = track.title;
   const vert = track.vertices[state.selectedVert];
   if (vert) {
     $("vert-t").value = String(vert.t);
@@ -170,9 +178,10 @@ function renderFields() {
     $("vert-spm").value = String(vert.spm ?? 160);
   }
   const { errors, ceiling } = validate(track);
-  track.ceiling = ceiling;
-  applyId(track);
+  applyMeta(track);
+  $("shape").value = track.shape;
   $("track-id").textContent = track.id;
+  $("track-title").textContent = track.title;
   $("ceiling").textContent = String(ceiling);
   $("ok").hidden = errors.length > 0;
   $("errors").hidden = errors.length === 0;
@@ -382,14 +391,13 @@ function bindFields() {
     if (!track) return;
     track.group = $("group").value;
     track.shape = $("shape").value.trim() || "new";
-    track.title = $("title").value.trim() || track.shape.replace(/-/g, "_");
     track.minutes = Number($("minutes").value);
-    applyId(track);
+    applyMeta(track);
     state.selectedId = track.id;
     state.minutes = track.minutes;
     render();
   };
-  for (const id of ["group", "shape", "title", "minutes"]) {
+  for (const id of ["group", "shape", "minutes"]) {
     $(id).addEventListener("change", rewriteId);
     $(id).addEventListener("input", rewriteId);
   }
@@ -431,7 +439,6 @@ function bindFields() {
     const track = {
       group: "beginner",
       shape,
-      title: shape.replace(/-/g, "_"),
       minutes: state.minutes,
       ceiling: 160,
       vertices: [
@@ -440,7 +447,7 @@ function bindFields() {
         { t: state.minutes * 60 - 20, spm: 150 },
       ],
     };
-    track.id = makeId(track);
+    applyMeta(track);
     state.catalog.tracks.push(track);
     state.selectedId = track.id;
     state.selectedVert = 0;
@@ -453,8 +460,7 @@ function bindFields() {
     const shape = `${src.shape}-copy`;
     const track = structuredClone(src);
     track.shape = shape;
-    track.title = shape.replace(/-/g, "_");
-    track.id = makeId(track);
+    applyMeta(track);
     state.catalog.tracks.push(track);
     state.selectedId = track.id;
     render();
@@ -493,10 +499,7 @@ function bindFields() {
 function catalogText() {
   const bad = state.catalog.tracks.filter((t) => validate(t).errors.length);
   if (bad.length && !confirm(`${bad.length}개가 헌법에 안 맞습니다. 그래도 받겠습니까?`)) return null;
-  state.catalog.tracks.forEach((t) => {
-    t.ceiling = ceilingOf(t.vertices);
-    applyId(t);
-  });
+  state.catalog.tracks.forEach(applyMeta);
   return JSON.stringify(state.catalog, null, 2) + "\n";
 }
 
@@ -609,6 +612,7 @@ function loadCatalog(raw) {
       vertices: t.vertices.map((v) => ({ t: v.t, spm: v.spm ?? null })),
     })),
   };
+  state.catalog.tracks.forEach(applyMeta);
   ensureSelected();
   render();
 }
