@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 const TOP_N = 20;
 const MAX_SCORE = 1_000_000;
-const PLAYER_RE = /^[0-9a-fA-F-]{8,64}$/;
+const PLAYER_RE = /^([0-9a-fA-F-]{8,64}|[0-9]{10,32})$/;
 const TRACK_RE = /^[a-z0-9-]{3,64}$/;
 
 type BoardRow = { rank: number; name: string; score: number; isMe: boolean };
@@ -83,24 +83,46 @@ export async function GET(req: Request) {
   }
 }
 
+async function googleSub(idToken: string): Promise<string | null> {
+  const aud = process.env.GOOGLE_WEB_CLIENT_ID || "";
+  if (!aud || !idToken) return null;
+  const res = await fetch(
+    `https://oauth2.googleapis.com/tokeninfo?id_token=${encodeURIComponent(idToken)}`,
+  );
+  if (!res.ok) return null;
+  const body = (await res.json()) as {
+    aud?: string;
+    sub?: string;
+    email_verified?: string | boolean;
+  };
+  if (body.aud !== aud) return null;
+  if (body.email_verified === "false" || body.email_verified === false) return null;
+  if (!body.sub || !/^[0-9]{10,32}$/.test(body.sub)) return null;
+  return body.sub;
+}
+
 export async function POST(req: Request) {
   if (!redis()) {
     return cors(NextResponse.json({ error: "board offline" }, { status: 503 }));
   }
-  let body: { trackId?: unknown; score?: unknown; playerId?: unknown; nickname?: unknown };
+  if (!process.env.GOOGLE_WEB_CLIENT_ID) {
+    return cors(NextResponse.json({ error: "sign-in offline" }, { status: 503 }));
+  }
+  let body: { trackId?: unknown; score?: unknown; idToken?: unknown; nickname?: unknown };
   try {
     body = await req.json();
   } catch {
     return cors(NextResponse.json({ error: "invalid json" }, { status: 400 }));
   }
   const trackId = typeof body.trackId === "string" ? body.trackId : "";
-  const playerId = typeof body.playerId === "string" ? body.playerId : "";
+  const idToken = typeof body.idToken === "string" ? body.idToken : "";
   const score = typeof body.score === "number" ? Math.floor(body.score) : NaN;
   if (!TRACK_RE.test(trackId) || trackId.startsWith("user-")) {
     return cors(NextResponse.json({ error: "bad track" }, { status: 400 }));
   }
-  if (!PLAYER_RE.test(playerId)) {
-    return cors(NextResponse.json({ error: "bad player" }, { status: 400 }));
+  const playerId = await googleSub(idToken);
+  if (!playerId) {
+    return cors(NextResponse.json({ error: "bad sign-in" }, { status: 401 }));
   }
   if (!Number.isFinite(score) || score < 1 || score > MAX_SCORE) {
     return cors(NextResponse.json({ error: "bad score" }, { status: 400 }));
