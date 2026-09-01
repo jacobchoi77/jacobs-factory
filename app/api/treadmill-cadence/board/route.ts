@@ -83,7 +83,9 @@ export async function GET(req: Request) {
   }
 }
 
-async function googleSub(idToken: string): Promise<string | null> {
+async function googleAccount(
+  idToken: string,
+): Promise<{ sub: string; name: string } | null> {
   const aud = process.env.GOOGLE_WEB_CLIENT_ID || "";
   if (!aud || !idToken) return null;
   const res = await fetch(
@@ -93,12 +95,13 @@ async function googleSub(idToken: string): Promise<string | null> {
   const body = (await res.json()) as {
     aud?: string;
     sub?: string;
+    name?: string;
     email_verified?: string | boolean;
   };
   if (body.aud !== aud) return null;
   if (body.email_verified === "false" || body.email_verified === false) return null;
   if (!body.sub || !/^[0-9]{10,32}$/.test(body.sub)) return null;
-  return body.sub;
+  return { sub: body.sub, name: typeof body.name === "string" ? body.name : "" };
 }
 
 export async function POST(req: Request) {
@@ -108,7 +111,7 @@ export async function POST(req: Request) {
   if (!process.env.GOOGLE_WEB_CLIENT_ID) {
     return cors(NextResponse.json({ error: "sign-in offline" }, { status: 503 }));
   }
-  let body: { trackId?: unknown; score?: unknown; idToken?: unknown; nickname?: unknown };
+  let body: { trackId?: unknown; score?: unknown; idToken?: unknown };
   try {
     body = await req.json();
   } catch {
@@ -120,14 +123,15 @@ export async function POST(req: Request) {
   if (!TRACK_RE.test(trackId) || trackId.startsWith("user-")) {
     return cors(NextResponse.json({ error: "bad track" }, { status: 400 }));
   }
-  const playerId = await googleSub(idToken);
-  if (!playerId) {
+  const account = await googleAccount(idToken);
+  if (!account) {
     return cors(NextResponse.json({ error: "bad sign-in" }, { status: 401 }));
   }
+  const playerId = account.sub;
   if (!Number.isFinite(score) || score < 1 || score > MAX_SCORE) {
     return cors(NextResponse.json({ error: "bad score" }, { status: 400 }));
   }
-  const name = sanitizeName(body.nickname, playerId);
+  const name = sanitizeName(account.name, playerId);
   try {
     const previous = Number(await redisCmd(["ZSCORE", keyFor(trackId), playerId]));
     if (!Number.isFinite(previous) || score > previous) {
