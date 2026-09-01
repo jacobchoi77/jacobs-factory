@@ -542,10 +542,6 @@ function escapeHtml(text) {
     .replace(/"/g, "&quot;");
 }
 
-function playerSuffix(playerId) {
-  const digits = String(playerId || "").replace(/[^0-9a-fA-F]/g, "");
-  return digits.slice(-4).toUpperCase() || "----";
-}
 
 function setBoardStatus(text) {
   $("board-status").textContent = text || "";
@@ -609,7 +605,6 @@ async function loadBoard(forceAdmin) {
   }
   $("board-rows").innerHTML = rows
     .map((row) => {
-      const suffix = playerSuffix(row.playerId);
       const del = row.playerId
         ? `<button type="button" class="danger" data-player="${escapeHtml(row.playerId)}">삭제</button>`
         : "";
@@ -617,7 +612,7 @@ async function loadBoard(forceAdmin) {
         <span>${row.rank}</span>
         <span>${escapeHtml(row.name || "")}</span>
         <span>${row.score}</span>
-        <span class="sub">${suffix}</span>
+        <span class="sub">${row.playerId ? escapeHtml(row.playerId) : "—"}</span>
         ${del}
       </div>`;
     })
