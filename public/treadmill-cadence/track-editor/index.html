@@ -47,14 +47,12 @@
       <label>모양 (shape)
         <input id="shape" type="text" autocomplete="off" />
       </label>
-      <label>제목 키
-        <input id="title" type="text" autocomplete="off" />
-      </label>
       <label>분
         <select id="minutes"></select>
       </label>
       <p class="id-line">id <code id="track-id"></code></p>
-      <p class="id-note">id는 그룹-모양-천장-분. 랭킹 칸이니 점수가 붙은 id의 꼭짓점은 바꾸지 마세요.</p>
+      <p class="id-line">제목 <code id="track-title"></code></p>
+      <p class="id-note">모양만 적으면 됩니다. id는 그룹-모양-천장-분, 제목은 모양-천장. 점수가 붙은 id의 꼭짓점은 바꾸지 마세요.</p>
 
       <fieldset>
         <legend>고른 꼭짓점</legend>
@@ -77,10 +75,10 @@
   <script>
     (function () {
       var s = document.createElement("script");
-      s.src = "/treadmill-cadence/track-editor/editor.js?v=4";
+      s.src = "/treadmill-cadence/track-editor/editor.js?v=5";
       s.onerror = function () {
         var r = document.createElement("script");
-        r.src = "editor.js?v=4";
+        r.src = "editor.js?v=5";
         document.body.appendChild(r);
       };
       document.body.appendChild(s);
