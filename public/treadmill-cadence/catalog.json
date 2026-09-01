@@ -17,7 +17,7 @@
     {
       "id": "beginner-breeze-165-10",
       "group": "beginner",
-      "shape": "breeze-165",
+      "shape": "breeze",
       "title": "breeze-165",
       "minutes": 10,
       "ceiling": 165,
@@ -63,7 +63,7 @@
     {
       "id": "beginner-breeze-165-20",
       "group": "beginner",
-      "shape": "breeze-165",
+      "shape": "breeze",
       "title": "breeze-165",
       "minutes": 20,
       "ceiling": 165,
@@ -141,7 +141,7 @@
     {
       "id": "beginner-breeze-165-30",
       "group": "beginner",
-      "shape": "breeze-165",
+      "shape": "breeze",
       "title": "breeze-165",
       "minutes": 30,
       "ceiling": 165,
@@ -409,8 +409,8 @@
     {
       "id": "beginner-hills-shallow-180-10",
       "group": "beginner",
-      "shape": "hills_shallow-180",
-      "title": "hills_shallow-180",
+      "shape": "hills-shallow",
+      "title": "hills-shallow-180",
       "minutes": 10,
       "ceiling": 180,
       "vertices": [
@@ -447,8 +447,8 @@
     {
       "id": "beginner-hills-shallow-180-20",
       "group": "beginner",
-      "shape": "hills_shallow-180",
-      "title": "hills_shallow-180",
+      "shape": "hills-shallow",
+      "title": "hills-shallow-180",
       "minutes": 20,
       "ceiling": 180,
       "vertices": [
@@ -510,7 +510,7 @@
       "id": "beginner-hills-shallow-170-30",
       "group": "beginner",
       "shape": "hills-shallow",
-      "title": "hills_shallow",
+      "title": "hills-shallow-170",
       "minutes": 30,
       "ceiling": 170,
       "vertices": [
@@ -624,7 +624,7 @@
       "id": "beginner-hills-shallow-170-40",
       "group": "beginner",
       "shape": "hills-shallow",
-      "title": "hills_shallow",
+      "title": "hills-shallow-170",
       "minutes": 40,
       "ceiling": 170,
       "vertices": [
@@ -781,7 +781,7 @@
     {
       "id": "beginner-pulse-160-10",
       "group": "beginner",
-      "shape": "pulse-160",
+      "shape": "pulse",
       "title": "pulse-160",
       "minutes": 10,
       "ceiling": 160,
@@ -827,7 +827,7 @@
     {
       "id": "beginner-pulse-160-20",
       "group": "beginner",
-      "shape": "pulse-160",
+      "shape": "pulse",
       "title": "pulse-160",
       "minutes": 20,
       "ceiling": 160,
@@ -1005,7 +1005,7 @@
     {
       "id": "intermediate-breeze-180-10",
       "group": "intermediate",
-      "shape": "breeze-180",
+      "shape": "breeze",
       "title": "breeze-180",
       "minutes": 10,
       "ceiling": 180,
@@ -1051,8 +1051,8 @@
     {
       "id": "intermediate-hills-shallow-180-10",
       "group": "intermediate",
-      "shape": "hills_shallow-180",
-      "title": "hills_shallow-180",
+      "shape": "hills-shallow",
+      "title": "hills-shallow-180",
       "minutes": 10,
       "ceiling": 180,
       "vertices": [
@@ -1089,7 +1089,7 @@
     {
       "id": "intermediate-pulse-180-10",
       "group": "intermediate",
-      "shape": "pulse-180",
+      "shape": "pulse",
       "title": "pulse-180",
       "minutes": 10,
       "ceiling": 180,
@@ -1135,7 +1135,7 @@
     {
       "id": "intermediate-pulse-180-20",
       "group": "intermediate",
-      "shape": "pulse-180",
+      "shape": "pulse",
       "title": "pulse-180",
       "minutes": 20,
       "ceiling": 180,
@@ -1182,7 +1182,7 @@
       "id": "intermediate-pulse-180-30",
       "group": "intermediate",
       "shape": "pulse",
-      "title": "pulse",
+      "title": "pulse-180",
       "minutes": 30,
       "ceiling": 180,
       "vertices": [
@@ -1228,7 +1228,7 @@
       "id": "intermediate-pulse-180-40",
       "group": "intermediate",
       "shape": "pulse",
-      "title": "pulse",
+      "title": "pulse-180",
       "minutes": 40,
       "ceiling": 180,
       "vertices": [
@@ -1313,7 +1313,7 @@
     {
       "id": "advanced-breeze-190-10",
       "group": "advanced",
-      "shape": "breeze-190",
+      "shape": "breeze",
       "title": "breeze-190",
       "minutes": 10,
       "ceiling": 190,
@@ -1359,7 +1359,7 @@
     {
       "id": "advanced-hills-shallow-190-10",
       "group": "advanced",
-      "shape": "hills-shallow-190",
+      "shape": "hills-shallow",
       "title": "hills-shallow-190",
       "minutes": 10,
       "ceiling": 190,
@@ -1397,7 +1397,7 @@
     {
       "id": "advanced-pulse-190-10",
       "group": "advanced",
-      "shape": "pulse-190",
+      "shape": "pulse",
       "title": "pulse-190",
       "minutes": 10,
       "ceiling": 190,
@@ -1443,7 +1443,7 @@
     {
       "id": "advanced-pulse-190-20",
       "group": "advanced",
-      "shape": "pulse-190",
+      "shape": "pulse",
       "title": "pulse-190",
       "minutes": 20,
       "ceiling": 190,
@@ -1490,7 +1490,7 @@
       "id": "advanced-pulse-190-30",
       "group": "advanced",
       "shape": "pulse",
-      "title": "pulse",
+      "title": "pulse-190",
       "minutes": 30,
       "ceiling": 190,
       "vertices": [
@@ -1535,7 +1535,7 @@
     {
       "id": "marathoner-classic-180-10",
       "group": "marathoner",
-      "shape": "classic-180",
+      "shape": "classic",
       "title": "classic-180",
       "minutes": 10,
       "ceiling": 180,
@@ -1558,7 +1558,7 @@
       "id": "marathoner-classic-180-20",
       "group": "marathoner",
       "shape": "classic",
-      "title": "classic",
+      "title": "classic-180",
       "minutes": 20,
       "ceiling": 180,
       "vertices": [
@@ -1580,7 +1580,7 @@
       "id": "marathoner-classic-180-30",
       "group": "marathoner",
       "shape": "classic",
-      "title": "classic",
+      "title": "classic-180",
       "minutes": 30,
       "ceiling": 180,
       "vertices": [
@@ -1602,7 +1602,7 @@
       "id": "marathoner-classic-180-40",
       "group": "marathoner",
       "shape": "classic",
-      "title": "classic",
+      "title": "classic-180",
       "minutes": 40,
       "ceiling": 180,
       "vertices": [
@@ -1623,7 +1623,7 @@
     {
       "id": "intermediate-breeze-180-20",
       "group": "intermediate",
-      "shape": "breeze-180",
+      "shape": "breeze",
       "title": "breeze-180",
       "minutes": 20,
       "ceiling": 180,
@@ -1781,7 +1781,7 @@
     {
       "id": "intermediate-hills-shallow-180-20",
       "group": "intermediate",
-      "shape": "hills-shallow-180",
+      "shape": "hills-shallow",
       "title": "hills-shallow-180",
       "minutes": 20,
       "ceiling": 180,
@@ -1843,7 +1843,7 @@
     {
       "id": "advanced-breeze-190-20",
       "group": "advanced",
-      "shape": "breeze-190",
+      "shape": "breeze",
       "title": "breeze-190",
       "minutes": 20,
       "ceiling": 190,
@@ -2001,8 +2001,8 @@
     {
       "id": "advanced-hills-shallow-190-20",
       "group": "advanced",
-      "shape": "hills-shallow-190",
-      "title": "hills_shallow_190",
+      "shape": "hills-shallow",
+      "title": "hills-shallow-190",
       "minutes": 20,
       "ceiling": 190,
       "vertices": [
@@ -2111,7 +2111,7 @@
     {
       "id": "intermediate-breeze-180-30",
       "group": "intermediate",
-      "shape": "breeze-180",
+      "shape": "breeze",
       "title": "breeze-180",
       "minutes": 30,
       "ceiling": 180,
@@ -2222,7 +2222,7 @@
       "id": "intermediate-hills-shallow-180-30",
       "group": "intermediate",
       "shape": "hills-shallow",
-      "title": "hills_shallow",
+      "title": "hills-shallow-180",
       "minutes": 30,
       "ceiling": 180,
       "vertices": [
@@ -2335,8 +2335,8 @@
     {
       "id": "advanced-breeze-185-30",
       "group": "advanced",
-      "shape": "breeze-190",
-      "title": "breeze_190",
+      "shape": "breeze",
+      "title": "breeze-185",
       "minutes": 30,
       "ceiling": 185,
       "vertices": [
@@ -2425,8 +2425,8 @@
     {
       "id": "advanced-hills-shallow-190-30",
       "group": "advanced",
-      "shape": "hills-shallow-190",
-      "title": "hills_shallow_190",
+      "shape": "hills-shallow",
+      "title": "hills-shallow-190",
       "minutes": 30,
       "ceiling": 190,
       "vertices": [
@@ -2540,7 +2540,7 @@
       "id": "intermediate-breeze-180-40",
       "group": "intermediate",
       "shape": "breeze",
-      "title": "breeze",
+      "title": "breeze-180",
       "minutes": 40,
       "ceiling": 180,
       "vertices": [
@@ -2698,7 +2698,7 @@
       "id": "intermediate-hills-shallow-180-40",
       "group": "intermediate",
       "shape": "hills-shallow",
-      "title": "hills_shallow",
+      "title": "hills-shallow-180",
       "minutes": 40,
       "ceiling": 180,
       "vertices": [
@@ -2856,7 +2856,7 @@
       "id": "advanced-breeze-190-40",
       "group": "advanced",
       "shape": "breeze",
-      "title": "breeze",
+      "title": "breeze-190",
       "minutes": 40,
       "ceiling": 190,
       "vertices": [
@@ -3014,7 +3014,7 @@
       "id": "advanced-pulse-190-40",
       "group": "advanced",
       "shape": "pulse",
-      "title": "pulse",
+      "title": "pulse-190",
       "minutes": 40,
       "ceiling": 190,
       "vertices": [
@@ -3100,7 +3100,7 @@
       "id": "advanced-hills-shallow-190-40",
       "group": "advanced",
       "shape": "hills-shallow",
-      "title": "hills_shallow",
+      "title": "hills-shallow-190",
       "minutes": 40,
       "ceiling": 190,
       "vertices": [
