@@ -249,7 +249,7 @@
       ]
     },
     {
-      "id": "beginner-breeze-40",
+      "id": "beginner-breeze-165-40",
       "group": "beginner",
       "shape": "breeze",
       "title": "breeze-165",
@@ -507,7 +507,7 @@
       ]
     },
     {
-      "id": "beginner-hills-shallow-30",
+      "id": "beginner-hills-shallow-170-30",
       "group": "beginner",
       "shape": "hills-shallow",
       "title": "hills_shallow",
@@ -621,7 +621,7 @@
       ]
     },
     {
-      "id": "beginner-hills-shallow-40",
+      "id": "beginner-hills-shallow-170-40",
       "group": "beginner",
       "shape": "hills-shallow",
       "title": "hills_shallow",
@@ -871,7 +871,7 @@
       ]
     },
     {
-      "id": "beginner-pulse-30",
+      "id": "beginner-pulse-160-30",
       "group": "beginner",
       "shape": "pulse",
       "title": "pulse-160",
@@ -917,7 +917,7 @@
       ]
     },
     {
-      "id": "beginner-pulse-40",
+      "id": "beginner-pulse-160-40",
       "group": "beginner",
       "shape": "pulse",
       "title": "pulse-160",
@@ -1179,7 +1179,7 @@
       ]
     },
     {
-      "id": "intermediate-pulse-30",
+      "id": "intermediate-pulse-180-30",
       "group": "intermediate",
       "shape": "pulse",
       "title": "pulse",
@@ -1225,7 +1225,7 @@
       ]
     },
     {
-      "id": "intermediate-pulse-40",
+      "id": "intermediate-pulse-180-40",
       "group": "intermediate",
       "shape": "pulse",
       "title": "pulse",
@@ -1487,7 +1487,7 @@
       ]
     },
     {
-      "id": "advanced-pulse-30",
+      "id": "advanced-pulse-190-30",
       "group": "advanced",
       "shape": "pulse",
       "title": "pulse",
@@ -1555,7 +1555,7 @@
       ]
     },
     {
-      "id": "marathoner-classic-20",
+      "id": "marathoner-classic-180-20",
       "group": "marathoner",
       "shape": "classic",
       "title": "classic",
@@ -1577,7 +1577,7 @@
       ]
     },
     {
-      "id": "marathoner-classic-30",
+      "id": "marathoner-classic-180-30",
       "group": "marathoner",
       "shape": "classic",
       "title": "classic",
@@ -1599,7 +1599,7 @@
       ]
     },
     {
-      "id": "marathoner-classic-40",
+      "id": "marathoner-classic-180-40",
       "group": "marathoner",
       "shape": "classic",
       "title": "classic",
@@ -2219,7 +2219,7 @@
       ]
     },
     {
-      "id": "intermediate-hills-shallow-30",
+      "id": "intermediate-hills-shallow-180-30",
       "group": "intermediate",
       "shape": "hills-shallow",
       "title": "hills_shallow",
@@ -2333,7 +2333,7 @@
       ]
     },
     {
-      "id": "advanced-breeze-190-30",
+      "id": "advanced-breeze-185-30",
       "group": "advanced",
       "shape": "breeze-190",
       "title": "breeze_190",
@@ -2537,7 +2537,7 @@
       ]
     },
     {
-      "id": "intermediate-breeze-40",
+      "id": "intermediate-breeze-180-40",
       "group": "intermediate",
       "shape": "breeze",
       "title": "breeze",
@@ -2695,7 +2695,7 @@
       ]
     },
     {
-      "id": "intermediate-hills-shallow-40",
+      "id": "intermediate-hills-shallow-180-40",
       "group": "intermediate",
       "shape": "hills-shallow",
       "title": "hills_shallow",
@@ -2853,7 +2853,7 @@
       ]
     },
     {
-      "id": "advanced-breeze-40",
+      "id": "advanced-breeze-190-40",
       "group": "advanced",
       "shape": "breeze",
       "title": "breeze",
@@ -3011,7 +3011,7 @@
       ]
     },
     {
-      "id": "advanced-pulse-40",
+      "id": "advanced-pulse-190-40",
       "group": "advanced",
       "shape": "pulse",
       "title": "pulse",
@@ -3097,7 +3097,7 @@
       ]
     },
     {
-      "id": "advanced-hills-shallow-40",
+      "id": "advanced-hills-shallow-190-40",
       "group": "advanced",
       "shape": "hills-shallow",
       "title": "hills_shallow",
