@@ -8,14 +8,14 @@ const GITHUB_CONTENTS =
   "https://api.github.com/repos/jacobchoi77/jacobs-factory/contents/public/treadmill-cadence/catalog.json";
 const TOKEN_KEY = "play-cadence.github-token";
 const GROUPS = ["beginner", "intermediate", "advanced", "marathoner"];
-const GROUP_KO = {
-  beginner: "초심자",
-  intermediate: "중급",
-  advanced: "상급",
-  marathoner: "마라토너",
+const GROUP_LABEL = {
+  beginner: "Easy",
+  intermediate: "Medium",
+  advanced: "Hard",
+  marathoner: "Expert",
 };
-const MIN_SPM = 100;
-const MAX_SPM = 220;
+const MIN_SPM = 90;
+const MAX_SPM = 200;
 const MIN_SCORED = 20;
 const MIN_WALK = 45;
 const WARMUP_S = 90;
@@ -137,7 +137,7 @@ function renderList() {
     if (!rows.length) continue;
     const h = document.createElement("div");
     h.className = "group-h";
-    h.textContent = GROUP_KO[group];
+    h.textContent = GROUP_LABEL[group];
     root.appendChild(h);
     for (const track of rows) {
       const { errors, ceiling } = validate(track);
@@ -245,13 +245,24 @@ function draw() {
   ctx.strokeStyle = "#2a3038";
   ctx.lineWidth = 1;
   ctx.font = "11px system-ui";
-  for (let spm = MIN_SPM; spm <= MAX_SPM; spm += 20) {
+  const spmTicks = [];
+  for (let spm = MIN_SPM; spm <= MAX_SPM; spm += 20) spmTicks.push(spm);
+  if (spmTicks[spmTicks.length - 1] !== MAX_SPM) spmTicks.push(MAX_SPM);
+  const refSpm = track?.ceiling || (track ? ceilingOf(track.vertices || []) : null);
+  if (refSpm != null && !spmTicks.includes(refSpm)) {
+    spmTicks.push(refSpm);
+    spmTicks.sort((a, b) => a - b);
+  }
+  for (const spm of spmTicks) {
     const p = xy(canvas, minutes, 0, spm);
+    const isRef = refSpm != null && spm === refSpm;
+    ctx.strokeStyle = isRef ? "rgba(0, 212, 224, 0.45)" : "#2a3038";
+    ctx.lineWidth = isRef ? 1.5 : 1;
     ctx.beginPath();
     ctx.moveTo(r.x, p.y);
     ctx.lineTo(r.x + r.w, p.y);
     ctx.stroke();
-    ctx.fillStyle = "#8b97a3";
+    ctx.fillStyle = isRef ? LINE : "#8b97a3";
     ctx.textAlign = "left";
     ctx.fillText(String(spm), 6, p.y + 4);
   }
@@ -381,7 +392,7 @@ function bindCanvas() {
 }
 
 function bindFields() {
-  $("group").innerHTML = GROUPS.map((g) => `<option value="${g}">${GROUP_KO[g]}</option>`).join("");
+  $("group").innerHTML = GROUPS.map((g) => `<option value="${g}">${GROUP_LABEL[g]}</option>`).join("");
   $("minutes").innerHTML = FILTERS.map((m) => `<option value="${m}">${m}</option>`).join("");
 
   $("minute-chips").addEventListener("click", (e) => {
