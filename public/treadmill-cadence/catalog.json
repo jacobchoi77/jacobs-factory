@@ -407,12 +407,12 @@
       ]
     },
     {
-      "id": "beginner-hills-shallow-180-10",
+      "id": "beginner-hills-shallow-170-10",
       "group": "beginner",
       "shape": "hills-shallow",
-      "title": "hills-shallow-180",
+      "title": "hills-shallow-170",
       "minutes": 10,
-      "ceiling": 180,
+      "ceiling": 170,
       "vertices": [
         {
           "t": 0,
@@ -428,7 +428,7 @@
         },
         {
           "t": 215,
-          "spm": 180
+          "spm": 170
         },
         {
           "t": 260,
