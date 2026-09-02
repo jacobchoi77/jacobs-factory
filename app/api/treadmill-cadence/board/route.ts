@@ -4,6 +4,10 @@ const TOP_N = 20;
 const MAX_SCORE = 1_000_000;
 const PLAYER_RE = /^([0-9a-fA-F-]{8,64}|[0-9]{10,32})$/;
 const TRACK_RE = /^[a-z0-9-]{3,64}$/;
+const SHAPE_RE = /^[a-z][a-z0-9-]{2,31}$/;
+const CATALOG_URL =
+  "https://jacobs-factory.vercel.app/treadmill-cadence/catalog.json";
+const CATALOG_TTL_MS = 5 * 60_000;
 
 type BoardRow = {
   rank: number;
@@ -99,14 +103,30 @@ export async function OPTIONS() {
 
 export async function GET(req: Request) {
   const url = new URL(req.url);
+  const shape = url.searchParams.get("shape") || "";
+  const groupRaw = url.searchParams.get("group") || "";
   const trackId = url.searchParams.get("track") || "";
   const playerId = url.searchParams.get("player") || "";
   const admin = url.searchParams.get("admin") === "1";
-  if (!TRACK_RE.test(trackId) || trackId.startsWith("user-")) {
-    return cors(NextResponse.json({ error: "bad track" }, { status: 400 }));
-  }
   if (!redis()) {
     return cors(NextResponse.json({ error: "board offline" }, { status: 503 }));
+  }
+  if (shape || groupRaw) {
+    const group = groupStorage(groupRaw);
+    if (!SHAPE_RE.test(shape) || !group) {
+      return cors(NextResponse.json({ error: "bad page" }, { status: 400 }));
+    }
+    if (!PLAYER_RE.test(playerId)) {
+      return cors(NextResponse.json({ error: "bad player" }, { status: 400 }));
+    }
+    try {
+      return cors(NextResponse.json(await readPage(shape, group, playerId)));
+    } catch {
+      return cors(NextResponse.json({ error: "board offline" }, { status: 503 }));
+    }
+  }
+  if (!TRACK_RE.test(trackId) || trackId.startsWith("user-")) {
+    return cors(NextResponse.json({ error: "bad track" }, { status: 400 }));
   }
   if (admin) {
     const denied = await requireAdmin(req);
@@ -222,6 +242,83 @@ export async function POST(req: Request) {
 
 function keyFor(trackId: string) {
   return `board:${trackId}`;
+}
+
+function groupStorage(raw: string): string | null {
+  switch (raw) {
+    case "easy":
+    case "beginner":
+      return "beginner";
+    case "medium":
+    case "intermediate":
+      return "intermediate";
+    case "hard":
+    case "advanced":
+      return "advanced";
+    case "expert":
+    case "marathoner":
+      return "marathoner";
+    default:
+      return null;
+  }
+}
+
+type CatalogTrack = { id: string; group: string; shape: string; minutes: number };
+
+let catalogCache: { at: number; tracks: CatalogTrack[] } | null = null;
+
+async function catalogTracks(): Promise<CatalogTrack[]> {
+  if (catalogCache && Date.now() - catalogCache.at < CATALOG_TTL_MS) {
+    return catalogCache.tracks;
+  }
+  const res = await fetch(CATALOG_URL, { headers: { Accept: "application/json" } });
+  if (!res.ok) throw new Error(`catalog ${res.status}`);
+  const body = (await res.json()) as { tracks?: unknown };
+  const list = Array.isArray(body.tracks) ? body.tracks : [];
+  const tracks: CatalogTrack[] = [];
+  for (const row of list) {
+    if (!row || typeof row !== "object") continue;
+    const obj = row as Record<string, unknown>;
+    const id = typeof obj.id === "string" ? obj.id : "";
+    const group = typeof obj.group === "string" ? obj.group : "";
+    const shape = typeof obj.shape === "string" ? obj.shape : "";
+    const minutes = typeof obj.minutes === "number" ? obj.minutes : NaN;
+    if (!TRACK_RE.test(id) || id.startsWith("user-")) continue;
+    if (!SHAPE_RE.test(shape) || !groupStorage(group)) continue;
+    if (!Number.isFinite(minutes)) continue;
+    tracks.push({ id, group, shape, minutes });
+  }
+  if (!tracks.length) throw new Error("catalog empty");
+  catalogCache = { at: Date.now(), tracks };
+  return tracks;
+}
+
+function rankOf(raw: unknown): number | null {
+  if (raw == null) return null;
+  const n = Number(raw);
+  return Number.isFinite(n) ? n + 1 : null;
+}
+
+async function readPage(shape: string, group: string, playerId: string) {
+  const tracks = (await catalogTracks())
+    .filter((track) => track.shape === shape && track.group === group)
+    .sort((a, b) => a.minutes - b.minutes);
+  if (!tracks.length) {
+    return { shape, group, playerId, ranks: [] as { trackId: string; minutes: number; myRank: number | null }[] };
+  }
+  const raw = await redisPipeline(
+    tracks.map((track) => ["ZREVRANK", keyFor(track.id), playerId]),
+  );
+  return {
+    shape,
+    group,
+    playerId,
+    ranks: tracks.map((track, index) => ({
+      trackId: track.id,
+      minutes: track.minutes,
+      myRank: rankOf(raw[index]),
+    })),
+  };
 }
 
 async function boardPairs(trackId: string, all: boolean): Promise<{ id: string; score: number }[]> {
