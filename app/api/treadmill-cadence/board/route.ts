@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const TOP_N = 20;
+const TOP_N = 10;
 const MAX_SCORE = 1_000_000;
 const PLAYER_RE = /^([0-9a-fA-F-]{8,64}|[0-9]{10,32})$/;
 const TRACK_RE = /^[a-z0-9-]{3,64}$/;
@@ -321,17 +321,23 @@ async function readPage(shape: string, group: string, playerId: string) {
   };
 }
 
-async function boardPairs(trackId: string, all: boolean): Promise<{ id: string; score: number }[]> {
-  const stop = all ? -1 : TOP_N - 1;
-  const raw = (await redisCmd(["ZREVRANGE", keyFor(trackId), 0, stop, "WITHSCORES"])) as
-    | string[]
-    | null;
+function parsePairs(raw: unknown): { id: string; score: number }[] {
+  const list = (Array.isArray(raw) ? raw : []) as string[];
   const pairs: { id: string; score: number }[] = [];
-  const list = raw || [];
   for (let i = 0; i < list.length; i += 2) {
     pairs.push({ id: list[i], score: Number(list[i + 1]) });
   }
   return pairs;
+}
+
+function finiteScore(raw: unknown): number | null {
+  const n = Number(raw);
+  return Number.isFinite(n) ? n : null;
+}
+
+async function boardPairs(trackId: string, all: boolean): Promise<{ id: string; score: number }[]> {
+  const stop = all ? -1 : TOP_N - 1;
+  return parsePairs(await redisCmd(["ZREVRANGE", keyFor(trackId), 0, stop, "WITHSCORES"]));
 }
 
 async function namesFor(pairs: { id: string; score: number }[]): Promise<(string | null)[]> {
@@ -357,18 +363,36 @@ async function readAdminBoard(trackId: string) {
 }
 
 async function readBoard(trackId: string, playerId: string) {
-  const pairs = await boardPairs(trackId, false);
-  const names = await namesFor(pairs);
+  const wantMe = playerId !== "" && PLAYER_RE.test(playerId);
+  const cmds: unknown[][] = [
+    ["ZREVRANGE", keyFor(trackId), 0, TOP_N - 1, "WITHSCORES"],
+  ];
+  if (wantMe) {
+    cmds.push(["ZREVRANK", keyFor(trackId), playerId]);
+    cmds.push(["ZSCORE", keyFor(trackId), playerId]);
+  }
+  const raw = await redisPipeline(cmds);
+  const pairs = parsePairs(raw[0]);
+  const myRank = wantMe ? rankOf(raw[1]) : null;
+  const myScore = wantMe ? finiteScore(raw[2]) : null;
+  const extraMe =
+    myRank != null && myRank > TOP_N && myScore != null
+      ? [{ id: playerId, score: myScore }]
+      : [];
+  const names = await namesFor([...pairs, ...extraMe]);
   const rows: BoardRow[] = pairs.map((row, index) => ({
     rank: index + 1,
     name: names[index] || sanitizeName("", row.id),
     score: row.score,
-    isMe: playerId !== "" && row.id === playerId,
+    isMe: wantMe && row.id === playerId,
   }));
-  let myRank: number | null = rows.find((row) => row.isMe)?.rank ?? null;
-  if (myRank == null && playerId && PLAYER_RE.test(playerId)) {
-    const rank = Number(await redisCmd(["ZREVRANK", keyFor(trackId), playerId]));
-    myRank = Number.isFinite(rank) ? rank + 1 : null;
+  if (extraMe.length) {
+    rows.push({
+      rank: myRank!,
+      name: names[pairs.length] || sanitizeName("", playerId),
+      score: extraMe[0].score,
+      isMe: true,
+    });
   }
   return { trackId, myRank, rows };
 }
