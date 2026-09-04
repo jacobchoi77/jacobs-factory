@@ -147,10 +147,10 @@ export function FreeTimerPage() {
         <p>
           {t.contact}{" "}
           <a
-            href="mailto:hello@jacobs-factory.com"
+            href="mailto:contact@jacobs-factory.com"
             className="text-foreground underline-offset-4 hover:underline"
           >
-            hello@jacobs-factory.com
+            contact@jacobs-factory.com
           </a>
         </p>
         <p className="mt-3">

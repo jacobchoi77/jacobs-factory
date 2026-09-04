@@ -1,8 +1,8 @@
 export const legalMeta = {
   updated: "2026-09-04",
   operator: "Jacob Choi (jacobsfactory)",
-  contact: "hello@jacobs-factory.com",
-  contactHref: "mailto:hello@jacobs-factory.com",
+  contact: "contact@jacobs-factory.com",
+  contactHref: "mailto:contact@jacobs-factory.com",
 } as const;
 
 export const privacySections = {
@@ -25,7 +25,7 @@ export const privacySections = {
       },
       {
         heading: "Other optional data that leaves the device",
-        body: "Today’s quote in FreeTimer may request a line from ZenQuotes.io without your tasks or account. Feedback you send goes to hello@jacobs-factory.com. Android tips use Google Play Billing; the app never receives your card number.",
+        body: "Today’s quote in FreeTimer may request a line from ZenQuotes.io without your tasks or account. Feedback you send goes to contact@jacobs-factory.com. Android tips use Google Play Billing; the app never receives your card number.",
       },
       {
         heading: "Retention and children",
@@ -52,7 +52,7 @@ export const privacySections = {
       },
       {
         heading: "그 밖에 선택적으로 나가는 정보",
-        body: "FreeTimer의 오늘의 한 줄은 작업·계정 없이 ZenQuotes.io에서 문장을 가져올 수 있습니다. 의견은 hello@jacobs-factory.com으로 전달됩니다. Android 응원은 Google Play 결제가 처리하며 카드 번호는 앱이 받지 않습니다.",
+        body: "FreeTimer의 오늘의 한 줄은 작업·계정 없이 ZenQuotes.io에서 문장을 가져올 수 있습니다. 의견은 contact@jacobs-factory.com으로 전달됩니다. Android 응원은 Google Play 결제가 처리하며 카드 번호는 앱이 받지 않습니다.",
       },
       {
         heading: "보관과 아동",
@@ -77,7 +77,7 @@ export const termsSections = {
       },
       {
         heading: "Contact",
-        body: "Questions: hello@jacobs-factory.com. These terms may change; the date at the top will be updated.",
+        body: "Questions: contact@jacobs-factory.com. These terms may change; the date at the top will be updated.",
       },
     ],
   },
@@ -95,7 +95,7 @@ export const termsSections = {
       },
       {
         heading: "문의",
-        body: "문의: hello@jacobs-factory.com. 약관이 바뀌면 이 문서의 날짜를 갱신합니다.",
+        body: "문의: contact@jacobs-factory.com. 약관이 바뀌면 이 문서의 날짜를 갱신합니다.",
       },
     ],
   },

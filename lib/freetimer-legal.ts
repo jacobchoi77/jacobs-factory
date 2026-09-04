@@ -1,8 +1,8 @@
 export const freetimerLegalMeta = {
   updated: "2026-09-04",
   operator: "Jacob Choi (jacobsfactory)",
-  contact: "hello@jacobs-factory.com",
-  contactHref: "mailto:hello@jacobs-factory.com",
+  contact: "contact@jacobs-factory.com",
+  contactHref: "mailto:contact@jacobs-factory.com",
 } as const;
 
 export const freetimerPrivacy = {
@@ -25,7 +25,7 @@ export const freetimerPrivacy = {
       },
       {
         heading: "Other optional data that leaves the device",
-        body: "If the home-screen quote is on, the app may request the day’s quote from ZenQuotes.io. The request does not include your tasks or account. Feedback you send goes to hello@jacobs-factory.com. On Android, Google Play Billing handles tips; the app never receives your card number. If you tip via Ko-fi, Ko-fi’s policy applies.",
+        body: "If the home-screen quote is on, the app may request the day’s quote from ZenQuotes.io. The request does not include your tasks or account. Feedback you send goes to contact@jacobs-factory.com. On Android, Google Play Billing handles tips; the app never receives your card number. If you tip via Ko-fi, Ko-fi’s policy applies.",
       },
       {
         heading: "Notifications",
@@ -56,7 +56,7 @@ export const freetimerPrivacy = {
       },
       {
         heading: "그 밖에 선택적으로 나가는 정보",
-        body: "홈 화면 격언이 켜져 있으면 ZenQuotes.io에서 오늘의 명언을 가져올 수 있습니다. 요청에 작업이나 계정 정보는 들어가지 않습니다. 의견은 hello@jacobs-factory.com으로 전달됩니다. Android 응원은 Google Play 결제가 처리하며 카드 번호는 앱이 받지 않습니다. Ko-fi로 응원하면 해당 서비스 정책이 적용됩니다.",
+        body: "홈 화면 격언이 켜져 있으면 ZenQuotes.io에서 오늘의 명언을 가져올 수 있습니다. 요청에 작업이나 계정 정보는 들어가지 않습니다. 의견은 contact@jacobs-factory.com으로 전달됩니다. Android 응원은 Google Play 결제가 처리하며 카드 번호는 앱이 받지 않습니다. Ko-fi로 응원하면 해당 서비스 정책이 적용됩니다.",
       },
       {
         heading: "알림",
@@ -85,7 +85,7 @@ export const freetimerTerms = {
       },
       {
         heading: "Contact",
-        body: "Questions: hello@jacobs-factory.com. These terms may change; the date at the top will be updated.",
+        body: "Questions: contact@jacobs-factory.com. These terms may change; the date at the top will be updated.",
       },
     ],
   },
@@ -103,7 +103,7 @@ export const freetimerTerms = {
       },
       {
         heading: "문의",
-        body: "문의: hello@jacobs-factory.com. 약관이 바뀌면 이 문서의 날짜를 갱신합니다.",
+        body: "문의: contact@jacobs-factory.com. 약관이 바뀌면 이 문서의 날짜를 갱신합니다.",
       },
     ],
   },
