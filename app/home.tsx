@@ -98,7 +98,16 @@ export function Home() {
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2">
                   <h2 className="text-lg font-medium tracking-tight">
-                    {app.name}
+                    {app.name === "FreeTimer" ? (
+                      <a
+                        href="/freetimer"
+                        className="hover:text-accent"
+                      >
+                        {app.name}
+                      </a>
+                    ) : (
+                      app.name
+                    )}
                   </h2>
                   <span className="rounded-full border border-line px-2 py-0.5 text-xs text-muted">
                     {t.status[app.status]}
@@ -108,6 +117,17 @@ export function Home() {
                   {t.apps[app.name]}
                 </p>
                 <p className="mt-3 text-sm">
+                  {app.name === "FreeTimer" ? (
+                    <>
+                      <a
+                        href="/freetimer"
+                        className="text-accent underline-offset-4 hover:underline"
+                      >
+                        {locale === "ko" ? "소개" : "About"}
+                      </a>
+                      <span className="mx-1.5 text-line">·</span>
+                    </>
+                  ) : null}
                   <a
                     href={`${app.play}&hl=${locale}`}
                     target="_blank"
@@ -149,15 +169,30 @@ export function Home() {
         </main>
 
         <footer className="mt-auto pt-16 text-sm text-muted">
-          {t.contact}{" "}
-          <a
-            href="mailto:jacobchoi77@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-foreground underline-offset-4 hover:underline"
-          >
-            jacobchoi77@gmail.com
-          </a>
+          <p>
+            {t.contact}{" "}
+            <a
+              href="mailto:hello@jacobs-factory.com"
+              className="text-foreground underline-offset-4 hover:underline"
+            >
+              hello@jacobs-factory.com
+            </a>
+          </p>
+          <p className="mt-3">
+            <a
+              href="/privacy"
+              className="text-accent underline-offset-4 hover:underline"
+            >
+              {t.privacy}
+            </a>
+            <span className="mx-1.5 text-line">·</span>
+            <a
+              href="/terms"
+              className="text-accent underline-offset-4 hover:underline"
+            >
+              {t.terms}
+            </a>
+          </p>
         </footer>
       </div>
     </div>
