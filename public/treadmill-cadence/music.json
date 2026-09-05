@@ -2,18 +2,52 @@
   "version": 1,
   "catalog": {
     "youtube": {
+      "140": [
+        "https://www.youtube.com/watch?v=x33YE_HlJTU",
+        "https://www.youtube.com/watch?v=hEMfqqKcMqo",
+        "https://www.youtube.com/watch?v=Trv_tBSNdjA",
+        "https://www.youtube.com/watch?v=PiZbP8VWjRw",
+        "https://www.youtube.com/watch?v=j4X8gH8_M7k"
+      ],
+      "150": [
+        "https://www.youtube.com/watch?v=Bx2TG99pNVo",
+        "https://www.youtube.com/watch?v=oL6eJWQQ7aI",
+        "https://www.youtube.com/watch?v=XkODBYSBQKE",
+        "https://www.youtube.com/watch?v=ZJqWNV1MMsQ",
+        "https://www.youtube.com/watch?v=Q4UwMLfGBRc"
+      ],
+      "160": [
+        "https://www.youtube.com/watch?v=EOuEzfXVM8I",
+        "https://www.youtube.com/watch?v=AXTfw4GPHRY",
+        "https://www.youtube.com/watch?v=DvWgVOUBz38",
+        "https://www.youtube.com/watch?v=Mis6hoY8EKI",
+        "https://www.youtube.com/watch?v=RjHZUQHhJ8s"
+      ],
+      "170": [
+        "https://www.youtube.com/watch?v=JpbGcL6q_pM",
+        "https://www.youtube.com/watch?v=DXoj-ZIUnGA",
+        "https://www.youtube.com/watch?v=_ssacDtniH8",
+        "https://www.youtube.com/watch?v=cO7FiEq3AuE",
+        "https://www.youtube.com/watch?v=2hpx_uXYDDI"
+      ],
       "180": [
         "https://www.youtube.com/watch?v=8z6GKCwHZuE",
-        "https://www.youtube.com/watch?v=5TziMYg7UeM&list=RD5TziMYg7UeM&start_radio=1",
-        "https://www.youtube.com/watch?v=_T9j8zHLX2I&list=PL9zk9QkRjpICwezSW0LBaNRcUyrF9XqCE",
-        "https://www.youtube.com/watch?v=u2eyM-tS6QI&list=RDu2eyM-tS6QI&start_radio=1"
+        "https://www.youtube.com/watch?v=5TziMYg7UeM",
+        "https://www.youtube.com/watch?v=Z7EXTLDxnLQ",
+        "https://www.youtube.com/watch?v=_T9j8zHLX2I",
+        "https://www.youtube.com/watch?v=u2eyM-tS6QI"
+      ],
+      "190": [
+        "https://www.youtube.com/watch?v=SWMzeQDeLec",
+        "https://www.youtube.com/watch?v=2NlRrZyfC1k",
+        "https://www.youtube.com/watch?v=G1nOZtx4Kic"
+      ],
+      "200": [
+        "https://www.youtube.com/watch?v=SzN4hKpESlg",
+        "https://www.youtube.com/watch?v=XqfteAsDfCw",
+        "https://www.youtube.com/watch?v=vVjP54RSB0w"
       ]
     },
-    "tidal": {
-      "180": [
-        "https://tidal.com/track/329767652"
-      ]
-    },
-    "spotify": {}
+    "tidal": {}
   }
 }
