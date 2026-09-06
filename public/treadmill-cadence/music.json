@@ -1,1 +1,345 @@
-PLACEHOLDER
+{
+  "version": 2,
+  "catalog": {
+    "youtube": {
+      "100": [
+        {
+          "id": "4AWAcBHZ_1E",
+          "url": "https://www.youtube.com/watch?v=4AWAcBHZ_1E",
+          "startSec": 0,
+          "bpm": 99,
+          "title": "【100 BPM 100】Walking Music | Steady Beat Warm-Up & Stylish Step Workout | Disco Music"
+        },
+        {
+          "id": "EL6UyiZcK1Y",
+          "url": "https://www.youtube.com/watch?v=EL6UyiZcK1Y",
+          "startSec": 0,
+          "bpm": 99,
+          "title": "🌃 [100 BPM 100] Walking Music Playlist EDM DTM Jogging & Workout cadence 워킹 음악 ウォーキング 曲 songs"
+        },
+        {
+          "id": "fWgO-OCejQo",
+          "url": "https://www.youtube.com/watch?v=fWgO-OCejQo",
+          "startSec": 0,
+          "bpm": 99,
+          "title": "タイトル：Workout Music 100 BPM 🌿 2026 | 2 Hour Low Intensity Cardio & Easy Exercise Mix | LATTE BGM"
+        },
+        {
+          "id": "rZVsFUO3AMU",
+          "url": "https://www.youtube.com/watch?v=rZVsFUO3AMU",
+          "startSec": 0,
+          "bpm": 99,
+          "title": "100 BPM Brisk Walking Mix 2026 🏃‍♂️ 44 Pop Hits (60 Min / 6,000 Steps)"
+        }
+      ],
+      "110": [
+        {
+          "id": "IGaiaVbs7m8",
+          "url": "https://www.youtube.com/watch?v=IGaiaVbs7m8",
+          "startSec": 0,
+          "bpm": 112,
+          "title": "🎸 [110 BPM 110] Walking Music Playlist EDM DTM Jogging & Workout cadence 워킹 음악 ウォーキング 曲 songs"
+        },
+        {
+          "id": "4dhGQp3Gct8",
+          "url": "https://www.youtube.com/watch?v=4dhGQp3Gct8",
+          "startSec": 0,
+          "bpm": 108,
+          "title": "old 110 BPM 110: Keep the rhythm, switch tracks. : #WalkingMusic #PowerWalk #FitnessMusic"
+        },
+        {
+          "id": "nVfBcWnuVR4",
+          "url": "https://www.youtube.com/watch?v=nVfBcWnuVR4",
+          "startSec": 0,
+          "bpm": 112,
+          "title": "Walking Mix / ALL BPM 110 , DJ Koji Mix"
+        },
+        {
+          "id": "7fV4HTe8B4I",
+          "url": "https://www.youtube.com/watch?v=7fV4HTe8B4I",
+          "startSec": 0,
+          "bpm": 112,
+          "title": "【Walking】 BPM110 Walking Music 2時間 歩くのが楽しくなる音楽【ウォーキング用BGM】"
+        },
+        {
+          "id": "efjMbYXiXkM",
+          "url": "https://www.youtube.com/watch?v=efjMbYXiXkM",
+          "startSec": 0,
+          "bpm": 103,
+          "title": "FAT BURNING WALKING MUSIC 110 BPM | 60 MIN WALKING FOR WEIGHT LOSS | VOL 3"
+        }
+      ],
+      "120": [
+        {
+          "id": "diPhSrhtxp4",
+          "url": "https://www.youtube.com/watch?v=diPhSrhtxp4&t=15s",
+          "startSec": 15,
+          "bpm": 118,
+          "title": "120 BPM Best Dance music for Running and Working out"
+        },
+        {
+          "id": "CmBRlz3Eh58",
+          "url": "https://www.youtube.com/watch?v=CmBRlz3Eh58",
+          "startSec": 0,
+          "bpm": 118,
+          "title": "Slow Running Nonstop Hits Workout Session for Fitness & Workout @120 Bpm"
+        },
+        {
+          "id": "P8TN4OjAbuk",
+          "url": "https://www.youtube.com/watch?v=P8TN4OjAbuk",
+          "startSec": 0,
+          "bpm": 118,
+          "title": "🏃‍♂️ [120 BPM 120] Walking Music Playlist EDM DTM Jogging & Workout cadence 워킹 음악 ウォーキング 曲 songs"
+        },
+        {
+          "id": "Brw8lv-EUnc",
+          "url": "https://www.youtube.com/watch?v=Brw8lv-EUnc",
+          "startSec": 0,
+          "bpm": 121,
+          "title": "🔵120 BPM Running Motivation Mix 🔥 – Strong Bass & Steady Beats | Studio Workout Musik"
+        }
+      ],
+      "130": [
+        {
+          "id": "EWE77yMXbsA",
+          "url": "https://www.youtube.com/watch?v=EWE77yMXbsA",
+          "startSec": 0,
+          "bpm": 129,
+          "title": "1 Hour Running EDM Mix | 130 BPM Cardio Workout Music"
+        },
+        {
+          "id": "GCBW6XLxv_8",
+          "url": "https://www.youtube.com/watch?v=GCBW6XLxv_8&t=10s",
+          "startSec": 10,
+          "bpm": 129,
+          "title": "Running Music 2026 | 130 BPM | 60 Min Non-Stop Mix"
+        },
+        {
+          "id": "0gx1VnI7_hI",
+          "url": "https://www.youtube.com/watch?v=0gx1VnI7_hI&t=15s",
+          "startSec": 15,
+          "bpm": 129,
+          "title": "🔥 Cardio Mix 2024 (130 bpm/32 count) [SuperFitness]"
+        },
+        {
+          "id": "fWQfFeQ9H_g",
+          "url": "https://www.youtube.com/watch?v=fWQfFeQ9H_g",
+          "startSec": 0,
+          "bpm": 129,
+          "title": "Running With 80's Hits Fitness & Workout - 130 BPM"
+        },
+        {
+          "id": "I7BQQn5Iq_I",
+          "url": "https://www.youtube.com/watch?v=I7BQQn5Iq_I",
+          "startSec": 0,
+          "bpm": 129,
+          "title": "80s Running Workout Hits (Nonstop Running Fitness & Workout Mix 130 BPM)"
+        }
+      ],
+      "140": [
+        {
+          "id": "x33YE_HlJTU",
+          "url": "https://www.youtube.com/watch?v=x33YE_HlJTU&t=10s",
+          "startSec": 10,
+          "bpm": 144,
+          "title": "1 Hour Elliptical Cardio | 140 BPM EDM Workout Music Playlist"
+        },
+        {
+          "id": "hEMfqqKcMqo",
+          "url": "https://www.youtube.com/watch?v=hEMfqqKcMqo",
+          "startSec": 0,
+          "bpm": 148,
+          "title": "1 Hour EDM Workout Mix | 140-150 BPM Only | Techno, Acid, Rave & Uplifting Trance"
+        },
+        {
+          "id": "Trv_tBSNdjA",
+          "url": "https://www.youtube.com/watch?v=Trv_tBSNdjA",
+          "startSec": 0,
+          "bpm": 144,
+          "title": "Running Music Mix 2026 | 1 Hour Summer Run Playlist | 140-155 BPM"
+        },
+        {
+          "id": "PiZbP8VWjRw",
+          "url": "https://www.youtube.com/watch?v=PiZbP8VWjRw",
+          "startSec": 0,
+          "bpm": 152,
+          "title": "1 Hour Best Running Music — High-Energy Non-Stop Mix (135-155 BPM)"
+        },
+        {
+          "id": "j4X8gH8_M7k",
+          "url": "https://www.youtube.com/watch?v=j4X8gH8_M7k",
+          "startSec": 0,
+          "bpm": 152,
+          "title": "KEEP GOING 🏃‍♀ 130-150 BPM Running Music 2026 | Festival Vibes 1 Hour Nonstop"
+        }
+      ],
+      "150": [
+        {
+          "id": "Bx2TG99pNVo",
+          "url": "https://www.youtube.com/watch?v=Bx2TG99pNVo&t=25s",
+          "startSec": 25,
+          "bpm": 152,
+          "title": "🔥 60-Minute Running Workout Music – 150 BPM / 32 Count | Session #3"
+        },
+        {
+          "id": "oL6eJWQQ7aI",
+          "url": "https://www.youtube.com/watch?v=oL6eJWQQ7aI",
+          "startSec": 0,
+          "bpm": 152,
+          "title": "RUNNING MUSIC 150 BPM - 90 min Non-Stop Music"
+        },
+        {
+          "id": "XkODBYSBQKE",
+          "url": "https://www.youtube.com/watch?v=XkODBYSBQKE",
+          "startSec": 0,
+          "bpm": 148,
+          "title": "Running Music Mix 2026 | 1 Hour Trap EDM Run Playlist | 150 BPM"
+        },
+        {
+          "id": "ZJqWNV1MMsQ",
+          "url": "https://www.youtube.com/watch?v=ZJqWNV1MMsQ",
+          "startSec": 0,
+          "bpm": 157,
+          "title": "Refreshing Morning Run EDM 🏃 150-160 BPM Workout Music | 1 Hour Feel-Good Trail Run Mix"
+        },
+        {
+          "id": "Q4UwMLfGBRc",
+          "url": "https://www.youtube.com/watch?v=Q4UwMLfGBRc",
+          "startSec": 0,
+          "bpm": 152,
+          "title": "Best Running Music 2026 | The High Tempo Mix That Pushes You to Full Power (150-170 BPM)"
+        }
+      ],
+      "160": [
+        {
+          "id": "EOuEzfXVM8I",
+          "url": "https://www.youtube.com/watch?v=EOuEzfXVM8I",
+          "startSec": 0,
+          "bpm": 162,
+          "title": "240-Minute 160BPM Running Music | Best Running Music for Long Runs | Beginner to Marathon Mix"
+        },
+        {
+          "id": "AXTfw4GPHRY",
+          "url": "https://www.youtube.com/watch?v=AXTfw4GPHRY",
+          "startSec": 0,
+          "bpm": 162,
+          "title": "160 BPM Running Music | 45-Min High-Energy Mix for Speed & Motivation"
+        },
+        {
+          "id": "DvWgVOUBz38",
+          "url": "https://www.youtube.com/watch?v=DvWgVOUBz38&t=6s",
+          "startSec": 6,
+          "bpm": 152,
+          "title": "30 Min 160 BPM Running Music | Cinematic Hardstyle EDM for Fast Runs"
+        },
+        {
+          "id": "RjHZUQHhJ8s",
+          "url": "https://www.youtube.com/watch?v=RjHZUQHhJ8s",
+          "startSec": 0,
+          "bpm": 162,
+          "title": "[2026 Playlist] Best Running Music – Lock Into the Perfect Running Rhythm (145–160 BPM)"
+        }
+      ],
+      "170": [
+        {
+          "id": "_ssacDtniH8",
+          "url": "https://www.youtube.com/watch?v=_ssacDtniH8",
+          "startSec": 0,
+          "bpm": 172,
+          "title": "Running Music 170BPM | 40 Min Focus. High Intensity Short Run Playlist | Workout BGM 2026"
+        },
+        {
+          "id": "cO7FiEq3AuE",
+          "url": "https://www.youtube.com/watch?v=cO7FiEq3AuE",
+          "startSec": 0,
+          "bpm": 167,
+          "title": "165 BPM Running & Workout Mix | 90 Min | 165 BPM Metronome Synced"
+        },
+        {
+          "id": "2hpx_uXYDDI",
+          "url": "https://www.youtube.com/watch?v=2hpx_uXYDDI",
+          "startSec": 0,
+          "bpm": 172,
+          "title": "270-Minute 175BPM Running Music | Push Your Speed & Endurance | Marathon Training Essentials"
+        }
+      ],
+      "180": [
+        {
+          "id": "8z6GKCwHZuE",
+          "url": "https://www.youtube.com/watch?v=8z6GKCwHZuE",
+          "startSec": 0,
+          "bpm": 178,
+          "title": "Workout Music Source // 180 BPM Running Workout Mix Vol. 2"
+        },
+        {
+          "id": "5TziMYg7UeM",
+          "url": "https://www.youtube.com/watch?v=5TziMYg7UeM",
+          "startSec": 0,
+          "bpm": 178,
+          "title": "180 BPM Running Workout Mix Vol. 9 by Power Music Workout (180 BPM)"
+        },
+        {
+          "id": "Z7EXTLDxnLQ",
+          "url": "https://www.youtube.com/watch?v=Z7EXTLDxnLQ",
+          "startSec": 0,
+          "bpm": 185,
+          "title": "Running Music 180BPM | Beast Mode. Maximum Speed for Sub60 | 1 Hour Workout BGM 2026"
+        },
+        {
+          "id": "_T9j8zHLX2I",
+          "url": "https://www.youtube.com/watch?v=_T9j8zHLX2I",
+          "startSec": 0,
+          "bpm": 178,
+          "title": "🏃‍♀️조깅에 알맞은 리듬! 조깅에 최적화된 K-POP 아이돌 플레이리스트🔥 | 운동할 때 듣는 노래 | 케이던스 180 음악 | #running #180bpm #kpop"
+        },
+        {
+          "id": "u2eyM-tS6QI",
+          "url": "https://www.youtube.com/watch?v=u2eyM-tS6QI",
+          "startSec": 0,
+          "bpm": 185,
+          "title": "𝑷𝒍𝒂𝒚𝒍𝒊𝒔𝒕 180BPM | 클럽의 폭주가 주로에, 심장 터지는 180 케이던스 러닝 플리⚡️ | 2025 리스펙트런 10K"
+        }
+      ],
+      "190": [
+        {
+          "id": "SWMzeQDeLec",
+          "url": "https://www.youtube.com/watch?v=SWMzeQDeLec",
+          "startSec": 0,
+          "bpm": 191,
+          "title": "190 BPM Running Music Mix | 1 Hour | Metronome Synced | Rock, Metal, Punk | Maximum Intensity"
+        },
+        {
+          "id": "2NlRrZyfC1k",
+          "url": "https://www.youtube.com/watch?v=2NlRrZyfC1k",
+          "startSec": 0,
+          "bpm": 191,
+          "title": "190 BPM Running Music | Cadence Training | 1 Hour | Metronome Synced"
+        }
+      ],
+      "200": [
+        {
+          "id": "SzN4hKpESlg",
+          "url": "https://www.youtube.com/watch?v=SzN4hKpESlg",
+          "startSec": 0,
+          "bpm": 199,
+          "title": "Running Music 2026 🚀 200 BPM Treadmill Motivation | Drum & Bass Workout"
+        },
+        {
+          "id": "XqfteAsDfCw",
+          "url": "https://www.youtube.com/watch?v=XqfteAsDfCw",
+          "startSec": 0,
+          "bpm": 199,
+          "title": "200 BPM Running Music MIX 🔥 2026 Songs for EXTREME Running"
+        },
+        {
+          "id": "vVjP54RSB0w",
+          "url": "https://www.youtube.com/watch?v=vVjP54RSB0w",
+          "startSec": 0,
+          "bpm": 199,
+          "title": "Insane Running Workout at 200 BPM"
+        }
+      ]
+    },
+    "tidal": {}
+  }
+}
