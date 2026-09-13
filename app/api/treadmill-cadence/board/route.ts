@@ -3,7 +3,10 @@ import { NextResponse } from "next/server";
 const TOP_N = 10;
 const MAX_SCORE = 1_000_000;
 const PLAYER_RE = /^([0-9a-fA-F-]{8,64}|[0-9]{10,32})$/;
-const TRACK_RE = /^[a-z0-9-]{3,64}$/;
+// Underscore is not decoration: board ids are `board_10-15_180-200` and
+// generated tracks are `gen_<ceiling>_<shape>_<minutes>_...`. Without it
+// every submit from the current app comes back 400 "bad track".
+const TRACK_RE = /^[a-z0-9_-]{3,64}$/;
 const SHAPE_RE = /^[a-z][a-z0-9-]{2,31}$/;
 const CATALOG_URL =
   "https://jacobs-factory.vercel.app/treadmill-cadence/catalog.json";
