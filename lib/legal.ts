@@ -13,7 +13,11 @@ export const privacySections = {
     blocks: [
       {
         heading: "What the apps are",
-        body: "FreeTimer is a focus timer with no ads and no analytics or tracking SDKs. SayNote and Play Cadence are also built by Jacobs Factory.",
+        body: "FreeTimer is a focus timer with no ads and no analytics or tracking SDKs. SayNote and Play Cadence are also built by Jacobs Factory. Play Cadence has its own policy at /play-cadence/privacy.",
+      },
+      {
+        heading: "Play Cadence",
+        body: "Play Cadence processes microphone audio on the device to estimate treadmill cadence and does not upload that audio. It may show Google AdMob ads. After optional Google Sign-In, a world-board score can include your Google account name. See the Play Cadence privacy page for the full policy.",
       },
       {
         heading: "Data stored on your device",
@@ -40,7 +44,11 @@ export const privacySections = {
     blocks: [
       {
         heading: "앱 소개",
-        body: "FreeTimer는 광고와 분석·추적 도구가 없는 집중 타이머입니다. SayNote와 Play Cadence도 Jacobs Factory에서 만듭니다.",
+        body: "FreeTimer는 광고와 분석·추적 도구가 없는 집중 타이머입니다. SayNote와 Play Cadence도 Jacobs Factory에서 만듭니다. Play Cadence 전용 방침은 /play-cadence/privacy 에 있습니다.",
+      },
+      {
+        heading: "Play Cadence",
+        body: "Play Cadence는 마이크 오디오를 기기 안에서만 처리해 케이던스를 추정하며 그 오디오는 올리지 않습니다. Google AdMob 광고를 표시할 수 있습니다. 선택 Google 로그인 뒤 월드 보드 점수에 Google 계정 이름이 포함될 수 있습니다. 자세한 내용은 Play Cadence 개인정보처리방침을 보세요.",
       },
       {
         heading: "기기에 저장되는 정보",

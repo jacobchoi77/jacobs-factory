@@ -9,6 +9,7 @@ const apps = [
     status: "developing",
     play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.treadmillcadence",
     editor: "/treadmill-cadence/track-editor/",
+    privacy: "/play-cadence/privacy",
     icon: "/apps/play-cadence.png",
   },
   {
@@ -146,6 +147,17 @@ export function Home() {
                         className="text-accent underline-offset-4 hover:underline"
                       >
                         {t.trackEditor}
+                      </a>
+                    </>
+                  ) : null}
+                  {"privacy" in app ? (
+                    <>
+                      <span className="mx-1.5 text-line">·</span>
+                      <a
+                        href={app.privacy}
+                        className="text-accent underline-offset-4 hover:underline"
+                      >
+                        {t.privacy}
                       </a>
                     </>
                   ) : null}
