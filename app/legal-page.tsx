@@ -7,6 +7,7 @@ type Section = { title: string; intro: string; blocks: readonly Block[] };
 export function LegalPage({
   en,
   ko,
+  updated = legalMeta.updated,
   homeHref = "/",
   homeLabel = "Home",
   privacyHref = "/privacy",
@@ -14,6 +15,7 @@ export function LegalPage({
 }: {
   en: Section;
   ko: Section;
+  updated?: string;
   homeHref?: string;
   homeLabel?: string;
   privacyHref?: string;
@@ -27,7 +29,7 @@ export function LegalPage({
         </Link>
       </p>
       <p className="mt-6 text-sm text-muted">
-        Last updated: {legalMeta.updated}
+        Last updated: {updated}
         <br />
         Operator: {legalMeta.operator}
         <br />

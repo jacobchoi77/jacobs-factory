@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { LegalPage } from "../../legal-page";
-import { playCadencePrivacy } from "../../../lib/play-cadence-legal";
+import {
+  playCadenceLegalMeta,
+  playCadencePrivacy,
+} from "../../../lib/play-cadence-legal";
 
 export const metadata: Metadata = {
   title: "Privacy Policy · Play Cadence",
@@ -13,6 +16,7 @@ export default function PlayCadencePrivacyPage() {
     <LegalPage
       en={playCadencePrivacy.en}
       ko={playCadencePrivacy.ko}
+      updated={playCadenceLegalMeta.updated}
       homeHref="/"
       homeLabel="Jacobs Factory"
       privacyHref="/play-cadence/privacy"
