@@ -33,11 +33,11 @@ export const privacySections = {
       },
       {
         heading: "Other optional data that leaves the device",
-        body: "Today’s quote in FreeTimer may request a line from ZenQuotes.io without your tasks or account. Feedback you send goes to contact@jacobs-factory.com. Android tips use Google Play Billing; the app never receives your card number.",
+        body: "FreeTimer may fetch today’s quote from our Cloudflare R2 cache or ZenQuotes.io, and extra focus sounds from Cloudflare R2, without your tasks or account. Feedback goes through FormSubmit to contact@jacobs-factory.com. Android tips use Google Play Billing; the app never receives your card number. See /freetimer/privacy for the full FreeTimer policy.",
       },
       {
         heading: "Retention and children",
-        body: "Device data remains until you delete the app or clear data in Settings. FreeTimer is not directed at children under 13. If this policy changes, the date at the top is updated.",
+        body: "Device data remains until you delete the app or clear data in Settings. FreeTimer is not directed at children under 13, or under 14 in Korea. If this policy changes, the date at the top is updated.",
       },
     ],
   },
@@ -68,11 +68,11 @@ export const privacySections = {
       },
       {
         heading: "그 밖에 선택적으로 나가는 정보",
-        body: "FreeTimer의 오늘의 한 줄은 작업·계정 없이 ZenQuotes.io에서 문장을 가져올 수 있습니다. 의견은 contact@jacobs-factory.com으로 전달됩니다. Android 응원은 Google Play 결제가 처리하며 카드 번호는 앱이 받지 않습니다.",
+        body: "FreeTimer는 작업·계정 없이 Cloudflare R2 캐시 또는 ZenQuotes.io에서 오늘의 한 줄을, Cloudflare R2에서 추가 집중 사운드를 가져올 수 있습니다. 의견은 FormSubmit을 거쳐 contact@jacobs-factory.com으로 전달됩니다. Android 응원은 Google Play 결제가 처리하며 카드 번호는 앱이 받지 않습니다. 전체 방침은 /freetimer/privacy 를 보세요.",
       },
       {
         heading: "보관과 아동",
-        body: "기기 데이터는 앱을 삭제하거나 설정에서 지울 때까지 남습니다. FreeTimer는 만 13세 미만을 대상으로 하지 않습니다. 방침이 바뀌면 이 문서의 날짜를 갱신합니다.",
+        body: "기기 데이터는 앱을 삭제하거나 설정에서 지울 때까지 남습니다. FreeTimer는 만 13세 미만, 한국에서는 만 14세 미만을 대상으로 하지 않습니다. 방침이 바뀌면 이 문서의 날짜를 갱신합니다.",
       },
     ],
   },
@@ -99,7 +99,7 @@ export const termsSections = {
   },
   ko: {
     title: "이용약관",
-    intro: "FreeTimer를 포함한 Jacobs Factory 앱을 사용하면 이 약관에 동의한 것으로 봅니다.",
+    intro: "FreeTimer를 포함한 Jacobs Factory 앱을 사용하면 이 약관에 동의한 것으로 뱃니다.",
     blocks: [
       {
         heading: "앱",
