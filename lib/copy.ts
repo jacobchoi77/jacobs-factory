@@ -13,6 +13,8 @@ export const copy = {
     terms: "이용약관",
     trackEditor: "트랙에디터",
     apps: {
+      "My Health Diary":
+        "병원 가기 전, 증상을 날짜별로 남기는 개인 건강 일기입니다. 기록은 휴대폰에 둡니다.",
       "Play Cadence": "케이던스를 맞추는 러닝머신 게임입니다.",
       SayNote: "말하기와 메모를 한곳에서 적습니다.",
       FreeTimer:
@@ -31,6 +33,8 @@ export const copy = {
     terms: "Terms",
     trackEditor: "트랙에디터",
     apps: {
+      "My Health Diary":
+        "A personal symptom diary to take to the clinic. Notes stay on the phone.",
       "Play Cadence": "A treadmill game you play by matching cadence.",
       SayNote: "Speak and write notes in one place.",
       FreeTimer:

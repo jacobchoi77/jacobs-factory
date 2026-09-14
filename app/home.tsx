@@ -5,6 +5,12 @@ import { copy, type Locale } from "../lib/copy";
 
 const apps = [
   {
+    name: "My Health Diary",
+    status: "testing",
+    privacy: "/my-health-diary/privacy",
+    icon: "/apps/my-health-diary.png",
+  },
+  {
     name: "Play Cadence",
     status: "developing",
     play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.treadmillcadence",
@@ -129,14 +135,16 @@ export function Home() {
                       <span className="mx-1.5 text-line">·</span>
                     </>
                   ) : null}
-                  <a
-                    href={`${app.play}&hl=${locale}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-accent underline-offset-4 hover:underline"
-                  >
-                    Google Play
-                  </a>
+                  {"play" in app ? (
+                    <a
+                      href={`${app.play}&hl=${locale}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent underline-offset-4 hover:underline"
+                    >
+                      Google Play
+                    </a>
+                  ) : null}
                   {"editor" in app ? (
                     <>
                       <span className="mx-1.5 text-line">·</span>
@@ -152,7 +160,9 @@ export function Home() {
                   ) : null}
                   {"privacy" in app ? (
                     <>
-                      <span className="mx-1.5 text-line">·</span>
+                      {"play" in app || "editor" in app ? (
+                        <span className="mx-1.5 text-line">·</span>
+                      ) : null}
                       <a
                         href={app.privacy}
                         className="text-accent underline-offset-4 hover:underline"

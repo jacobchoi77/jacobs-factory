@@ -1,5 +1,5 @@
 export const legalMeta = {
-  updated: "2026-09-04",
+  updated: "2026-09-14",
   operator: "Jacob Choi (jacobsfactory)",
   contact: "contact@jacobs-factory.com",
   contactHref: "mailto:contact@jacobs-factory.com",
@@ -9,11 +9,15 @@ export const privacySections = {
   en: {
     title: "Privacy Policy",
     intro:
-      "This policy covers Jacobs Factory apps, including FreeTimer, SayNote, and Play Cadence.",
+      "This policy covers Jacobs Factory apps, including My Health Diary, FreeTimer, SayNote, and Play Cadence.",
     blocks: [
       {
         heading: "What the apps are",
-        body: "FreeTimer is a focus timer with no ads and no analytics or tracking SDKs. SayNote and Play Cadence are also built by Jacobs Factory. Play Cadence has its own policy at /play-cadence/privacy.",
+        body: "FreeTimer is a focus timer with no ads and no analytics or tracking SDKs. My Health Diary, SayNote, and Play Cadence are also built by Jacobs Factory. My Health Diary has its own policy at /my-health-diary/privacy. Play Cadence has its own policy at /play-cadence/privacy.",
+      },
+      {
+        heading: "My Health Diary",
+        body: "My Health Diary (내 건강 일기) stores symptom and clinic notes on the phone. It has no account and no ads. Optional speech and tapping AI organize may send that day’s text to a system recognizer or a language-model API. The full policy is at /my-health-diary/privacy.",
       },
       {
         heading: "Play Cadence",
@@ -40,11 +44,15 @@ export const privacySections = {
   ko: {
     title: "개인정보처리방침",
     intro:
-      "이 방침은 FreeTimer, SayNote, Play Cadence를 포함한 Jacobs Factory 앱에 적용됩니다.",
+      "이 방침은 내 건강 일기, FreeTimer, SayNote, Play Cadence를 포함한 Jacobs Factory 앱에 적용됩니다.",
     blocks: [
       {
         heading: "앱 소개",
-        body: "FreeTimer는 광고와 분석·추적 도구가 없는 집중 타이머입니다. SayNote와 Play Cadence도 Jacobs Factory에서 만듭니다. Play Cadence 전용 방침은 /play-cadence/privacy 에 있습니다.",
+        body: "FreeTimer는 광고와 분석·추적 도구가 없는 집중 타이머입니다. 내 건강 일기, SayNote, Play Cadence도 Jacobs Factory에서 만듭니다. 내 건강 일기 전용 방침은 /my-health-diary/privacy 에, Play Cadence 전용 방침은 /play-cadence/privacy 에 있습니다.",
+      },
+      {
+        heading: "내 건강 일기",
+        body: "내 건강 일기는 증상·병원 기록을 휴대폰에 둡니다. 계정과 광고가 없습니다. 말하기나 AI 정리를 쓰면 그날 글이 기기 음성 인식 또는 언어 모델로 갈 수 있습니다. 전용 방침은 /my-health-diary/privacy 입니다.",
       },
       {
         heading: "Play Cadence",
