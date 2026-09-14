@@ -94,5 +94,9 @@ copyShot(
   join("D:", "MyHealthDiary", "store", "screenshots", "ko", "04-hospital.png"),
   join(publicApps, "my-health-diary", "hospital.png"),
 );
+copyShot(
+  join("D:", "MyHealthDiary", "store", "screenshots", "ko", "05-pdf.png"),
+  join(publicApps, "my-health-diary", "pdf.png"),
+);
 
 console.log("copied locale screenshots for FreeTimer, SayNote, Play Cadence, My Health Diary");
