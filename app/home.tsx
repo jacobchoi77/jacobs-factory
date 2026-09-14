@@ -24,7 +24,9 @@ const apps = [
   {
     name: "SayNote",
     status: "released",
+    about: "/saynote",
     play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.saynote.android",
+    privacy: "/saynote/privacy",
     icon: "/apps/saynote.png",
   },
   {
