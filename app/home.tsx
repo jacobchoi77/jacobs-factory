@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { copy } from "../lib/copy";
-import { playHl, windowsHl } from "../lib/locale";
+import { playHl, screenshotSrc, windowsHl, type Locale } from "../lib/locale";
 import { useLocale } from "../lib/use-locale";
 import { LocaleSwitch } from "./locale-switch";
 
@@ -11,7 +12,7 @@ const koreaApp = {
   about: "/my-health-diary",
   play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.myhealthdiary.android",
   privacy: "/my-health-diary/privacy",
-  icon: "/apps/my-health-diary.png",
+  screenshot: "/apps/my-health-diary/today.png",
 } as const;
 
 const apps = [
@@ -21,7 +22,7 @@ const apps = [
     about: "/play-cadence",
     play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.treadmillcadence",
     privacy: "/play-cadence/privacy",
-    icon: "/apps/play-cadence.png",
+    screenshot: "/apps/play-cadence/play-hero.png",
   },
   {
     name: "SayNote",
@@ -29,7 +30,7 @@ const apps = [
     about: "/saynote",
     play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.saynote.android",
     privacy: "/saynote/privacy",
-    icon: "/apps/saynote.png",
+    shot: "saynote",
   },
   {
     name: "FreeTimer",
@@ -37,9 +38,18 @@ const apps = [
     about: "/freetimer",
     play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.freetimer.android",
     windows: "https://apps.microsoft.com/detail/9NCR1DNFJCP6",
-    icon: "/apps/freetimer.png",
+    shot: "freetimer",
   },
 ] as const;
+
+type HomeApp = (typeof apps)[number] | typeof koreaApp;
+
+function appScreenshot(app: HomeApp, locale: Locale): string {
+  if ("screenshot" in app) {
+    return app.screenshot;
+  }
+  return screenshotSrc(app.shot, locale, "home.png");
+}
 
 export function Home() {
   const { locale, switchLocale } = useLocale();
@@ -59,91 +69,108 @@ export function Home() {
           <p className="mt-4 text-[17px] leading-7 text-muted">{t.tagline}</p>
         </header>
 
-        <main className="mt-12 flex flex-col gap-4">
+        <main className="mt-16">
           {visibleApps.map((app) => {
             const title =
               app.name === "My Health Diary" ? t.koreaApp.name : app.name;
-            const blurb =
+            const copyForApp =
               app.name === "My Health Diary"
-                ? t.koreaApp.blurb
+                ? t.koreaApp
                 : t.apps[app.name];
+            const shot = appScreenshot(app, locale);
+            const links: { href: string; label: string; external?: boolean }[] =
+              [
+                { href: app.about, label: t.about },
+                ...("play" in app
+                  ? [
+                      {
+                        href: `${app.play}&hl=${playHl(locale)}`,
+                        label: "Google Play",
+                        external: true,
+                      },
+                    ]
+                  : []),
+                ...("privacy" in app
+                  ? [{ href: app.privacy, label: t.privacy }]
+                  : []),
+                ...("windows" in app
+                  ? [
+                      {
+                        href: `${app.windows}?hl=${windowsHl(locale)}`,
+                        label: "Microsoft Store",
+                        external: true,
+                      },
+                    ]
+                  : []),
+              ];
 
             return (
               <article
                 key={app.name}
-                className="flex gap-4 rounded-2xl border border-line bg-card px-5 py-5"
+                className="border-t border-line py-14 first:border-t-0 first:pt-0 last:pb-0 sm:py-16 sm:first:pt-0 sm:last:pb-0"
               >
-                <img
-                  src={app.icon}
-                  alt=""
-                  width={64}
-                  height={64}
-                  className="size-16 shrink-0 rounded-2xl"
-                />
-                <div className="min-w-0">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <h2 className="text-lg font-medium tracking-tight">
-                      <a href={app.about} className="hover:text-accent">
-                        {title}
-                      </a>
+                <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8">
+                  <Link
+                    href={app.about}
+                    className="mx-auto shrink-0 sm:mx-0"
+                  >
+                    <img
+                      src={shot}
+                      alt=""
+                      width={180}
+                      height={390}
+                      className="h-[390px] w-[180px] rounded-2xl border border-line bg-card object-cover"
+                    />
+                  </Link>
+                  <div className="min-w-0">
+                    <h2 className="font-display text-2xl tracking-tight italic sm:text-3xl">
+                      <Link href={app.about} className="hover:text-accent">
+                        {copyForApp.headline}
+                      </Link>
                     </h2>
-                    <span className="rounded-full border border-line px-2 py-0.5 text-xs text-muted">
-                      {t.status[app.status]}
-                    </span>
+                    <p className="mt-3 text-[15px] leading-7 text-muted">
+                      {copyForApp.blurb}
+                    </p>
+                    <p className="mt-4 flex flex-wrap items-center gap-2 text-sm">
+                      <span className="font-medium tracking-tight">{title}</span>
+                      <span className="rounded-full border border-line px-2 py-0.5 text-xs text-muted">
+                        {t.status[app.status]}
+                      </span>
+                    </p>
+                    <p className="mt-3 text-sm">
+                      {links.map((link, index) => (
+                        <span key={link.href}>
+                          {index > 0 ? (
+                            <span className="mx-1.5 text-line">·</span>
+                          ) : null}
+                          {link.external ? (
+                            <a
+                              href={link.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-accent underline-offset-4 hover:underline"
+                            >
+                              {link.label}
+                            </a>
+                          ) : (
+                            <Link
+                              href={link.href}
+                              className="text-accent underline-offset-4 hover:underline"
+                            >
+                              {link.label}
+                            </Link>
+                          )}
+                        </span>
+                      ))}
+                    </p>
                   </div>
-                  <p className="mt-2 text-[15px] leading-6 text-muted">{blurb}</p>
-                  <p className="mt-3 text-sm">
-                    <a
-                      href={app.about}
-                      className="text-accent underline-offset-4 hover:underline"
-                    >
-                      {t.about}
-                    </a>
-                    <span className="mx-1.5 text-line">·</span>
-                    {"play" in app ? (
-                      <a
-                        href={`${app.play}&hl=${playHl(locale)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-accent underline-offset-4 hover:underline"
-                      >
-                        Google Play
-                      </a>
-                    ) : null}
-                    {"privacy" in app ? (
-                      <>
-                        {"play" in app ? (
-                          <span className="mx-1.5 text-line">·</span>
-                        ) : null}
-                        <a
-                          href={app.privacy}
-                          className="text-accent underline-offset-4 hover:underline"
-                        >
-                          {t.privacy}
-                        </a>
-                      </>
-                    ) : null}
-                    {"windows" in app ? (
-                      <>
-                        <span className="mx-1.5 text-line">·</span>
-                        <a
-                          href={`${app.windows}?hl=${windowsHl(locale)}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-accent underline-offset-4 hover:underline"
-                        >
-                          Microsoft Store
-                        </a>
-                      </>
-                    ) : null}
-                  </p>
                 </div>
               </article>
             );
           })}
         </main>
 
-        <footer className="mt-auto pt-16 text-sm text-muted">
+        <footer className="mt-auto border-t border-line pt-10 text-sm text-muted">
           <p>
             {t.contact}{" "}
             <a
@@ -154,19 +181,19 @@ export function Home() {
             </a>
           </p>
           <p className="mt-3">
-            <a
+            <Link
               href="/privacy"
               className="text-accent underline-offset-4 hover:underline"
             >
               {t.privacy}
-            </a>
+            </Link>
             <span className="mx-1.5 text-line">·</span>
-            <a
+            <Link
               href="/terms"
               className="text-accent underline-offset-4 hover:underline"
             >
               {t.terms}
-            </a>
+            </Link>
           </p>
         </footer>
       </div>

@@ -17,7 +17,7 @@ const display = Newsreader({
 export const metadata: Metadata = {
   title: "Jacobs Factory",
   description:
-    "Jacobs Factory makes FreeTimer, SayNote, and Play Cadence. A one-person studio, building with vibe coding.",
+    "Jacobs Factory makes FreeTimer, SayNote, and Play Cadence. A one-person studio.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
