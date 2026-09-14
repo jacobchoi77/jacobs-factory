@@ -78,4 +78,21 @@ for (const locale of locales) {
   );
 }
 
-console.log("copied locale screenshots for FreeTimer, SayNote, Play Cadence");
+copyShot(
+  join("D:", "MyHealthDiary", "store", "screenshots", "ko", "01-home.png"),
+  join(publicApps, "my-health-diary", "today.png"),
+);
+copyShot(
+  join("D:", "MyHealthDiary", "store", "screenshots", "ko", "02-records.png"),
+  join(publicApps, "my-health-diary", "records.png"),
+);
+copyShot(
+  join("D:", "MyHealthDiary", "store", "screenshots", "ko", "03-diary.png"),
+  join(publicApps, "my-health-diary", "diary.png"),
+);
+copyShot(
+  join("D:", "MyHealthDiary", "store", "screenshots", "ko", "04-hospital.png"),
+  join(publicApps, "my-health-diary", "hospital.png"),
+);
+
+console.log("copied locale screenshots for FreeTimer, SayNote, Play Cadence, My Health Diary");
