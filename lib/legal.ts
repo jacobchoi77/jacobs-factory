@@ -13,11 +13,15 @@ export const privacySections = {
     blocks: [
       {
         heading: "What the apps are",
-        body: "FreeTimer is a focus timer with no ads and no analytics or tracking SDKs. My Health Diary, SayNote, and Play Cadence are also built by Jacobs Factory. My Health Diary has its own policy at /my-health-diary/privacy. Play Cadence has its own policy at /play-cadence/privacy.",
+        body: "FreeTimer is a focus timer with no ads and no analytics or tracking SDKs. My Health Diary, SayNote, and Play Cadence are also built by Jacobs Factory. My Health Diary has its own policy at /my-health-diary/privacy. SayNote has its own policy at /saynote/privacy. Play Cadence has its own policy at /play-cadence/privacy.",
       },
       {
         heading: "My Health Diary",
         body: "My Health Diary (내 건강 일기) stores symptom and clinic notes on the phone. It has no account and no ads. Optional speech and tapping AI organize may send that day’s text to a system recognizer or a language-model API. The full policy is at /my-health-diary/privacy.",
+      },
+      {
+        heading: "SayNote",
+        body: "SayNote stores spoken notes on the phone. It has no account and no ads. Speech recognition may use Google or Apple. The full policy is at /saynote/privacy.",
       },
       {
         heading: "Play Cadence",
@@ -48,11 +52,15 @@ export const privacySections = {
     blocks: [
       {
         heading: "앱 소개",
-        body: "FreeTimer는 광고와 분석·추적 도구가 없는 집중 타이머입니다. 내 건강 일기, SayNote, Play Cadence도 Jacobs Factory에서 만듭니다. 내 건강 일기 전용 방침은 /my-health-diary/privacy 에, Play Cadence 전용 방침은 /play-cadence/privacy 에 있습니다.",
+        body: "FreeTimer는 광고와 분석·추적 도구가 없는 집중 타이머입니다. 내 건강 일기, SayNote, Play Cadence도 Jacobs Factory에서 만듭니다. 내 건강 일기 전용 방침은 /my-health-diary/privacy 에, SayNote 전용 방침은 /saynote/privacy 에, Play Cadence 전용 방침은 /play-cadence/privacy 에 있습니다.",
       },
       {
         heading: "내 건강 일기",
         body: "내 건강 일기는 증상·병원 기록을 휴대폰에 둡니다. 계정과 광고가 없습니다. 말하기나 AI 정리를 쓰면 그날 글이 기기 음성 인식 또는 언어 모델로 갈 수 있습니다. 전용 방침은 /my-health-diary/privacy 입니다.",
+      },
+      {
+        heading: "SayNote",
+        body: "SayNote는 말한 노트를 휴대폰에 둡니다. 계정과 광고가 없습니다. 음성 인식은 Google 또는 Apple을 쓤 수 있습니다. 전용 방침은 /saynote/privacy 입니다.",
       },
       {
         heading: "Play Cadence",
