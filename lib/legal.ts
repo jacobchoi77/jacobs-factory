@@ -60,7 +60,7 @@ export const privacySections = {
       },
       {
         heading: "SayNote",
-        body: "SayNote는 말한 노트를 휴대폰에 둡니다. 계정과 광고가 없습니다. 음성 인식은 Google 또는 Apple을 쓤 수 있습니다. 전용 방침은 /saynote/privacy 입니다.",
+        body: "SayNote는 말한 노트를 휴대폰에 둡니다. 계정과 광고가 없습니다. 음성 인식은 Google 또는 Apple을 쓸 수 있습니다. 전용 방침은 /saynote/privacy 입니다.",
       },
       {
         heading: "Play Cadence",
