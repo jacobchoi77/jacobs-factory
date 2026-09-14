@@ -48,7 +48,7 @@ export const freetimerPrivacy = {
   ko: {
     title: "개인정보처리방침",
     intro:
-      "이 문서는 Google Play, App Store, 데스크탑 빌드에 적용되는 FreeTimer 개인정보처리방침입니다.",
+      "이 문서는 Google Play, App Store, 데스크톱 빌드에 적용되는 FreeTimer 개인정보처리방침입니다.",
     blocks: [
       {
         heading: "앱 소개",
@@ -80,7 +80,7 @@ export const freetimerPrivacy = {
       },
       {
         heading: "보관, 아동, 변경",
-        body: "기기 데이터는 앱을 삭제하거나 설정에서 지울 때까지 남습니다. Google 동기화를 씀다면 Google 계정에서 접근을 해제해 이후 동기화를 멈출 수 있습니다. FreeTimer는 만 13세 미만, 한국에서는 만 14세 미만을 대상으로 하지 않습니다. 방침이 바뀌면 이 문서의 날짜를 갱신합니다.",
+        body: "기기 데이터는 앱을 삭제하거나 설정에서 지울 때까지 남습니다. Google 동기화를 쓰다면 Google 계정에서 접근을 해제해 이후 동기화를 멈출 수 있습니다. FreeTimer는 만 13세 미만, 한국에서는 만 14세 미만을 대상으로 하지 않습니다. 방침이 바뀌면 이 문서의 날짜를 갱신합니다.",
       },
     ],
   },
@@ -107,7 +107,7 @@ export const freetimerTerms = {
   },
   ko: {
     title: "이용약관",
-    intro: "FreeTimer를 사용하면 이 약관에 동의한 것으로 뱃니다.",
+    intro: "FreeTimer를 사용하면 이 약관에 동의한 것으로 봅니다.",
     blocks: [
       {
         heading: "앱",
