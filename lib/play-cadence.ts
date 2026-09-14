@@ -1,6 +1,5 @@
 export const playCadenceStores = {
   play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.treadmillcadence",
-  editor: "/treadmill-cadence/track-editor/",
 } as const;
 
 export const playCadenceCopy = {
@@ -30,7 +29,6 @@ export const playCadenceCopy = {
     ],
     getTitle: "받기",
     play: "Google Play",
-    editor: "트랙에디터",
     privacy: "개인정보처리방침",
     terms: "이용약관",
     back: "Jacobs Factory",
@@ -62,7 +60,6 @@ export const playCadenceCopy = {
     ],
     getTitle: "Get the app",
     play: "Google Play",
-    editor: "Track editor",
     privacy: "Privacy",
     terms: "Terms",
     back: "Jacobs Factory",

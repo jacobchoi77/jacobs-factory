@@ -11,7 +11,6 @@ export const copy = {
     contact: "문의",
     privacy: "개인정보처리방침",
     terms: "이용약관",
-    trackEditor: "트랙에디터",
     apps: {
       "My Health Diary":
         "병원 가기 전, 증상을 날짜별로 남기는 개인 건강 일기입니다. 기록은 휴대폰에 둡니다.",
@@ -31,7 +30,6 @@ export const copy = {
     contact: "Contact",
     privacy: "Privacy",
     terms: "Terms",
-    trackEditor: "트랙에디터",
     apps: {
       "My Health Diary":
         "A personal symptom diary to take to the clinic. Notes stay on the phone.",

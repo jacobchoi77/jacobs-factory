@@ -99,15 +99,6 @@ export function PlayCadencePage() {
             >
               {t.play}
             </a>
-            <span className="text-line">·</span>
-            <a
-              href={playCadenceStores.editor}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent underline-offset-4 hover:underline"
-            >
-              {t.editor}
-            </a>
           </p>
         </section>
 
