@@ -12,7 +12,7 @@ const apps = [
   },
   {
     name: "Play Cadence",
-    status: "developing",
+    status: "released",
     play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.treadmillcadence",
     editor: "/treadmill-cadence/track-editor/",
     privacy: "/play-cadence/privacy",
