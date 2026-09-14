@@ -7,6 +7,8 @@ const apps = [
   {
     name: "My Health Diary",
     status: "testing",
+    about: "/my-health-diary",
+    play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.myhealthdiary.android",
     privacy: "/my-health-diary/privacy",
     icon: "/apps/my-health-diary.png",
   },

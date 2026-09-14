@@ -30,4 +30,5 @@ git push -u origin main
 
 AdMob `app-ads.txt`는 `public/app-ads.txt`에 있고, 배포 후 **https://jacobs-factory.com/app-ads.txt** 에서 한 줄 텍스트가 보여야 합니다. Play Console 개발자 웹사이트는 경로 없이 `https://jacobs-factory.com` 이어야 합니다.
 
+내 건강 일기: **https://jacobs-factory.com/my-health-diary**  
 Play Cadence 개인정보처리방침: **https://jacobs-factory.com/play-cadence/privacy**

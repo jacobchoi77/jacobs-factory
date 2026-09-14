@@ -17,7 +17,7 @@ const display = Newsreader({
 export const metadata: Metadata = {
   title: "Jacobs Factory",
   description:
-    "Jacobs Factory makes FreeTimer, a focus timer with optional Google sync, plus SayNote and Play Cadence. 바이브 코딩으로 1인 개발 중입니다.",
+    "Jacobs Factory makes 내 건강 일기, FreeTimer, SayNote, and Play Cadence. 바이브 코딩으로 1인 개발 중입니다.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

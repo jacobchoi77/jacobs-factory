@@ -13,8 +13,8 @@ export default function MyHealthDiaryTermsPage() {
       en={myHealthDiaryTerms.en}
       ko={myHealthDiaryTerms.ko}
       updated="2026-09-14"
-      homeHref="/"
-      homeLabel="Home"
+      homeHref="/my-health-diary"
+      homeLabel="내 건강 일기"
       privacyHref="/my-health-diary/privacy"
       termsHref="/my-health-diary/terms"
     />
