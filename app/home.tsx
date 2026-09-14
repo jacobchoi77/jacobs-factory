@@ -13,6 +13,7 @@ const apps = [
   {
     name: "Play Cadence",
     status: "developing",
+    about: "/play-cadence",
     play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.treadmillcadence",
     editor: "/treadmill-cadence/track-editor/",
     privacy: "/play-cadence/privacy",
@@ -27,6 +28,7 @@ const apps = [
   {
     name: "FreeTimer",
     status: "released",
+    about: "/freetimer",
     play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.freetimer.android",
     windows: "https://apps.microsoft.com/detail/9NCR1DNFJCP6",
     icon: "/apps/freetimer.png",
@@ -105,11 +107,8 @@ export function Home() {
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2">
                   <h2 className="text-lg font-medium tracking-tight">
-                    {app.name === "FreeTimer" ? (
-                      <a
-                        href="/freetimer"
-                        className="hover:text-accent"
-                      >
+                    {"about" in app ? (
+                      <a href={app.about} className="hover:text-accent">
                         {app.name}
                       </a>
                     ) : (
@@ -124,10 +123,10 @@ export function Home() {
                   {t.apps[app.name]}
                 </p>
                 <p className="mt-3 text-sm">
-                  {app.name === "FreeTimer" ? (
+                  {"about" in app ? (
                     <>
                       <a
-                        href="/freetimer"
+                        href={app.about}
                         className="text-accent underline-offset-4 hover:underline"
                       >
                         {locale === "ko" ? "소개" : "About"}

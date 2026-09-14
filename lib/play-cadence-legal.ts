@@ -82,3 +82,42 @@ export const playCadencePrivacy = {
     ],
   },
 } as const;
+
+export const playCadenceTerms = {
+  en: {
+    title: "Terms of Service · Play Cadence",
+    intro: "By using Play Cadence you agree to these terms.",
+    blocks: [
+      {
+        heading: "The app",
+        body: "Play Cadence is a treadmill cadence game. The phone microphone estimates steps per minute on the device. It is not a medical device and does not diagnose or treat. Google sign-in is optional and is used to post official-track scores to the world board, as described in the privacy policy. The app may show ads; Remove ads is an optional Google Play purchase.",
+      },
+      {
+        heading: "As-is",
+        body: "The app is provided as-is, without warranties. We are not liable for lost data, missed scores, or inability to use the app. You may stop using it at any time and delete the app or its local data.",
+      },
+      {
+        heading: "Contact",
+        body: "Questions: contact@jacobs-factory.com. These terms may change; the date at the top will be updated.",
+      },
+    ],
+  },
+  ko: {
+    title: "이용약관 · Play Cadence",
+    intro: "Play Cadence를 사용하면 이 약관에 동의한 것으로 봅니다.",
+    blocks: [
+      {
+        heading: "앱",
+        body: "Play Cadence는 러닝머신 케이던스 게임입니다. 폰 마이크는 기기 안에서 분당 걸음 수를 추정합니다. 의료기기가 아니며 진단·치료를 하지 않습니다. Google 로그인은 선택이며, 공식 트랙 점수를 월드 보드에 올리는 데 씁니다. 자세한 내용은 개인정보처리방침을 보세요. 앱은 광고를 표시할 수 있고, 광고 제거는 Google Play에서 선택 구매입니다.",
+      },
+      {
+        heading: "있는 그대로",
+        body: "앱은 있는 그대로 제공되며 명시적 보증은 없습니다. 데이터 손실, 점수 누락, 사용 불가에 대해 책임을 지지 않습니다. 언제든지 사용을 중단하고 앱 또는 기기 데이터를 삭제할 수 있습니다.",
+      },
+      {
+        heading: "문의",
+        body: "문의: contact@jacobs-factory.com. 약관이 바뀌면 이 문서의 날짜를 갱신합니다.",
+      },
+    ],
+  },
+} as const;
