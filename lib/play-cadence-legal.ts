@@ -61,7 +61,7 @@ export const playCadencePrivacy = {
       },
       {
         heading: "그 밖의 네트워크 사용",
-        body: "본 앱은 공개 음악 카탈로그(믹스 URL과 템포)를 호스트에서 받을 수 있습니다. 이 요청에는 계정이 포함되지 않습니다. 믹스를 열면 YouTube 플레이어를 쓰며, 이는 Google 개인정보처리방침(https://policies.google.com/privacy)이 적용됩니다. 광고 제거를 구매하면 Google Play 결제기가 결제를 처리합니다. 기기에는 “광고 제거됨” 플c래그만 저장되고, 구매는 Play 계정에 묶입니다.",
+        body: "본 앱은 공개 음악 카탈로그(믹스 URL과 템포)를 호스트에서 받을 수 있습니다. 이 요청에는 계정이 포함되지 않습니다. 믹스를 열면 YouTube 플레이어를 쓰며, 이는 Google 개인정보처리방침(https://policies.google.com/privacy)이 적용됩니다. 광고 제거를 구매하면 Google Play 결제기가 결제를 처리합니다. 기기에는 “광고 제거됨” 플래그만 저장되고, 구매는 Play 계정에 묶입니다.",
       },
       {
         heading: "권한",
@@ -77,7 +77,7 @@ export const playCadencePrivacy = {
       },
       {
         heading: "아동, 변경, 문의",
-        body: "본 앱은 만 13세 미만, 한국에서는 만 14세 미만 아동을 대상으로 하지 않으며, 아동의 개인정보를 고의로 수집하지 않습니다. 방침이 바뀌면 상단 날짜가 갱신됩니다. 변경 후 앱을 계속 사용하면 변경된 방침에 동의한 것으로 밥니다. 문의: contact@jacobs-factory.com.",
+        body: "본 앱은 만 13세 미만, 한국에서는 만 14세 미만 아동을 대상으로 하지 않으며, 아동의 개인정보를 고의로 수집하지 않습니다. 방침이 바뀌면 상단 날짜가 갱신됩니다. 변경 후 앱을 계속 사용하면 변경된 방침에 동의한 것으로 봅니다. 문의: contact@jacobs-factory.com.",
       },
     ],
   },
