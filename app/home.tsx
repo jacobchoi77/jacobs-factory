@@ -111,13 +111,9 @@ export function Home() {
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2">
                   <h2 className="text-lg font-medium tracking-tight">
-                    {"about" in app ? (
-                      <a href={app.about} className="hover:text-accent">
-                        {app.name}
-                      </a>
-                    ) : (
-                      app.name
-                    )}
+                    <a href={app.about} className="hover:text-accent">
+                      {app.name}
+                    </a>
                   </h2>
                   <span className="rounded-full border border-line px-2 py-0.5 text-xs text-muted">
                     {t.status[app.status]}
@@ -127,17 +123,13 @@ export function Home() {
                   {t.apps[app.name]}
                 </p>
                 <p className="mt-3 text-sm">
-                  {"about" in app ? (
-                    <>
-                      <a
-                        href={app.about}
-                        className="text-accent underline-offset-4 hover:underline"
-                      >
-                        {locale === "ko" ? "소개" : "About"}
-                      </a>
-                      <span className="mx-1.5 text-line">·</span>
-                    </>
-                  ) : null}
+                  <a
+                    href={app.about}
+                    className="text-accent underline-offset-4 hover:underline"
+                  >
+                    {locale === "ko" ? "소개" : "About"}
+                  </a>
+                  <span className="mx-1.5 text-line">·</span>
                   {"play" in app ? (
                     <a
                       href={`${app.play}&hl=${locale}`}
