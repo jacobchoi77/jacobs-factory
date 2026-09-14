@@ -99,7 +99,7 @@ export const termsSections = {
   },
   ko: {
     title: "이용약관",
-    intro: "FreeTimer를 포함한 Jacobs Factory 앱을 사용하면 이 약관에 동의한 것으로 뱃니다.",
+    intro: "FreeTimer를 포함한 Jacobs Factory 앱을 사용하면 이 약관에 동의한 것으로 봅니다.",
     blocks: [
       {
         heading: "앱",
