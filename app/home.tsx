@@ -1,17 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { copy, type Locale } from "../lib/copy";
+import { copy } from "../lib/copy";
+import { playHl, windowsHl } from "../lib/locale";
+import { useLocale } from "../lib/use-locale";
+import { LocaleSwitch } from "./locale-switch";
+
+const koreaApp = {
+  name: "My Health Diary",
+  status: "testing",
+  about: "/my-health-diary",
+  play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.myhealthdiary.android",
+  privacy: "/my-health-diary/privacy",
+  icon: "/apps/my-health-diary.png",
+} as const;
 
 const apps = [
-  {
-    name: "My Health Diary",
-    status: "testing",
-    about: "/my-health-diary",
-    play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.myhealthdiary.android",
-    privacy: "/my-health-diary/privacy",
-    icon: "/apps/my-health-diary.png",
-  },
   {
     name: "Play Cadence",
     status: "released",
@@ -38,32 +41,10 @@ const apps = [
   },
 ] as const;
 
-function readLocale(): Locale {
-  if (typeof window === "undefined") {
-    return "en";
-  }
-  const saved = window.localStorage.getItem("locale");
-  if (saved === "en" || saved === "ko") {
-    return saved;
-  }
-  return navigator.language.toLowerCase().startsWith("ko") ? "ko" : "en";
-}
-
 export function Home() {
-  const [locale, setLocale] = useState<Locale>("en");
+  const { locale, switchLocale } = useLocale();
   const t = copy[locale];
-
-  useEffect(() => {
-    const next = readLocale();
-    setLocale(next);
-    document.documentElement.lang = next;
-  }, []);
-
-  function switchLocale(next: Locale) {
-    setLocale(next);
-    window.localStorage.setItem("locale", next);
-    document.documentElement.lang = next;
-  }
+  const visibleApps = locale === "ko" ? [koreaApp, ...apps] : apps;
 
   return (
     <div className="flex flex-1 flex-col">
@@ -73,102 +54,93 @@ export function Home() {
             <p className="font-display text-3xl tracking-tight text-foreground italic sm:text-4xl">
               Jacobs Factory
             </p>
-            <p className="shrink-0 pt-1 text-sm text-muted">
-              <button
-                type="button"
-                className={locale === "en" ? "text-foreground" : "hover:text-foreground"}
-                onClick={() => switchLocale("en")}
-              >
-                English
-              </button>
-              <span className="mx-1.5 text-line">/</span>
-              <button
-                type="button"
-                className={locale === "ko" ? "text-foreground" : "hover:text-foreground"}
-                onClick={() => switchLocale("ko")}
-              >
-                한국어
-              </button>
-            </p>
+            <LocaleSwitch locale={locale} onChange={switchLocale} />
           </div>
           <p className="mt-4 text-[17px] leading-7 text-muted">{t.tagline}</p>
         </header>
 
         <main className="mt-12 flex flex-col gap-4">
-          {apps.map((app) => (
-            <article
-              key={app.name}
-              className="flex gap-4 rounded-2xl border border-line bg-card px-5 py-5"
-            >
-              <img
-                src={app.icon}
-                alt=""
-                width={64}
-                height={64}
-                className="size-16 shrink-0 rounded-2xl"
-              />
-              <div className="min-w-0">
-                <div className="flex flex-wrap items-center gap-2">
-                  <h2 className="text-lg font-medium tracking-tight">
-                    <a href={app.about} className="hover:text-accent">
-                      {app.name}
-                    </a>
-                  </h2>
-                  <span className="rounded-full border border-line px-2 py-0.5 text-xs text-muted">
-                    {t.status[app.status]}
-                  </span>
-                </div>
-                <p className="mt-2 text-[15px] leading-6 text-muted">
-                  {t.apps[app.name]}
-                </p>
-                <p className="mt-3 text-sm">
-                  <a
-                    href={app.about}
-                    className="text-accent underline-offset-4 hover:underline"
-                  >
-                    {locale === "ko" ? "소개" : "About"}
-                  </a>
-                  <span className="mx-1.5 text-line">·</span>
-                  {"play" in app ? (
+          {visibleApps.map((app) => {
+            const title =
+              app.name === "My Health Diary" ? t.koreaApp.name : app.name;
+            const blurb =
+              app.name === "My Health Diary"
+                ? t.koreaApp.blurb
+                : t.apps[app.name];
+
+            return (
+              <article
+                key={app.name}
+                className="flex gap-4 rounded-2xl border border-line bg-card px-5 py-5"
+              >
+                <img
+                  src={app.icon}
+                  alt=""
+                  width={64}
+                  height={64}
+                  className="size-16 shrink-0 rounded-2xl"
+                />
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h2 className="text-lg font-medium tracking-tight">
+                      <a href={app.about} className="hover:text-accent">
+                        {title}
+                      </a>
+                    </h2>
+                    <span className="rounded-full border border-line px-2 py-0.5 text-xs text-muted">
+                      {t.status[app.status]}
+                    </span>
+                  </div>
+                  <p className="mt-2 text-[15px] leading-6 text-muted">{blurb}</p>
+                  <p className="mt-3 text-sm">
                     <a
-                      href={`${app.play}&hl=${locale}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href={app.about}
                       className="text-accent underline-offset-4 hover:underline"
                     >
-                      Google Play
+                      {t.about}
                     </a>
-                  ) : null}
-                  {"privacy" in app ? (
-                    <>
-                      {"play" in app ? (
-                        <span className="mx-1.5 text-line">·</span>
-                      ) : null}
+                    <span className="mx-1.5 text-line">·</span>
+                    {"play" in app ? (
                       <a
-                        href={app.privacy}
-                        className="text-accent underline-offset-4 hover:underline"
-                      >
-                        {t.privacy}
-                      </a>
-                    </>
-                  ) : null}
-                  {"windows" in app ? (
-                    <>
-                      <span className="mx-1.5 text-line">·</span>
-                      <a
-                        href={`${app.windows}?hl=${locale === "ko" ? "ko-kr" : "en-us"}`}
+                        href={`${app.play}&hl=${playHl(locale)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-accent underline-offset-4 hover:underline"
                       >
-                        Microsoft Store
+                        Google Play
                       </a>
-                    </>
-                  ) : null}
-                </p>
-              </div>
-            </article>
-          ))}
+                    ) : null}
+                    {"privacy" in app ? (
+                      <>
+                        {"play" in app ? (
+                          <span className="mx-1.5 text-line">·</span>
+                        ) : null}
+                        <a
+                          href={app.privacy}
+                          className="text-accent underline-offset-4 hover:underline"
+                        >
+                          {t.privacy}
+                        </a>
+                      </>
+                    ) : null}
+                    {"windows" in app ? (
+                      <>
+                        <span className="mx-1.5 text-line">·</span>
+                        <a
+                          href={`${app.windows}?hl=${windowsHl(locale)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-accent underline-offset-4 hover:underline"
+                        >
+                          Microsoft Store
+                        </a>
+                      </>
+                    ) : null}
+                  </p>
+                </div>
+              </article>
+            );
+          })}
         </main>
 
         <footer className="mt-auto pt-16 text-sm text-muted">

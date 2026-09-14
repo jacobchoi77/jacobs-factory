@@ -24,5 +24,6 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), "Apple SD Gothic Neo", "Malgun Gothic",
-    sans-serif;
+    "Hiragino Sans", "Yu Gothic", "PingFang SC", "Microsoft YaHei",
+    "PingFang TC", "Microsoft JhengHei", sans-serif;
 }

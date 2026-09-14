@@ -1,38 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import type { Locale } from "../../lib/copy";
+import { playHl } from "../../lib/locale";
 import { sayNoteCopy, sayNoteStores } from "../../lib/saynote";
-
-function readLocale(): Locale {
-  if (typeof window === "undefined") {
-    return "en";
-  }
-  const saved = window.localStorage.getItem("locale");
-  if (saved === "en" || saved === "ko") {
-    return saved;
-  }
-  return navigator.language.toLowerCase().startsWith("ko") ? "ko" : "en";
-}
+import { useLocale } from "../../lib/use-locale";
+import { LocaleSwitch } from "../locale-switch";
 
 export function SayNotePage() {
-  const [locale, setLocale] = useState<Locale>("en");
+  const { locale, switchLocale } = useLocale();
   const t = sayNoteCopy[locale];
-
-  useEffect(() => {
-    const next = readLocale();
-    setLocale(next);
-    document.documentElement.lang = next;
-  }, []);
-
-  function switchLocale(next: Locale) {
-    setLocale(next);
-    window.localStorage.setItem("locale", next);
-    document.documentElement.lang = next;
-  }
-
-  const playHref = `${sayNoteStores.play}&hl=${locale}`;
+  const playHref = `${sayNoteStores.play}&hl=${playHl(locale)}`;
 
   return (
     <div className="mx-auto flex w-full max-w-xl flex-1 flex-col px-6 py-16 sm:py-24">
@@ -43,23 +20,7 @@ export function SayNotePage() {
               {t.back}
             </Link>
           </p>
-          <p className="shrink-0 pt-1 text-sm text-muted">
-            <button
-              type="button"
-              className={locale === "en" ? "text-foreground" : "hover:text-foreground"}
-              onClick={() => switchLocale("en")}
-            >
-              English
-            </button>
-            <span className="mx-1.5 text-line">/</span>
-            <button
-              type="button"
-              className={locale === "ko" ? "text-foreground" : "hover:text-foreground"}
-              onClick={() => switchLocale("ko")}
-            >
-              한국어
-            </button>
-          </p>
+          <LocaleSwitch locale={locale} onChange={switchLocale} />
         </div>
       </header>
 
@@ -117,7 +78,9 @@ export function SayNotePage() {
         </section>
 
         <section className="mt-10">
-          <h2 className="text-sm font-medium tracking-tight">{t.screenshotsTitle}</h2>
+          <h2 className="text-sm font-medium tracking-tight">
+            {t.screenshotsTitle}
+          </h2>
           <div className="-mx-6 mt-4 flex gap-3 overflow-x-auto px-6 pb-2">
             {t.screenshots.map((shot) => (
               <img

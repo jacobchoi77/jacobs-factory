@@ -1,9 +1,40 @@
+import { screenshotSrc, type Locale } from "./locale";
+
 export const freetimerStores = {
   play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.freetimer.android",
   windows: "https://apps.microsoft.com/detail/9NCR1DNFJCP6",
 } as const;
 
-export const freetimerCopy = {
+type Shot = { src: string; alt: string };
+
+function shots(locale: Locale, alts: Record<string, string>): Shot[] {
+  return [
+    { src: screenshotSrc("freetimer", locale, "home.png"), alt: alts.home },
+    { src: screenshotSrc("freetimer", locale, "timer.png"), alt: alts.timer },
+    { src: screenshotSrc("freetimer", locale, "stats.png"), alt: alts.stats },
+    { src: screenshotSrc("freetimer", locale, "history.png"), alt: alts.history },
+  ];
+}
+
+type PageCopy = {
+  tagline: string;
+  intro: string[];
+  featuresTitle: string;
+  features: string[];
+  screenshotsTitle: string;
+  screenshots: Shot[];
+  getTitle: string;
+  play: string;
+  windows: string;
+  ios: string;
+  iosSoon: string;
+  privacy: string;
+  terms: string;
+  back: string;
+  contact: string;
+};
+
+export const freetimerCopy: Record<Locale, PageCopy> = {
   ko: {
     tagline: "탭 한 번에 집중. 광고 없음.",
     intro: [
@@ -24,12 +55,12 @@ export const freetimerCopy = {
       "선택 Google 동기화 (PC와 Android)",
     ],
     screenshotsTitle: "화면",
-    screenshots: [
-      { src: "/apps/freetimer/home.png", alt: "홈 화면의 작업 버튼" },
-      { src: "/apps/freetimer/timer.png", alt: "실행 중인 타이머" },
-      { src: "/apps/freetimer/stats.png", alt: "주간 통계" },
-      { src: "/apps/freetimer/history.png", alt: "완료 기록" },
-    ],
+    screenshots: shots("ko", {
+      home: "홈 화면의 작업 버튼",
+      timer: "실행 중인 타이머",
+      stats: "주간 통계",
+      history: "완료 기록",
+    }),
     getTitle: "받기",
     play: "Google Play",
     windows: "Microsoft Store",
@@ -60,12 +91,12 @@ export const freetimerCopy = {
       "Optional Google sync across this PC and Android",
     ],
     screenshotsTitle: "Screenshots",
-    screenshots: [
-      { src: "/apps/freetimer/home.png", alt: "Home screen with task buttons" },
-      { src: "/apps/freetimer/timer.png", alt: "Running timer" },
-      { src: "/apps/freetimer/stats.png", alt: "Weekly stats" },
-      { src: "/apps/freetimer/history.png", alt: "Session history" },
-    ],
+    screenshots: shots("en", {
+      home: "Home screen with task buttons",
+      timer: "Running timer",
+      stats: "Weekly stats",
+      history: "Session history",
+    }),
     getTitle: "Get the app",
     play: "Google Play",
     windows: "Microsoft Store",
@@ -76,4 +107,256 @@ export const freetimerCopy = {
     back: "Jacobs Factory",
     contact: "Contact",
   },
-} as const;
+  ja: {
+    tagline: "タップ一つで集中。広告なし。",
+    intro: [
+      "FreeTimerは、集中したいことをボタンにしておき、タップ一つでタイマーを始めるアプリです。",
+      "名前と時間を決めるだけ。数学50分、英語25分のように、よく使う集中をホーム画面に置いておけます。グループに分けて、完了回数と記録を週・月・年で確認できます。",
+      "タイマー中は雨、森、カフェなどの集中サウンドを流せます。追加の音は必要なときにダウンロードします。ホーム画面には今日の一言を表示できます。",
+      "Googleアカウントで一度つなぐと、このPCとAndroidアプリの作業・記録が揃います。ログインは任意で、オンにするとこのアプリ専用のGoogle Drive隠しフォルダにだけ同期します。広告はなく、必要な機能はすべて無料です。",
+    ],
+    featuresTitle: "機能",
+    features: [
+      "タップ一つで始まるタスク別タイマー",
+      "グループでタスクを整理",
+      "週・月・年の記録と統計",
+      "雨、森、カフェなどの集中サウンド",
+      "ホーム画面の今日の一言",
+      "ライト・ダーク・カラースキン",
+      "端末バックアップと自動バックアップ",
+      "任意のGoogle同期（PCとAndroid）",
+    ],
+    screenshotsTitle: "画面",
+    screenshots: shots("ja", {
+      home: "ホーム画面のタスクボタン",
+      timer: "実行中のタイマー",
+      stats: "週間統計",
+      history: "完了記録",
+    }),
+    getTitle: "入手",
+    play: "Google Play",
+    windows: "Microsoft Store",
+    ios: "App Store",
+    iosSoon: "準備中",
+    privacy: "プライバシー",
+    terms: "利用規約",
+    back: "Jacobs Factory",
+    contact: "お問い合わせ",
+  },
+  "zh-CN": {
+    tagline: "点一下就开始专注。无广告。",
+    intro: [
+      "FreeTimer 把你想专注的事做成按钮，点一下计时就开始。",
+      "给任务起个名字、定好时间——比如数学 50 分钟、写作 25 分钟——放在主屏幕上随时用。可以用分组整理，再按周、月、年查看完成记录。",
+      "计时期间可以播放雨声、森林、咖啡馆等专注背景音。额外的声音需要时再下载。主屏幕还可以显示今日一句。",
+      "用 Google 登录一次，这台电脑和 Android 应用的任务、记录就会对齐。登录可选，开启后只同步到本应用隐藏的 Google Drive 文件夹。没有广告，核心功能全部免费。",
+    ],
+    featuresTitle: "功能",
+    features: [
+      "点一下就开始的任务计时器",
+      "用分组整理任务",
+      "按周、月、年查看记录和统计",
+      "雨声、森林、咖啡馆等专注背景音",
+      "主屏幕的今日一句",
+      "浅色、深色和彩色皮肤",
+      "本地备份和自动备份",
+      "可选 Google 同步（电脑和 Android）",
+    ],
+    screenshotsTitle: "截图",
+    screenshots: shots("zh-CN", {
+      home: "首页的任务按钮",
+      timer: "正在运行的计时器",
+      stats: "每周统计",
+      history: "完成记录",
+    }),
+    getTitle: "获取",
+    play: "Google Play",
+    windows: "Microsoft Store",
+    ios: "App Store",
+    iosSoon: "即将推出",
+    privacy: "隐私政策",
+    terms: "使用条款",
+    back: "Jacobs Factory",
+    contact: "联系",
+  },
+  "zh-TW": {
+    tagline: "點一下就開始專注。無廣告。",
+    intro: [
+      "FreeTimer 把你想專注的事做成按鈕，點一下計時就開始。",
+      "幫任務取名字、設定時間——例如數學 50 分鐘、寫作 25 分鐘——放在主畫面隨時使用。可以用群組整理，再按週、月、年查看完成紀錄。",
+      "計時期間可以播放雨聲、森林、咖啡廳等專注背景音。額外的聲音需要時再下載。主畫面還可以顯示今日一句。",
+      "用 Google 登入一次，這台電腦和 Android 應用的任務、紀錄就會對齊。登入可選，開啟後只同步到本應用隱藏的 Google Drive 資料夾。沒有廣告，核心功能全部免費。",
+    ],
+    featuresTitle: "功能",
+    features: [
+      "點一下就開始的任務計時器",
+      "用群組整理任務",
+      "按週、月、年查看紀錄與統計",
+      "雨聲、森林、咖啡廳等專注背景音",
+      "主畫面的今日一句",
+      "淺色、深色與彩色外觀",
+      "本機備份與自動備份",
+      "可選 Google 同步（電腦與 Android）",
+    ],
+    screenshotsTitle: "截圖",
+    screenshots: shots("zh-TW", {
+      home: "首頁的任務按鈕",
+      timer: "正在執行的計時器",
+      stats: "每週統計",
+      history: "完成紀錄",
+    }),
+    getTitle: "取得",
+    play: "Google Play",
+    windows: "Microsoft Store",
+    ios: "App Store",
+    iosSoon: "即將推出",
+    privacy: "隱私權政策",
+    terms: "使用條款",
+    back: "Jacobs Factory",
+    contact: "聯絡",
+  },
+  es: {
+    tagline: "Enfoque de un toque. Sin anuncios.",
+    intro: [
+      "FreeTimer convierte lo que quieres enfocar en botones. Toca uno y el temporizador empieza.",
+      "Ponle nombre y duración a una tarea — 50 minutos de mates, 25 de escritura — y déjala en la pantalla de inicio. Organiza en grupos y revisa por semana, mes o año.",
+      "Mientras corre el temporizador puedes poner sonidos de enfoque: lluvia, bosque, café y más. Los sonidos extra se descargan cuando los necesitas. En la pantalla de inicio puede aparecer una cita del día.",
+      "Inicia sesión con Google una vez y este PC se mantiene al día con tus otros dispositivos, incluida la app de Android. El inicio de sesión es opcional. Si lo enciendes, los datos solo se sincronizan con la carpeta oculta de Drive de esta app. No hay anuncios. Todo lo esencial es gratis.",
+    ],
+    featuresTitle: "Funciones",
+    features: [
+      "Temporizadores de un toque por tarea",
+      "Grupos para organizar el trabajo",
+      "Historial y estadísticas por semana, mes o año",
+      "Sonidos de enfoque (lluvia, bosque, café y más)",
+      "Cita del día en la pantalla de inicio",
+      "Modo claro, oscuro y varios temas",
+      "Copia de seguridad local y automática",
+      "Sincronización opcional de Google entre este PC y Android",
+    ],
+    screenshotsTitle: "Capturas",
+    screenshots: shots("es", {
+      home: "Inicio con botones de tareas",
+      timer: "Temporizador en marcha",
+      stats: "Estadísticas semanales",
+      history: "Historial de sesiones",
+    }),
+    getTitle: "Descargar",
+    play: "Google Play",
+    windows: "Microsoft Store",
+    ios: "App Store",
+    iosSoon: "Próximamente",
+    privacy: "Privacidad",
+    terms: "Términos",
+    back: "Jacobs Factory",
+    contact: "Contacto",
+  },
+  fr: {
+    tagline: "Minuteur de focus en un toucher. Sans pub.",
+    intro: [
+      "FreeTimer transforme ce sur quoi vous voulez vous concentrer en boutons. Un toucher, et le minuteur démarre.",
+      "Donnez un nom et une durée — 50 minutes de maths, 25 d’écriture — et gardez-les sur l’accueil. Organisez en groupes, puis consultez par semaine, mois ou année.",
+      "Pendant le minuteur, écoutez pluie, forêt, café et d’autres sons de focus. Les sons en plus se téléchargent au besoin. Une citation du jour peut s’afficher sur l’accueil.",
+      "Connectez-vous une fois avec Google et ce PC reste aligné avec vos autres appareils, y compris l’appli Android. La connexion est optionnelle. Si vous l’activez, les données ne synchronisent que le dossier Drive caché de cette appli. Pas de publicité. L’essentiel est gratuit.",
+    ],
+    featuresTitle: "Fonctions",
+    features: [
+      "Minuteurs d’un toucher par tâche",
+      "Groupes pour ranger le travail",
+      "Historique et statistiques par semaine, mois ou année",
+      "Sons de focus (pluie, forêt, café et plus)",
+      "Citation du jour sur l’accueil",
+      "Clair, sombre et plusieurs thèmes",
+      "Sauvegarde locale et automatique",
+      "Sync Google optionnelle entre ce PC et Android",
+    ],
+    screenshotsTitle: "Captures",
+    screenshots: shots("fr", {
+      home: "Accueil avec les boutons de tâches",
+      timer: "Minuteur en cours",
+      stats: "Statistiques de la semaine",
+      history: "Historique des sessions",
+    }),
+    getTitle: "Obtenir",
+    play: "Google Play",
+    windows: "Microsoft Store",
+    ios: "App Store",
+    iosSoon: "Bientôt",
+    privacy: "Confidentialité",
+    terms: "Conditions",
+    back: "Jacobs Factory",
+    contact: "Contact",
+  },
+  de: {
+    tagline: "Fokus-Timer mit einem Tipp. Keine Werbung.",
+    intro: [
+      "FreeTimer macht aus dem, worauf du dich konzentrieren willst, Buttons. Ein Tipp, und der Timer startet.",
+      "Gib einer Aufgabe Namen und Dauer — 50 Minuten Mathe, 25 Schreiben — und behalte sie auf dem Startbildschirm. Gruppen, Verlauf nach Woche, Monat oder Jahr.",
+      "Während der Timer läuft: Fokus-Sounds wie Regen, Wald oder Café. Extra-Sounds bei Bedarf. Zitat des Tages auf dem Startbildschirm möglich.",
+      "Einmal mit Google anmelden, dann bleibt dieser PC mit deinen anderen Geräten synchron, einschließlich der Android-App. Die Anmeldung ist optional. Wenn du sie einschaltest, synchronisiert nur der versteckte Drive-Ordner dieser App. Keine Werbung. Alles Wichtige ist kostenlos.",
+    ],
+    featuresTitle: "Funktionen",
+    features: [
+      "Ein-Tipp-Timer pro Aufgabe",
+      "Gruppen zum Sortieren",
+      "Verlauf und Statistiken nach Woche, Monat oder Jahr",
+      "Fokus-Sounds (Regen, Wald, Café und mehr)",
+      "Zitat des Tages auf dem Startbildschirm",
+      "Hell, dunkel und mehrere Skins",
+      "Lokales Backup und Auto-Backup",
+      "Optionaler Google-Sync zwischen diesem PC und Android",
+    ],
+    screenshotsTitle: "Screenshots",
+    screenshots: shots("de", {
+      home: "Startbildschirm mit Aufgaben-Buttons",
+      timer: "Laufender Timer",
+      stats: "Wochenstatistik",
+      history: "Sitzungsverlauf",
+    }),
+    getTitle: "Holen",
+    play: "Google Play",
+    windows: "Microsoft Store",
+    ios: "App Store",
+    iosSoon: "Demnächst",
+    privacy: "Datenschutz",
+    terms: "Nutzungsbedingungen",
+    back: "Jacobs Factory",
+    contact: "Kontakt",
+  },
+  "pt-BR": {
+    tagline: "Timer de foco num toque. Sem anúncios.",
+    intro: [
+      "O FreeTimer transforma o que você quer focar em botões. Toque em um e o timer começa.",
+      "Dê nome e duração a uma tarefa — 50 minutos de matemática, 25 de escrita — e deixe na tela inicial. Organize em grupos e veja por semana, mês ou ano.",
+      "Enquanto o timer roda, ouça chuva, floresta, café e outros sons de foco. Sons extras baixam quando precisar. Na tela inicial pode aparecer uma frase do dia.",
+      "Entre com o Google uma vez e este PC fica alinhado com seus outros aparelhos, inclusive o app Android. O login é opcional. Se ligar, os dados sincronizam só a pasta oculta do Drive deste app. Não tem anúncios. O essencial é grátis.",
+    ],
+    featuresTitle: "Recursos",
+    features: [
+      "Timers de um toque por tarefa",
+      "Grupos para organizar o trabalho",
+      "Histórico e estatísticas por semana, mês ou ano",
+      "Sons de foco (chuva, floresta, café e mais)",
+      "Frase do dia na tela inicial",
+      "Claro, escuro e vários temas",
+      "Backup local e automático",
+      "Sincronização Google opcional entre este PC e o Android",
+    ],
+    screenshotsTitle: "Capturas",
+    screenshots: shots("pt-BR", {
+      home: "Início com botões de tarefas",
+      timer: "Timer em andamento",
+      stats: "Estatísticas da semana",
+      history: "Histórico das sessões",
+    }),
+    getTitle: "Baixar",
+    play: "Google Play",
+    windows: "Microsoft Store",
+    ios: "App Store",
+    iosSoon: "Em breve",
+    privacy: "Privacidade",
+    terms: "Termos",
+    back: "Jacobs Factory",
+    contact: "Contato",
+  },
+};

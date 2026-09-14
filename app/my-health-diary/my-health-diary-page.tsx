@@ -1,37 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import type { Locale } from "../../lib/copy";
+import { LocaleSwitch } from "../locale-switch";
 import { myHealthDiaryCopy, myHealthDiaryStores } from "../../lib/my-health-diary";
+import { useLocale } from "../../lib/use-locale";
 
-function readLocale(): Locale {
-  if (typeof window === "undefined") {
-    return "en";
-  }
-  const saved = window.localStorage.getItem("locale");
-  if (saved === "en" || saved === "ko") {
-    return saved;
-  }
-  return navigator.language.toLowerCase().startsWith("ko") ? "ko" : "en";
-}
+const koreaLocales = ["en", "ko"] as const;
 
 export function MyHealthDiaryPage() {
-  const [locale, setLocale] = useState<Locale>("en");
+  const { locale: stored, switchLocale } = useLocale();
+  const locale = stored === "ko" ? "ko" : "en";
   const t = myHealthDiaryCopy[locale];
-
-  useEffect(() => {
-    const next = readLocale();
-    setLocale(next);
-    document.documentElement.lang = next;
-  }, []);
-
-  function switchLocale(next: Locale) {
-    setLocale(next);
-    window.localStorage.setItem("locale", next);
-    document.documentElement.lang = next;
-  }
-
   const playHref = `${myHealthDiaryStores.play}&hl=${locale}`;
 
   return (
@@ -43,23 +22,11 @@ export function MyHealthDiaryPage() {
               {t.back}
             </Link>
           </p>
-          <p className="shrink-0 pt-1 text-sm text-muted">
-            <button
-              type="button"
-              className={locale === "en" ? "text-foreground" : "hover:text-foreground"}
-              onClick={() => switchLocale("en")}
-            >
-              English
-            </button>
-            <span className="mx-1.5 text-line">/</span>
-            <button
-              type="button"
-              className={locale === "ko" ? "text-foreground" : "hover:text-foreground"}
-              onClick={() => switchLocale("ko")}
-            >
-              한국어
-            </button>
-          </p>
+          <LocaleSwitch
+            locale={locale}
+            onChange={switchLocale}
+            locales={koreaLocales}
+          />
         </div>
       </header>
 

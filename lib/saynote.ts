@@ -1,8 +1,39 @@
+import { screenshotSrc, type Locale } from "./locale";
+
 export const sayNoteStores = {
   play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.saynote.android",
 } as const;
 
-export const sayNoteCopy = {
+type Shot = { src: string; alt: string };
+
+function shots(locale: Locale, alts: Record<string, string>): Shot[] {
+  return [
+    { src: screenshotSrc("saynote", locale, "home.png"), alt: alts.home },
+    { src: screenshotSrc("saynote", locale, "list.png"), alt: alts.list },
+    { src: screenshotSrc("saynote", locale, "calendar.png"), alt: alts.calendar },
+    { src: screenshotSrc("saynote", locale, "detail.png"), alt: alts.detail },
+  ];
+}
+
+type PageCopy = {
+  name: string;
+  tagline: string;
+  intro: string[];
+  featuresTitle: string;
+  features: string[];
+  screenshotsTitle: string;
+  screenshots: Shot[];
+  getTitle: string;
+  play: string;
+  ios: string;
+  iosSoon: string;
+  privacy: string;
+  terms: string;
+  back: string;
+  contact: string;
+};
+
+export const sayNoteCopy: Record<Locale, PageCopy> = {
   ko: {
     name: "SayNote",
     tagline: "말하면 바로 글로 남는 노트.",
@@ -24,12 +55,12 @@ export const sayNoteCopy = {
       "계정·광고 없음. 노트는 휴대폰에",
     ],
     screenshotsTitle: "화면",
-    screenshots: [
-      { src: "/apps/saynote/home.png", alt: "홈 화면의 말하기 버튼과 최근 노트" },
-      { src: "/apps/saynote/speaking.png", alt: "말하는 중 실시간 텍스트" },
-      { src: "/apps/saynote/list.png", alt: "노트 목록" },
-      { src: "/apps/saynote/calendar.png", alt: "달력과 예정 노트" },
-    ],
+    screenshots: shots("ko", {
+      home: "홈 화면의 말하기 버튼과 최근 노트",
+      list: "노트 목록",
+      calendar: "달력과 예정 노트",
+      detail: "노트 상세",
+    }),
     getTitle: "받기",
     play: "Google Play",
     ios: "App Store",
@@ -60,12 +91,12 @@ export const sayNoteCopy = {
       "No account, no ads. Notes stay on the phone",
     ],
     screenshotsTitle: "Screenshots",
-    screenshots: [
-      { src: "/apps/saynote/home.png", alt: "Home with the speak button and a recent note" },
-      { src: "/apps/saynote/speaking.png", alt: "Live text while speaking" },
-      { src: "/apps/saynote/list.png", alt: "Notes list" },
-      { src: "/apps/saynote/calendar.png", alt: "Calendar with planned notes" },
-    ],
+    screenshots: shots("en", {
+      home: "Home with the speak button and a recent note",
+      list: "Notes list",
+      calendar: "Calendar with planned notes",
+      detail: "Note detail",
+    }),
     getTitle: "Get the app",
     play: "Google Play",
     ios: "App Store",
@@ -75,4 +106,256 @@ export const sayNoteCopy = {
     back: "Jacobs Factory",
     contact: "Contact",
   },
-} as const;
+  ja: {
+    name: "SayNote",
+    tagline: "話すだけでメモになる。",
+    intro: [
+      "SayNoteは、話したことをノートにするアプリです。最初の画面でそのまま話せます。直近のメモはその下に出ます。",
+      "話すと文字で保存されます。録音ファイルは残しません。一覧、カレンダー、検索、重要マークで探し直し、リマインダーや読み上げ、写真の添付もできます。認識できなければ自分で書けます。",
+      "アカウントはありません。広告もありません。メモはこの端末だけに残ります。バックアップの送信と取り込みができ、端末内に自動バックアップも残します。",
+      "音声認識にはインターネットが必要な場合があります。メモはこの端末だけにあります。",
+    ],
+    featuresTitle: "機能",
+    features: [
+      "話すだけで文字になるメモ",
+      "一覧、カレンダー、検索、重要マーク",
+      "端末内リマインダーと読み上げ",
+      "メモに写真を付ける",
+      "ホーム画面ウィジェットからすぐ話す",
+      "テーマと文字サイズ",
+      "書き出し・読み込み、端末内自動バックアップ",
+      "アカウント・広告なし。メモは端末に",
+    ],
+    screenshotsTitle: "画面",
+    screenshots: shots("ja", {
+      home: "ホーム画面の話すボタンと直近のメモ",
+      list: "メモ一覧",
+      calendar: "カレンダーと予定メモ",
+      detail: "メモの詳細",
+    }),
+    getTitle: "入手",
+    play: "Google Play",
+    ios: "App Store",
+    iosSoon: "準備中",
+    privacy: "プライバシー",
+    terms: "利用規約",
+    back: "Jacobs Factory",
+    contact: "お問い合わせ",
+  },
+  "zh-CN": {
+    name: "SayNote",
+    tagline: "说话即成笔记。",
+    intro: [
+      "SayNote 能把你说的话变成笔记。打开应用即可开口，最近一条笔记在下方。",
+      "说话后以文字保存，不保留录音。可用列表、日历、搜索和重要标记再找到笔记，也可设提醒、朗读或附加照片。识别不到时可以手写。",
+      "没有账号，也没有广告。笔记只留在这台手机上。可以发送或导入备份，设备内也会留下自动备份。",
+      "语音识别可能需要网络。笔记只在你的手机上。",
+    ],
+    featuresTitle: "功能",
+    features: [
+      "开口即成文字笔记",
+      "列表、日历、搜索和重要标记",
+      "本机提醒和朗读",
+      "给笔记附加照片",
+      "主屏幕微件直接开口",
+      "主题和文字大小",
+      "导出、导入和本机自动备份",
+      "无账号、无广告。笔记留在手机上",
+    ],
+    screenshotsTitle: "截图",
+    screenshots: shots("zh-CN", {
+      home: "首页的说话按钮和最近笔记",
+      list: "笔记列表",
+      calendar: "日历和预定笔记",
+      detail: "笔记详情",
+    }),
+    getTitle: "获取",
+    play: "Google Play",
+    ios: "App Store",
+    iosSoon: "即将推出",
+    privacy: "隐私政策",
+    terms: "使用条款",
+    back: "Jacobs Factory",
+    contact: "联系",
+  },
+  "zh-TW": {
+    name: "SayNote",
+    tagline: "說話即成筆記。",
+    intro: [
+      "SayNote 能把你說的話變成筆記。打開應用就能開口，最近一則筆記在下方。",
+      "說話後以文字儲存，不留下錄音。可用列表、日曆、搜尋和重要標記再找到筆記，也可設提醒、朗讀或附加照片。辨識不到時可以手寫。",
+      "沒有帳號，也沒有廣告。筆記只留在這支手機上。可以傳送或匯入備份，裝置內也會留下自動備份。",
+      "語音辨識可能需要網路。筆記只在你的手機上。",
+    ],
+    featuresTitle: "功能",
+    features: [
+      "開口即成文字筆記",
+      "列表、日曆、搜尋和重要標記",
+      "本機提醒和朗讀",
+      "給筆記附加照片",
+      "主畫面小工具直接開口",
+      "主題和文字大小",
+      "匯出、匯入和本機自動備份",
+      "無帳號、無廣告。筆記留在手機上",
+    ],
+    screenshotsTitle: "截圖",
+    screenshots: shots("zh-TW", {
+      home: "首頁的說話按鈕和最近筆記",
+      list: "筆記列表",
+      calendar: "日曆和預定筆記",
+      detail: "筆記詳情",
+    }),
+    getTitle: "取得",
+    play: "Google Play",
+    ios: "App Store",
+    iosSoon: "即將推出",
+    privacy: "隱私權政策",
+    terms: "使用條款",
+    back: "Jacobs Factory",
+    contact: "聯絡",
+  },
+  es: {
+    name: "SayNote",
+    tagline: "Habla y se convierte en nota.",
+    intro: [
+      "SayNote convierte lo que dices en una nota. Abre la app y habla. Tu última nota queda abajo.",
+      "Lo hablado se guarda como texto. No se queda ningún archivo de audio. Vuelve a encontrar notas con la lista, el calendario, la búsqueda y la marca de importante. Pon un recordatorio, escucha la lectura o adjunta una foto. Si no se reconoce nada, puedes escribirla.",
+      "No hay cuenta ni anuncios. Las notas se quedan en este teléfono. Envía o importa una copia de seguridad. La app también deja una copia automática en el dispositivo.",
+      "Puede hacer falta internet para el reconocimiento de voz. Las notas se quedan en tu teléfono.",
+    ],
+    featuresTitle: "Funciones",
+    features: [
+      "Habla y guarda la nota como texto",
+      "Lista, calendario, búsqueda y marca de importante",
+      "Recordatorios locales y lectura en voz alta",
+      "Fotos en una nota",
+      "Widget de inicio para empezar a hablar",
+      "Tema y tamaño de texto",
+      "Exportar, importar y copia automática en el dispositivo",
+      "Sin cuenta ni anuncios. Las notas se quedan en el teléfono",
+    ],
+    screenshotsTitle: "Capturas",
+    screenshots: shots("es", {
+      home: "Inicio con el botón de hablar y una nota reciente",
+      list: "Lista de notas",
+      calendar: "Calendario con notas previstas",
+      detail: "Detalle de la nota",
+    }),
+    getTitle: "Descargar",
+    play: "Google Play",
+    ios: "App Store",
+    iosSoon: "Próximamente",
+    privacy: "Privacidad",
+    terms: "Términos",
+    back: "Jacobs Factory",
+    contact: "Contacto",
+  },
+  fr: {
+    name: "SayNote",
+    tagline: "Parlez, et cela devient une note.",
+    intro: [
+      "SayNote transforme ce que vous dites en note. Ouvrez l’appli et parlez. Votre dernière note est en dessous.",
+      "La parole est enregistrée en texte. Aucun fichier audio n’est conservé. Retrouvez vos notes avec la liste, le calendrier, la recherche et le marquage important. Réglez un rappel, écoutez la lecture ou joignez une photo. Si rien n’est reconnu, vous pouvez écrire.",
+      "Il n’y a ni compte ni publicité. Les notes restent sur ce téléphone. Envoyez ou importez une sauvegarde. L’appli conserve aussi une sauvegarde automatique sur l’appareil.",
+      "Internet peut être nécessaire pour la reconnaissance vocale. Les notes restent sur votre téléphone.",
+    ],
+    featuresTitle: "Fonctions",
+    features: [
+      "Parlez et enregistrez une note en texte",
+      "Liste, calendrier, recherche et marquage important",
+      "Rappels locaux et lecture à voix haute",
+      "Photos sur une note",
+      "Widget d’accueil pour commencer à parler",
+      "Thème et taille du texte",
+      "Export, import et sauvegarde automatique sur l’appareil",
+      "Pas de compte, pas de pub. Les notes restent sur le téléphone",
+    ],
+    screenshotsTitle: "Captures",
+    screenshots: shots("fr", {
+      home: "Accueil avec le bouton parler et une note récente",
+      list: "Liste des notes",
+      calendar: "Calendrier avec notes prévues",
+      detail: "Détail de la note",
+    }),
+    getTitle: "Obtenir",
+    play: "Google Play",
+    ios: "App Store",
+    iosSoon: "Bientôt",
+    privacy: "Confidentialité",
+    terms: "Conditions",
+    back: "Jacobs Factory",
+    contact: "Contact",
+  },
+  de: {
+    name: "SayNote",
+    tagline: "Sprechen, und es wird eine Notiz.",
+    intro: [
+      "SayNote macht aus dem Gesagten eine Notiz. Öffne die App und sprich. Die letzte Notiz steht darunter.",
+      "Gesprochenes wird als Text gespeichert. Es bleibt keine Aufnahmedatei. Finde Notizen wieder über Liste, Kalender, Suche und Wichtig-Markierung. Setze eine Erinnerung, hör sie vorlesen oder hänge ein Foto an. Wenn nichts erkannt wird, kannst du schreiben.",
+      "Es gibt kein Konto und keine Werbung. Notizen bleiben auf diesem Handy. Sende oder importiere ein Backup. Die App legt auf dem Gerät auch ein automatisches Backup an.",
+      "Für die Spracherkennung kann Internet nötig sein. Notizen bleiben auf deinem Handy.",
+    ],
+    featuresTitle: "Funktionen",
+    features: [
+      "Sprechen und als Text speichern",
+      "Liste, Kalender, Suche und Wichtig-Markierung",
+      "Lokale Erinnerungen und Vorlesen",
+      "Fotos an einer Notiz",
+      "Homescreen-Widget zum Sofort-Sprechen",
+      "Design und Textgröße",
+      "Export, Import und Auto-Backup auf dem Gerät",
+      "Kein Konto, keine Werbung. Notizen bleiben auf dem Handy",
+    ],
+    screenshotsTitle: "Screenshots",
+    screenshots: shots("de", {
+      home: "Startbildschirm mit Sprechen-Button und letzter Notiz",
+      list: "Notizenliste",
+      calendar: "Kalender mit geplanten Notizen",
+      detail: "Notizdetails",
+    }),
+    getTitle: "Holen",
+    play: "Google Play",
+    ios: "App Store",
+    iosSoon: "Demnächst",
+    privacy: "Datenschutz",
+    terms: "Nutzungsbedingungen",
+    back: "Jacobs Factory",
+    contact: "Kontakt",
+  },
+  "pt-BR": {
+    name: "SayNote",
+    tagline: "Fale e vira nota.",
+    intro: [
+      "O SayNote transforma o que você fala em uma nota. Abra o app e fale. Sua última nota fica embaixo.",
+      "A fala é salva como texto. Nenhum arquivo de áudio fica guardado. Encontre as notas de novo pela lista, calendário, pesquisa e marcação de importante. Defina um lembrete, ouça a leitura ou anexe uma foto. Se nada for reconhecido, você pode escrever.",
+      "Não tem conta nem anúncios. As notas ficam neste celular. Envie ou importe um backup. O app também guarda um backup automático no aparelho.",
+      "Pode ser preciso internet para o reconhecimento de voz. As notas ficam no seu celular.",
+    ],
+    featuresTitle: "Recursos",
+    features: [
+      "Fale e salve a nota como texto",
+      "Lista, calendário, pesquisa e marcação de importante",
+      "Lembretes locais e leitura em voz alta",
+      "Fotos numa nota",
+      "Widget da tela inicial para começar a falar",
+      "Tema e tamanho do texto",
+      "Exportar, importar e backup automático no aparelho",
+      "Sem conta, sem anúncios. As notas ficam no celular",
+    ],
+    screenshotsTitle: "Capturas",
+    screenshots: shots("pt-BR", {
+      home: "Início com o botão de falar e uma nota recente",
+      list: "Lista de notas",
+      calendar: "Calendário com notas planejadas",
+      detail: "Detalhe da nota",
+    }),
+    getTitle: "Baixar",
+    play: "Google Play",
+    ios: "App Store",
+    iosSoon: "Em breve",
+    privacy: "Privacidade",
+    terms: "Termos",
+    back: "Jacobs Factory",
+    contact: "Contato",
+  },
+};
