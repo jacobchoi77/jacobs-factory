@@ -22,15 +22,15 @@ export const sayNotePrivacy = {
       },
       {
         heading: "Backup, sharing, and optional network use",
-        body: "Export and import in Settings send the file, including attached photos, only where you choose. The on-device auto-backup stays on the phone. If Android backup is on, note data may be included in your Google account backup. Note text or a backup file is sent to another app only when you tap Share. Optional tips use Google Play Billing; card numbers go to Google, not to Jacobs Factory. The optional Ko-fi / PayPal link opens in the browser and that site’s policy applies. If you send feedback, the draft can include app version, OS version, and device model and goes to contact@jacobs-factory.com only if you send it.",
+        body: "Export and import in Settings send the file, including attached photos, only where you choose. The on-device auto-backup stays on the phone. If Android backup is on, note data may be included in your Google account backup. If iCloud Backup is on, note data may be included in your Apple account backup. Note text or a backup file is sent to another app only when you tap Share. On Android, optional tips use Google Play Billing; card numbers go to Google, not to Jacobs Factory. On iOS there is no in-app purchase. The optional Ko-fi / PayPal link opens in the browser and that site’s policy applies. If you send feedback, the draft can include app version, OS version, and device model and goes to contact@jacobs-factory.com only if you send it.",
       },
       {
         heading: "Permissions",
-        body: "Microphone is used for voice notes. Speech recognition on iOS turns speech into text. Camera and photo library are used only if you attach a photo. Notifications and exact alarms are used only for optional local reminders. Internet is used for speech recognition as implemented on the device and for Google Play Billing.",
+        body: "Microphone is used for voice notes. Speech recognition on iOS turns speech into text. Camera is used only if you take a photo. Choosing a photo uses the system picker; the App does not keep standing access to your library. Notifications and exact alarms are used only for optional local reminders, which are restored after reboot on this phone. Internet is used for speech recognition as implemented on the device, for Google Play Billing on Android, and for optional links you tap.",
       },
       {
         heading: "Third parties",
-        body: "There are no ads, analytics, or account SDKs. Speech recognition is handled by the device, Google (Android), or Apple (iOS). Optional tips are processed by Google Play Billing. The optional Ko-fi / PayPal link opens only if you tap it. If installed from Play, Android may send crash information to Google Play (Android Vitals). We use that only to check stability. Note text is not collected.",
+        body: "There are no ads, analytics, or account SDKs. Speech recognition is handled by the device, Google (Android), or Apple (iOS). On Android, optional tips are processed by Google Play Billing. The optional Ko-fi / PayPal link opens only if you tap it. If installed from Play, Android may send crash information to Google Play (Android Vitals). We use that only to check stability. Note text is not collected.",
       },
       {
         heading: "Children, changes, and contact",
@@ -53,19 +53,19 @@ export const sayNotePrivacy = {
       },
       {
         heading: "음성, 사진, 알림",
-        body: "새 노트를 말할 때 마이크를 씁니다. 음성 파일은 앱이 저장하지 않습니다. 글자로 바꾼 결과만 남습니다. Android는 SpeechRecognizer를 쓰며, 기기와 언어에 따라 음성이 Google로 갈 수 있습니다. iOS는 Apple 음성 인식을 쓰며 음성이 Apple로 갈 수 있습니다. Jacobs Factory는 그 음성을 받거나 보관하지 않습니다. 읽어주기는 기기 TTS를 씁니다. 사진 보관함이나 카메라로 붙인 사진은 이 기기에 남고, 백업을 보내거나 공유를 누를 때만 밖으로 나갑니다. 알림은 이 기기의 로컬 알림입니다. 푸시 서버는 없습니다.",
+        body: "새 노트를 말할 때 마이크를 쓹니다. 음성 파일은 앱이 저장하지 않습니다. 글자로 바꾼 결과만 남습니다. Android는 SpeechRecognizer를 쓰며, 기기와 언어에 따라 음성이 Google로 갈 수 있습니다. iOS는 Apple 음성 인식을 쓰며 음성이 Apple로 갈 수 있습니다. Jacobs Factory는 그 음성을 받거나 보관하지 않습니다. 읽어주기는 기기 TTS를 쓹니다. 사진 보관함이나 카메라로 붙인 사진은 이 기기에 남고, 백업을 보내거나 공유를 누를 때만 밖으로 나갑니다. 알림은 이 기기의 로컬 알림입니다. 푸시 서버는 없습니다.",
       },
       {
         heading: "백업, 공유, 선택 네트워크",
-        body: "설정에서 보내기/가져오기는 사진이 포함된 파일을 사용자가 고른 곳으로만 보냅니다. 기기 안 자동 백업은 전화 안에만 둡니다. Android 자동 백업이 켜져 있으면 노트 데이터가 Google 계정 백업에 포함될 수 있습니다. 공유를 누를 때만 선택한 앱으로 노트나 백업이 전달됩니다. 선택 응원은 Google Play 결제를 쓰며, 카드 번호는 Google이 받고 Jacobs Factory로는 오지 않습니다. 선택 Ko-fi / PayPal 링크는 브라우저에서 열리며 해당 서비스 정책이 적용됩니다. 의견을 보내면 초안에 앱 버전, OS 버전, 기기 모델이 들어갈 수 있으며, 메일을 보낼 때만 contact@jacobs-factory.com으로 갑니다.",
+        body: "설정에서 보내기/가져오기는 사진이 포함된 파일을 사용자가 고른 곳으로만 보냅니다. 기기 안 자동 백업은 전화 안에만 둡니다. Android 자동 백업이 켜져 있으면 노트 데이터가 Google 계정 백업에 포함될 수 있습니다. iCloud 백업이 켜져 있으면 Apple 계정 백업에 포함될 수 있습니다. 공유를 누를 때만 선택한 앱으로 노트나 백업이 전달됩니다. Android의 선택 응원은 Google Play 결제를 쓰며, 카드 번호는 Google이 받고 Jacobs Factory로는 오지 않습니다. iOS에는 인앱 결제가 없습니다. 선택 Ko-fi / PayPal 링크는 브라우저에서 열리며 해당 서비스 정책이 적용됩니다. 의견을 보내면 초안에 앱 버전, OS 버전, 기기 모델이 들어갈 수 있으며, 메일을 볼 때만 contact@jacobs-factory.com으로 갑니다.",
       },
       {
         heading: "권한",
-        body: "마이크는 말하기 노트에 씁니다. iOS 음성 인식은 말을 글자로 바꿉니다. 카메라와 사진은 사진을 붙일 때만 씁니다. 알림과 정확한 알람은 선택 로컬 알림에만 씁니다. 인터넷은 기기 구현에 따른 음성 인식과 Google Play 결제에 씁니다.",
+        body: "마이크는 말하기 노트에 쓹니다. iOS 음성 인식은 말을 글자로 바꿍니다. 카메라는 사진을 찍을 때만 쓹니다. 보관함에서 고를 때는 시스템 선택기를 쓰며, 앱이 사진 보관함에 계속 접근하지 않습니다. 알림과 정확한 알람은 선택 로컬 알림에만 쓰고, 재부팅 뒤에도 이 기기에서 다시 맞춥니다. 인터넷은 기기 구현에 따른 음성 인식, Android의 Google Play 결제, 그리고 사용자가 여는 선택 링크에 쓹니다.",
       },
       {
         heading: "제3자",
-        body: "광고, 분석, 계정 SDK는 없습니다. 음성 인식은 기기, Google(Android), 또는 Apple(iOS)이 처리합니다. 선택 응원은 Google Play 결제가 처리합니다. Ko-fi / PayPal 링크는 누를 때만 열립니다. Play에서 설치한 경우 Android가 크래시 정보를 Google Play(Android Vitals)에 보낼 수 있습니다. 안정성 확인에만 쓰며 노트 내용은 수집하지 않습니다.",
+        body: "광고, 분석, 계정 SDK는 없습니다. 음성 인식은 기기, Google(Android), 또는 Apple(iOS)이 처리합니다. Android의 선택 응원은 Google Play 결제가 처리합니다. Ko-fi / PayPal 링크는 누를 때만 열립니다. Play에서 설치한 경우 Android가 크래시 정보를 Google Play(Android Vitals)에 볼 수 있습니다. 안정성 확인에만 쓰며 노트 내용은 수집하지 않습니다.",
       },
       {
         heading: "아동, 변경, 문의",
