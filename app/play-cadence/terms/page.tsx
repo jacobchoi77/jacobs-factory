@@ -2,20 +2,19 @@ import type { Metadata } from "next";
 import { LegalPage } from "../../legal-page";
 import {
   playCadenceLegalMeta,
-  playCadencePrivacy,
+  playCadenceTerms,
 } from "../../../lib/play-cadence-legal";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy · Play Cadence",
-  description:
-    "How Play Cadence measures treadmill cadence on-device, shows ads, and stores optional world-board scores.",
+  title: "Terms of Service · Play Cadence",
+  description: "Terms for using Play Cadence.",
 };
 
-export default function PlayCadencePrivacyPage() {
+export default function PlayCadenceTermsPage() {
   return (
     <LegalPage
-      en={playCadencePrivacy.en}
-      ko={playCadencePrivacy.ko}
+      en={playCadenceTerms.en}
+      ko={playCadenceTerms.ko}
       updated={playCadenceLegalMeta.updated}
       homeHref="/play-cadence"
       homeLabel="Play Cadence"
