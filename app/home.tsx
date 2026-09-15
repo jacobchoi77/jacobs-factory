@@ -66,7 +66,6 @@ export function Home() {
             </p>
             <LocaleSwitch locale={locale} onChange={switchLocale} />
           </div>
-          <p className="mt-4 text-[17px] leading-7 text-muted">{t.tagline}</p>
         </header>
 
         <main className="mt-16">
@@ -168,6 +167,14 @@ export function Home() {
               </article>
             );
           })}
+
+          <section
+            id="about"
+            className="border-t border-line py-14 sm:py-16"
+          >
+            <h2 className="text-sm font-medium tracking-tight">{t.about}</h2>
+            <p className="mt-3 text-[15px] leading-7 text-muted">{t.aboutBody}</p>
+          </section>
         </main>
 
         <footer className="mt-auto border-t border-line pt-10 text-sm text-muted">
@@ -181,6 +188,13 @@ export function Home() {
             </a>
           </p>
           <p className="mt-3">
+            <a
+              href="#about"
+              className="text-accent underline-offset-4 hover:underline"
+            >
+              {t.about}
+            </a>
+            <span className="mx-1.5 text-line">·</span>
             <Link
               href="/privacy"
               className="text-accent underline-offset-4 hover:underline"

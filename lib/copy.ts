@@ -8,7 +8,7 @@ type AppCopy = {
 };
 
 type HomeCopy = {
-  tagline: string;
+  aboutBody: string;
   status: {
     developing: string;
     testing: string;
@@ -32,7 +32,8 @@ type HomeCopy = {
 
 export const copy: Record<Locale, HomeCopy> = {
   ko: {
-    tagline: "1인 스튜디오입니다.",
+    aboutBody:
+      "Jacobs Factory는 1인 스튜디오입니다. 직접 쓰고 싶은 작은 앱을 만듭니다.",
     status: {
       developing: "개발중",
       testing: "공개 테스트",
@@ -65,7 +66,8 @@ export const copy: Record<Locale, HomeCopy> = {
     },
   },
   en: {
-    tagline: "A one-person studio.",
+    aboutBody:
+      "Jacobs Factory is a one-person studio. I make small apps I want to use.",
     status: {
       developing: "In development",
       testing: "Public testing",
@@ -98,7 +100,8 @@ export const copy: Record<Locale, HomeCopy> = {
     },
   },
   ja: {
-    tagline: "一人スタジオです。",
+    aboutBody:
+      "Jacobs Factoryは一人スタジオです。自分が使いたい小さなアプリを作っています。",
     status: {
       developing: "開発中",
       testing: "公開テスト",
@@ -131,7 +134,7 @@ export const copy: Record<Locale, HomeCopy> = {
     },
   },
   "zh-CN": {
-    tagline: "一人工作室。",
+    aboutBody: "Jacobs Factory 是一人工作室。我做自己想用的小应用。",
     status: {
       developing: "开发中",
       testing: "公开测试",
@@ -164,7 +167,7 @@ export const copy: Record<Locale, HomeCopy> = {
     },
   },
   "zh-TW": {
-    tagline: "一人工作室。",
+    aboutBody: "Jacobs Factory 是一人工作室。我做自己想用的小應用。",
     status: {
       developing: "開發中",
       testing: "公開測試",
@@ -197,7 +200,8 @@ export const copy: Record<Locale, HomeCopy> = {
     },
   },
   es: {
-    tagline: "Un estudio de una persona.",
+    aboutBody:
+      "Jacobs Factory es un estudio de una persona. Hago apps pequeñas que quiero usar.",
     status: {
       developing: "En desarrollo",
       testing: "Prueba pública",
@@ -230,7 +234,8 @@ export const copy: Record<Locale, HomeCopy> = {
     },
   },
   fr: {
-    tagline: "Un studio solo.",
+    aboutBody:
+      "Jacobs Factory est un studio solo. Je fais de petites applis que je veux utiliser.",
     status: {
       developing: "En développement",
       testing: "Test public",
@@ -263,7 +268,8 @@ export const copy: Record<Locale, HomeCopy> = {
     },
   },
   de: {
-    tagline: "Ein Ein-Personen-Studio.",
+    aboutBody:
+      "Jacobs Factory ist ein Ein-Personen-Studio. Ich mache kleine Apps, die ich selbst nutzen will.",
     status: {
       developing: "In Entwicklung",
       testing: "Öffentlicher Test",
@@ -296,7 +302,8 @@ export const copy: Record<Locale, HomeCopy> = {
     },
   },
   "pt-BR": {
-    tagline: "Um estúdio de uma pessoa.",
+    aboutBody:
+      "Jacobs Factory é um estúdio de uma pessoa. Faço apps pequenos que quero usar.",
     status: {
       developing: "Em desenvolvimento",
       testing: "Teste público",
