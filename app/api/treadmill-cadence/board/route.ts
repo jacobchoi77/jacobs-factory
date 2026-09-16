@@ -1,11 +1,21 @@
 import { NextResponse } from "next/server";
+import {
+  PLAYER_RE,
+  appleAudiencesFromEnv,
+  isRealName,
+  sanitizeName,
+  verifySubmitAccount,
+} from "./identity";
+
+// Env (Vercel / jacobs-factory): GOOGLE_WEB_CLIENT_ID, APPLE_CLIENT_ID
+// (bundle id audience, typically com.jacobsfactory.playcadence), optional
+// APPLE_SERVICES_ID. See README.md — this folder is the canonical source;
+// the live URL is a copy.
 
 const TOP_N = 10;
 const MAX_SCORE = 1_000_000;
-const PLAYER_RE = /^([0-9a-fA-F-]{8,64}|[0-9]{10,32})$/;
-// Underscore is not decoration: board ids are `board_10-15_180-200` and
-// generated tracks are `gen_<ceiling>_<shape>_<minutes>_...`. Without it
-// every submit from the current app comes back 400 "bad track".
+// Underscore is not decoration: a generated id is `gen_<level>_<shape>_<minutes>_
+// <holdSec>_<low>_<mid>`, and without it every submit came back 400 "bad track".
 const TRACK_RE = /^[a-z0-9_-]{3,64}$/;
 const SHAPE_RE = /^[a-z][a-z0-9-]{2,31}$/;
 const CATALOG_URL =
@@ -57,15 +67,6 @@ async function redisPipeline(cmds: unknown[][]): Promise<unknown[]> {
   if (!res.ok) throw new Error(`redis ${res.status}`);
   const payload = (await res.json()) as { result?: unknown }[];
   return payload.map((row) => row.result);
-}
-
-function sanitizeName(raw: unknown, playerId: string): string {
-  const text = typeof raw === "string" ? raw.trim().replace(/\s+/g, " ") : "";
-  if (text.length < 2) {
-    const suffix = playerId.replace(/[^0-9a-fA-F]/g, "").slice(-4).toUpperCase();
-    return suffix ? `Runner-${suffix}` : "Runner";
-  }
-  return text.slice(0, 16);
 }
 
 function cors(res: NextResponse) {
@@ -178,35 +179,22 @@ export async function DELETE(req: Request) {
   }
 }
 
-async function googleAccount(
-  idToken: string,
-): Promise<{ sub: string; name: string } | null> {
-  const aud = process.env.GOOGLE_WEB_CLIENT_ID || "";
-  if (!aud || !idToken) return null;
-  const res = await fetch(
-    `https://oauth2.googleapis.com/tokeninfo?id_token=${encodeURIComponent(idToken)}`,
-  );
-  if (!res.ok) return null;
-  const body = (await res.json()) as {
-    aud?: string;
-    sub?: string;
-    name?: string;
-    email_verified?: string | boolean;
-  };
-  if (body.aud !== aud) return null;
-  if (body.email_verified === "false" || body.email_verified === false) return null;
-  if (!body.sub || !/^[0-9]{10,32}$/.test(body.sub)) return null;
-  return { sub: body.sub, name: typeof body.name === "string" ? body.name : "" };
-}
-
 export async function POST(req: Request) {
   if (!redis()) {
     return cors(NextResponse.json({ error: "board offline" }, { status: 503 }));
   }
-  if (!process.env.GOOGLE_WEB_CLIENT_ID) {
+  const googleAud = process.env.GOOGLE_WEB_CLIENT_ID || "";
+  const appleAudiences = appleAudiencesFromEnv();
+  if (!googleAud && !appleAudiences.length) {
     return cors(NextResponse.json({ error: "sign-in offline" }, { status: 503 }));
   }
-  let body: { trackId?: unknown; score?: unknown; idToken?: unknown };
+  let body: {
+    trackId?: unknown;
+    score?: unknown;
+    idToken?: unknown;
+    provider?: unknown;
+    nickname?: unknown;
+  };
   try {
     body = await req.json();
   } catch {
@@ -218,24 +206,35 @@ export async function POST(req: Request) {
   if (!TRACK_RE.test(trackId) || trackId.startsWith("user-")) {
     return cors(NextResponse.json({ error: "bad track" }, { status: 400 }));
   }
-  const account = await googleAccount(idToken);
+  const account = await verifySubmitAccount({
+    idToken,
+    provider: body.provider,
+    googleAud,
+    appleAudiences,
+  });
   if (!account) {
     return cors(NextResponse.json({ error: "bad sign-in" }, { status: 401 }));
   }
   const playerId = account.sub;
+  if (!PLAYER_RE.test(playerId)) {
+    return cors(NextResponse.json({ error: "bad sign-in" }, { status: 401 }));
+  }
   if (!Number.isFinite(score) || score < 1 || score > MAX_SCORE) {
     return cors(NextResponse.json({ error: "bad score" }, { status: 400 }));
   }
-  const name = sanitizeName(account.name, playerId);
+  // Token name first (Google). Apple rarely has one — use the client's
+  // first-sign-in nickname. Empty → Runner-XXXX, and never clobber a stored name.
+  const hint = isRealName(account.name) ? account.name : body.nickname;
+  const name = sanitizeName(hint, playerId);
+  const nameCmd = isRealName(hint)
+    ? (["HSET", `player:${playerId}`, "name", name] as unknown[])
+    : (["HSETNX", `player:${playerId}`, "name", name] as unknown[]);
   try {
     const previous = Number(await redisCmd(["ZSCORE", keyFor(trackId), playerId]));
     if (!Number.isFinite(previous) || score > previous) {
-      await redisPipeline([
-        ["ZADD", keyFor(trackId), score, playerId],
-        ["HSET", `player:${playerId}`, "name", name],
-      ]);
+      await redisPipeline([["ZADD", keyFor(trackId), score, playerId], nameCmd]);
     } else {
-      await redisCmd(["HSET", `player:${playerId}`, "name", name]);
+      await redisCmd(nameCmd);
     }
     return cors(NextResponse.json(await readBoard(trackId, playerId)));
   } catch {
@@ -302,6 +301,13 @@ function rankOf(raw: unknown): number | null {
   return Number.isFinite(n) ? n + 1 : null;
 }
 
+/**
+ * Ranks for a whole shape+grade lane. Dead on both ends right now: the app stopped
+ * calling it, and the catalog it enumerates was retired for a track generator, so
+ * the remote copy is frozen on ids no build submits any more. What a lane even is
+ * once every hold and rung pair is its own board is an open question — see the
+ * leaderboard note in docs/GAME.md.
+ */
 async function readPage(shape: string, group: string, playerId: string) {
   const tracks = (await catalogTracks())
     .filter((track) => track.shape === shape && track.group === group)
