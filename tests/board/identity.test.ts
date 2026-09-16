@@ -10,7 +10,7 @@ import {
   isRealName,
   sanitizeName,
   type Jwk,
-} from "./identity.ts";
+} from "../../app/api/treadmill-cadence/board/identity";
 
 const BUNDLE = "com.jacobsfactory.playcadence";
 const APPLE_SUB = "001234.abcdef0123456789abcdef0123456789.0345";
@@ -54,7 +54,7 @@ test("APPLE_CLIENT_ID and optional Services ID become audiences", () => {
     }),
     [BUNDLE, "com.jacobsfactory.playcadence.web"],
   );
-  assert.deepEqual(appleAudiencesFromEnv({}), []);
+  assert.deepEqual(appleAudiencesFromEnv({ NODE_ENV: "test" } as NodeJS.ProcessEnv), []);
 });
 
 test("appleAccount verifies RS256, iss, aud, exp, and sub", async () => {

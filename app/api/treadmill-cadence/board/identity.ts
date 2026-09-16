@@ -208,7 +208,8 @@ export async function verifyRs256(token: string, jwk: Jwk): Promise<boolean> {
       ["verify"],
     );
     const data = new TextEncoder().encode(`${parts[0]}.${parts[1]}`);
-    return crypto.subtle.verify("RSASSA-PKCS1-v1_5", key, keyBytes(parts[2]), data);
+    const sig = Uint8Array.from(keyBytes(parts[2]));
+    return crypto.subtle.verify("RSASSA-PKCS1-v1_5", key, sig, data);
   } catch {
     return false;
   }
