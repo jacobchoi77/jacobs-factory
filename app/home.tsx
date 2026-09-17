@@ -38,6 +38,7 @@ const apps = [
     about: "/freetimer",
     play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.freetimer.android",
     windows: "https://apps.microsoft.com/detail/9NCR1DNFJCP6",
+    mac: "https://download.jacobs-factory.com/FreeTimer_1.2.9_aarch64.dmg",
     shot: "freetimer",
   },
 ] as const;
@@ -97,6 +98,15 @@ export function Home() {
                       {
                         href: `${app.windows}?hl=${windowsHl(locale)}`,
                         label: "Microsoft Store",
+                        external: true,
+                      },
+                    ]
+                  : []),
+                ...("mac" in app
+                  ? [
+                      {
+                        href: app.mac,
+                        label: "Mac",
                         external: true,
                       },
                     ]

@@ -3,6 +3,7 @@ import { screenshotSrc, type Locale } from "./locale";
 export const freetimerStores = {
   play: "https://play.google.com/store/apps/details?id=com.jacobsfactory.freetimer.android",
   windows: "https://apps.microsoft.com/detail/9NCR1DNFJCP6",
+  mac: "https://download.jacobs-factory.com/FreeTimer_1.2.9_aarch64.dmg",
 } as const;
 
 type Shot = { src: string; alt: string };
@@ -26,6 +27,7 @@ type PageCopy = {
   getTitle: string;
   play: string;
   windows: string;
+  mac: string;
   ios: string;
   iosSoon: string;
   privacy: string;
@@ -64,6 +66,7 @@ export const freetimerCopy: Record<Locale, PageCopy> = {
     getTitle: "받기",
     play: "Google Play",
     windows: "Microsoft Store",
+    mac: "Mac",
     ios: "App Store",
     iosSoon: "준비 중",
     privacy: "개인정보처리방침",
@@ -100,6 +103,7 @@ export const freetimerCopy: Record<Locale, PageCopy> = {
     getTitle: "Get the app",
     play: "Google Play",
     windows: "Microsoft Store",
+    mac: "Mac",
     ios: "App Store",
     iosSoon: "Coming soon",
     privacy: "Privacy",
@@ -136,6 +140,7 @@ export const freetimerCopy: Record<Locale, PageCopy> = {
     getTitle: "入手",
     play: "Google Play",
     windows: "Microsoft Store",
+    mac: "Mac",
     ios: "App Store",
     iosSoon: "準備中",
     privacy: "プライバシー",
@@ -172,6 +177,7 @@ export const freetimerCopy: Record<Locale, PageCopy> = {
     getTitle: "获取",
     play: "Google Play",
     windows: "Microsoft Store",
+    mac: "Mac",
     ios: "App Store",
     iosSoon: "即将推出",
     privacy: "隐私政策",
@@ -208,6 +214,7 @@ export const freetimerCopy: Record<Locale, PageCopy> = {
     getTitle: "取得",
     play: "Google Play",
     windows: "Microsoft Store",
+    mac: "Mac",
     ios: "App Store",
     iosSoon: "即將推出",
     privacy: "隱私權政策",
@@ -244,6 +251,7 @@ export const freetimerCopy: Record<Locale, PageCopy> = {
     getTitle: "Descargar",
     play: "Google Play",
     windows: "Microsoft Store",
+    mac: "Mac",
     ios: "App Store",
     iosSoon: "Próximamente",
     privacy: "Privacidad",
@@ -280,6 +288,7 @@ export const freetimerCopy: Record<Locale, PageCopy> = {
     getTitle: "Obtenir",
     play: "Google Play",
     windows: "Microsoft Store",
+    mac: "Mac",
     ios: "App Store",
     iosSoon: "Bientôt",
     privacy: "Confidentialité",
@@ -316,6 +325,7 @@ export const freetimerCopy: Record<Locale, PageCopy> = {
     getTitle: "Holen",
     play: "Google Play",
     windows: "Microsoft Store",
+    mac: "Mac",
     ios: "App Store",
     iosSoon: "Demnächst",
     privacy: "Datenschutz",
@@ -352,6 +362,7 @@ export const freetimerCopy: Record<Locale, PageCopy> = {
     getTitle: "Baixar",
     play: "Google Play",
     windows: "Microsoft Store",
+    mac: "Mac",
     ios: "App Store",
     iosSoon: "Em breve",
     privacy: "Privacidade",

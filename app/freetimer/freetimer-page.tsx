@@ -75,6 +75,15 @@ export function FreeTimerPage() {
             >
               {t.windows}
             </a>
+            <span className="text-line">·</span>
+            <a
+              href={freetimerStores.mac}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent underline-offset-4 hover:underline"
+            >
+              {t.mac}
+            </a>
           </p>
         </section>
 
