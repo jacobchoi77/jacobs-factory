@@ -1,5 +1,5 @@
 export const sayNoteLegalMeta = {
-  updated: "2026-09-14",
+  updated: "2026-09-18",
 } as const;
 
 export const sayNotePrivacy = {
@@ -14,7 +14,7 @@ export const sayNotePrivacy = {
       },
       {
         heading: "Data stored on the device",
-        body: "Jacobs Factory does not collect personal information. Card numbers, names, emails, and payment accounts do not come to us. Stored on the device: note text, title, created time, important flag, reminder time, photos you attach, search history, theme and text-size settings, backups you export, an on-device auto-backup, and temporary Play-tip confirmation used only on this phone. We do not keep an unlock record.",
+        body: "Jacobs Factory does not collect personal information. Card numbers, names, emails, and payment accounts do not come to us. Stored on the device: note text, title, created time, important flag, reminder time, photos you attach, search history, theme and text-size settings, backups you export, an on-device auto-backup, and temporary tip-purchase confirmation used only on this phone (Google Play on Android, Apple In-App Purchase on iOS). We do not keep an unlock record.",
       },
       {
         heading: "Speech, photos, and reminders",
@@ -22,15 +22,15 @@ export const sayNotePrivacy = {
       },
       {
         heading: "Backup, sharing, and optional network use",
-        body: "Export and import in Settings send the file, including attached photos, only where you choose. The on-device auto-backup stays on the phone. If Android backup is on, note data may be included in your Google account backup. If iCloud Backup is on, note data may be included in your Apple account backup. Note text or a backup file is sent to another app only when you tap Share. On Android, optional tips use Google Play Billing; card numbers go to Google, not to Jacobs Factory. On iOS there is no in-app purchase. The optional Ko-fi / PayPal link opens in the browser and that site\u2019s policy applies. If you send feedback, the draft can include app version, OS version, and device model and goes to contact@jacobs-factory.com only if you send it.",
+        body: "Export and import in Settings send the file, including attached photos, only where you choose. The on-device auto-backup stays on the phone. If Android backup is on, note data may be included in your Google account backup. If iCloud Backup is on, note data may be included in your Apple account backup. Note text or a backup file is sent to another app only when you tap Share. On Android, optional tips use Google Play Billing (tip_3, tip_5, tip_10); card numbers go to Google, not to Jacobs Factory. Android also has an optional Ko-fi / PayPal link that opens in the browser; that site\u2019s policy applies. On iOS, optional tips use Apple In-App Purchase only (saynote_tip_3, saynote_tip_5, saynote_tip_10); card numbers go to Apple, not to Jacobs Factory. The iOS app has no Ko-fi or other external payment link. Tips do not unlock features. If you send feedback, the draft can include app version, OS version, and device model and goes to contact@jacobs-factory.com only if you send it.",
       },
       {
         heading: "Permissions",
-        body: "Microphone is used for voice notes. Speech recognition on iOS turns speech into text. Camera is used only if you take a photo. Choosing a photo uses the system picker; the App does not keep standing access to your library. Notifications and exact alarms are used only for optional local reminders, which are restored after reboot on this phone. Internet is used for speech recognition as implemented on the device, for Google Play Billing on Android, and for optional links you tap.",
+        body: "Microphone is used for voice notes. Speech recognition on iOS turns speech into text. Camera is used only if you take a photo. Choosing a photo uses the system picker; the App does not keep standing access to your library. Notifications and exact alarms are used only for optional local reminders, which are restored after reboot on this phone. Internet is used for speech recognition as implemented on the device, for Google Play Billing on Android, for Apple In-App Purchase on iOS, and for optional links you tap.",
       },
       {
         heading: "Third parties",
-        body: "There are no ads, analytics, or account SDKs. Speech recognition is handled by the device, Google (Android), or Apple (iOS). On Android, optional tips are processed by Google Play Billing. The optional Ko-fi / PayPal link opens only if you tap it. If installed from Play, Android may send crash information to Google Play (Android Vitals). We use that only to check stability. Note text is not collected.",
+        body: "There are no ads, analytics, or account SDKs. Speech recognition is handled by the device, Google (Android), or Apple (iOS). On Android, optional tips are processed by Google Play Billing and an optional Ko-fi / PayPal link opens only if you tap it. On iOS, optional tips are processed by Apple In-App Purchase; there is no Ko-fi or other external payment link. If installed from Play, Android may send crash information to Google Play (Android Vitals). We use that only to check stability. Note text is not collected.",
       },
       {
         heading: "Children, changes, and contact",
@@ -39,37 +39,37 @@ export const sayNotePrivacy = {
     ],
   },
   ko: {
-    title: "\uac1c\uc778\uc815\ubcf4\ucc98\ub9ac\ubc29\uce68 \u2014 SayNote",
+    title: "개인정보처리방침 \u2014 SayNote",
     intro:
-      "\ubcf8 \ubc29\uce68\uc740 SayNote \uc571(\u201c\ubcf8 \uc571\u201d)\uc774 \uc815\ubcf4\ub97c \uc5b4\ub5bb\uac8c \ub2e4\ub8e8\ub294\uc9c0 \uc124\uba85\ud569\ub2c8\ub2e4. Google Play\uc640 App Store\uc5d0 \uc81c\ucd9c\ud558\ub294 SayNote \ubc29\uce68\uc785\ub2c8\ub2e4.",
+      "본 방침은 SayNote 앱(\u201c본 앱\u201d)이 정보를 어떻게 다루는지 설명합니다. Google Play와 App Store에 제출하는 SayNote 방침입니다.",
     blocks: [
       {
-        heading: "\uc694\uc57d",
-        body: "\ub178\ud2b8\ub294 \uc774 \uae30\uae30\uc5d0 \uc800\uc7a5\ub429\ub2c8\ub2e4. Jacobs Factory\ub294 \ub178\ud2b8, \uc74c\uc131, \uc0ac\uc9c4\uc744 \ubc1b\ub294 \uc11c\ubc84\ub97c \ub450\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4. \uacc4\uc815\uc774 \uc5c6\uace0 \uad11\uace0\ub3c4 \uc5c6\uc2b5\ub2c8\ub2e4. \uc74c\uc131 \uc778\uc2dd\uc740 \uae30\uae30\u00b7\uc5b8\uc5b4\u00b7\ud50c\ub7ab\ud3fc\uc5d0 \ub530\ub77c \uc778\ud130\ub137\uc774 \ud544\uc694\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4(Android\ub294 Google, iOS\ub294 Apple). \uc0ac\uc9c4 \ucca8\ubd80, \ub85c\uceec \uc54c\ub9bc, \uc120\ud0dd \uc751\uc6d0, \uc758\uacac \ubcf4\ub0b4\uae30\ub294 \uc120\ud0dd\uc774\uba70 \uc571 \uae30\ub2a5\uc740 \ubc14\ub00c\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4.",
+        heading: "요약",
+        body: "노트는 이 기기에 저장됩니다. Jacobs Factory는 노트, 음성, 사진을 받는 서버를 두지 않습니다. 계정이 없고 광고도 없습니다. 음성 인식은 기기\u00b7언어\u00b7플랫폼에 따라 인터넷이 필요할 수 있습니다(Android는 Google, iOS는 Apple). 사진 첨부, 로컬 알림, 선택 응원, 의견 보내기는 선택이며 앱 기능은 바뀌지 않습니다.",
       },
       {
-        heading: "\uae30\uae30\uc5d0 \uc800\uc7a5\ub418\ub294 \uc815\ubcf4",
-        body: "\uc6b4\uc601\uc790\uac00 \uc9c1\uc811 \uc218\uc9d1\ud558\ub294 \uac1c\uc778\uc815\ubcf4\ub294 \uc5c6\uc2b5\ub2c8\ub2e4. \uce74\ub4dc \ubc88\ud638, \uc774\ub984, \uc774\uba54\uc77c, \uacb0\uc81c \uacc4\uc815\ub3c4 Jacobs Factory\ub85c \uc624\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4. \uae30\uae30\uc5d0 \ub0a8\ub294 \uac83: \ub178\ud2b8 \uae00\uc790, \uc81c\ubaa9, \uc791\uc131 \uc2dc\uac01, \uc911\uc694 \ud45c\uc2dc, \uc54c\ub9bc \uc2dc\uac01, \ub178\ud2b8\uc5d0 \ubd99\uc778 \uc0ac\uc9c4, \uac80\uc0c9\uc5b4 \uae30\ub85d, \ud14c\ub9c8\u00b7\uae00\uc790 \ud06c\uae30 \uc124\uc815, \uc0ac\uc6a9\uc790\uac00 \ub9cc\ub4e0 \ubc31\uc5c5, \uae30\uae30 \uc548 \uc790\ub3d9 \ubc31\uc5c5, Play \uc751\uc6d0 \ud655\uc778\uc6a9 \uc77c\uc2dc \uc0c1\ud0dc. \uae30\ub2a5\uc744 \uc5ec\ub294 \uae30\ub85d\uc740 \ub0a8\uae30\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4.",
+        heading: "기기에 저장되는 정보",
+        body: "운영자가 직접 수집하는 개인정보는 없습니다. 카드 번호, 이름, 이메일, 결제 계정도 Jacobs Factory로 오지 않습니다. 기기에 남는 것: 노트 글자, 제목, 작성 시각, 중요 표시, 알림 시각, 노트에 붙인 사진, 검색어 기록, 테마\u00b7글자 크기 설정, 사용자가 만든 백업, 기기 안 자동 백업, 응원 구매 확인용 일시 상태(Android는 Google Play, iOS는 Apple 인앱 결제). 기능을 여는 기록은 남기지 않습니다.",
       },
       {
-        heading: "\uc74c\uc131, \uc0ac\uc9c4, \uc54c\ub9bc",
-        body: "\uc0c8 \ub178\ud2b8\ub97c \ub9d0\ud560 \ub54c \ub9c8\uc774\ud06c\ub97c \uc4f0\ub2c8\ub2e4. \uc74c\uc131 \ud30c\uc77c\uc740 \uc571\uc774 \uc800\uc7a5\ud558\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4. \uae00\uc790\ub85c \ubc14\uafbc \uacb0\uacfc\ub9cc \ub0a8\uc2b5\ub2c8\ub2e4. Android\ub294 SpeechRecognizer\ub97c \uc4f0\uba70, \uae30\uae30\uc640 \uc5b8\uc5b4\uc5d0 \ub530\ub77c \uc74c\uc131\uc774 Google\ub85c \uac08 \uc218 \uc788\uc2b5\ub2c8\ub2e4. iOS\ub294 Apple \uc74c\uc131 \uc778\uc2dd\uc744 \uc4f0\uba70 \uc74c\uc131\uc774 Apple\ub85c \uac08 \uc218 \uc788\uc2b5\ub2c8\ub2e4. Jacobs Factory\ub294 \uadf8 \uc74c\uc131\uc744 \ubc1b\uac70\ub098 \ubcf4\uad00\ud558\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4. \uc77d\uc5b4\uc8fc\uae30\ub294 \uae30\uae30 TTS\ub97c \uc4f0\ub2c8\ub2e4. \uc0ac\uc9c4 \ubcf4\uad00\ud568\uc774\ub098 \uce74\uba54\ub77c\ub85c \ubd99\uc778 \uc0ac\uc9c4\uc740 \uc774 \uae30\uae30\uc5d0 \ub0a8\uace0, \ubc31\uc5c5\uc744 \ubcf4\ub0b4\uac70\ub098 \uacf5\uc720\ub97c \ub204\ub97c \ub54c\ub9cc \ubc16\uc73c\ub85c \ub098\uac11\ub2c8\ub2e4. \uc54c\ub9bc\uc740 \uc774 \uae30\uae30\uc758 \ub85c\uceec \uc54c\ub9bc\uc785\ub2c8\ub2e4. \ud478\uc2dc \uc11c\ubc84\ub294 \uc5c6\uc2b5\ub2c8\ub2e4.",
+        heading: "음성, 사진, 알림",
+        body: "새 노트를 말할 때 마이크를 쓰니다. 음성 파일은 앱이 저장하지 않습니다. 글자로 바꾼 결과만 남습니다. Android는 SpeechRecognizer를 쓰며, 기기와 언어에 따라 음성이 Google로 갈 수 있습니다. iOS는 Apple 음성 인식을 쓰며 음성이 Apple로 갈 수 있습니다. Jacobs Factory는 그 음성을 받거나 보관하지 않습니다. 읽어주기는 기기 TTS를 쓰니다. 사진 보관함이나 카메라로 붙인 사진은 이 기기에 남고, 백업을 보내거나 공유를 누를 때만 밖으로 나갑니다. 알림은 이 기기의 로컬 알림입니다. 푸시 서버는 없습니다.",
       },
       {
-        heading: "\ubc31\uc5c5, \uacf5\uc720, \uc120\ud0dd \ub124\ud2b8\uc6cc\ud06c",
-        body: "\uc124\uc815\uc5d0\uc11c \ubcf4\ub0b4\uae30/\uac00\uc838\uc624\uae30\ub294 \uc0ac\uc9c4\uc774 \ud3ec\ud568\ub41c \ud30c\uc77c\uc744 \uc0ac\uc6a9\uc790\uac00 \uace0\ub978 \uacf3\uc73c\ub85c\ub9cc \ubcf4\ub0c5\ub2c8\ub2e4. \uae30\uae30 \uc548 \uc790\ub3d9 \ubc31\uc5c5\uc740 \uc804\ud654 \uc548\uc5d0\ub9cc \ub461\ub2c8\ub2e4. Android \uc790\ub3d9 \ubc31\uc5c5\uc774 \ucf1c\uc838 \uc788\uc73c\uba74 \ub178\ud2b8 \ub370\uc774\ud130\uac00 Google \uacc4\uc815 \ubc31\uc5c5\uc5d0 \ud3ec\ud568\ub420 \uc218 \uc788\uc2b5\ub2c8\ub2e4. iCloud \ubc31\uc5c5\uc774 \ucf1c\uc838 \uc788\uc73c\uba74 Apple \uacc4\uc815 \ubc31\uc5c5\uc5d0 \ud3ec\ud568\ub420 \uc218 \uc788\uc2b5\ub2c8\ub2e4. \uacf5\uc720\ub97c \ub204\ub97c \ub54c\ub9cc \uc120\ud0dd\ud55c \uc571\uc73c\ub85c \ub178\ud2b8\ub098 \ubc31\uc5c5\uc774 \uc804\ub2ec\ub429\ub2c8\ub2e4. Android\uc758 \uc120\ud0dd \uc751\uc6d0\uc740 Google Play \uacb0\uc81c\ub97c \uc4f0\uba70, \uce74\ub4dc \ubc88\ud638\ub294 Google\uc774 \ubc1b\uace0 Jacobs Factory\ub85c\ub294 \uc624\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4. iOS\uc5d0\ub294 \uc778\uc571 \uacb0\uc81c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4. \uc120\ud0dd Ko-fi / PayPal \ub9c1\ud06c\ub294 \ube0c\ub77c\uc6b0\uc800\uc5d0\uc11c \uc5f4\ub9ac\uba70 \ud574\ub2f9 \uc11c\ube44\uc2a4 \uc815\ucc45\uc774 \uc801\uc6a9\ub429\ub2c8\ub2e4. \uc758\uacac\uc744 \ubcf4\ub0b4\uba74 \ucd08\uc548\uc5d0 \uc571 \ubc84\uc804, OS \ubc84\uc804, \uae30\uae30 \ubaa8\ub378\uc774 \ub4e4\uc5b4\uac08 \uc218 \uc788\uc73c\uba70, \uba54\uc77c\uc744 \ubcfc \ub54c\ub9cc contact@jacobs-factory.com\uc73c\ub85c \uac11\ub2c8\ub2e4.",
+        heading: "백업, 공유, 선택 네트워크",
+        body: "설정에서 보내기/가져오기는 사진이 포함된 파일을 사용자가 고른 곳으로만 보냅니다. 기기 안 자동 백업은 전화 안에만 둡니다. Android 자동 백업이 켜져 있으면 노트 데이터가 Google 계정 백업에 포함될 수 있습니다. iCloud 백업이 켜져 있으면 Apple 계정 백업에 포함될 수 있습니다. 공유를 누를 때만 선택한 앱으로 노트나 백업이 전달됩니다. Android의 선택 응원은 Google Play 결제(tip_3, tip_5, tip_10)를 쓰며, 카드 번호는 Google이 받고 Jacobs Factory로는 오지 않습니다. Android의 선택 Ko-fi / PayPal 링크는 브라우저에서 열리며 해당 서비스 정책이 적용됩니다. iOS의 선택 응원은 Apple 인앱 결제만 쓰니다(saynote_tip_3, saynote_tip_5, saynote_tip_10). 카드 번호는 Apple이 받고, iOS 앱에는 Ko-fi나 다른 외부 결제 링크가 없습니다. 응원은 기능을 열지 않습니다. 의견을 보내면 초안에 앱 버전, OS 버전, 기기 모델이 들어갈 수 있으며, 메일을 볼 때만 contact@jacobs-factory.com으로 갑니다.",
       },
       {
-        heading: "\uad8c\ud55c",
-        body: "\ub9c8\uc774\ud06c\ub294 \ub9d0\ud558\uae30 \ub178\ud2b8\uc5d0 \uc4f0\ub2c8\ub2e4. iOS \uc74c\uc131 \uc778\uc2dd\uc740 \ub9d0\uc744 \uae00\uc790\ub85c \ubc14\uafc9\ub2c8\ub2e4. \uce74\uba54\ub77c\ub294 \uc0ac\uc9c4\uc744 \ucc0d\uc744 \ub54c\ub9cc \uc4f0\ub2c8\ub2e4. \ubcf4\uad00\ud568\uc5d0\uc11c \uace0\ub97c \ub54c\ub294 \uc2dc\uc2a4\ud15c \uc120\ud0dd\uae30\ub97c \uc4f0\uba70, \uc571\uc774 \uc0ac\uc9c4 \ubcf4\uad00\ud568\uc5d0 \uacc4\uc18d \uc811\uadfc\ud558\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4. \uc54c\ub9bc\uacfc \uc815\ud655\ud55c \uc54c\ub78c\uc740 \uc120\ud0dd \ub85c\uceec \uc54c\ub9bc\uc5d0\ub9cc \uc4f0\uace0, \uc7ac\ubd80\ud305 \ub4a4\uc5d0\ub3c4 \uc774 \uae30\uae30\uc5d0\uc11c \ub2e4\uc2dc \ub9de\ucda5\ub2c8\ub2e4. \uc778\ud130\ub137\uc740 \uae30\uae30 \uad6c\ud604\uc5d0 \ub530\ub978 \uc74c\uc131 \uc778\uc2dd, Android\uc758 Google Play \uacb0\uc81c, \uadf8\ub9ac\uace0 \uc0ac\uc6a9\uc790\uac00 \uc5ec\ub294 \uc120\ud0dd \ub9c1\ud06c\uc5d0 \uc4f0\ub2c8\ub2e4.",
+        heading: "권한",
+        body: "마이크는 말하기 노트에 쓰니다. iOS 음성 인식은 말을 글자로 바꿉니다. 카메라는 사진을 찍을 때만 쓰니다. 보관함에서 고를 때는 시스템 선택기를 쓰며, 앱이 사진 보관함에 계속 접근하지 않습니다. 알림과 정확한 알람은 선택 로컬 알림에만 쓰고, 재부팅 뒤에도 이 기기에서 다시 맞춥니다. 인터넷은 기기 구현에 따른 음성 인식, Android의 Google Play 결제, iOS의 Apple 인앱 결제, 그리고 사용자가 여는 선택 링크에 쓰니다.",
       },
       {
-        heading: "\uc81c3\uc790",
-        body: "\uad11\uace0, \ubd84\uc11d, \uacc4\uc815 SDK\ub294 \uc5c6\uc2b5\ub2c8\ub2e4. \uc74c\uc131 \uc778\uc2dd\uc740 \uae30\uae30, Google(Android), \ub610\ub294 Apple(iOS)\uc774 \ucc98\ub9ac\ud569\ub2c8\ub2e4. Android\uc758 \uc120\ud0dd \uc751\uc6d0\uc740 Google Play \uacb0\uc81c\uac00 \ucc98\ub9ac\ud569\ub2c8\ub2e4. Ko-fi / PayPal \ub9c1\ud06c\ub294 \ub204\ub97c \ub54c\ub9cc \uc5f4\ub9bd\ub2c8\ub2e4. Play\uc5d0\uc11c \uc124\uce58\ud55c \uacbd\uc6b0 Android\uac00 \ud06c\ub798\uc2dc \uc815\ubcf4\ub97c Google Play(Android Vitals)\uc5d0 \ubcfc \uc218 \uc788\uc2b5\ub2c8\ub2e4. \uc548\uc815\uc131 \ud655\uc778\uc5d0\ub9cc \uc4f0\uba70 \ub178\ud2b8 \ub0b4\uc6a9\uc740 \uc218\uc9d1\ud558\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4.",
+        heading: "제3자",
+        body: "광고, 분석, 계정 SDK는 없습니다. 음성 인식은 기기, Google(Android), 또는 Apple(iOS)이 처리합니다. Android의 선택 응원은 Google Play 결제가 처리하고, Ko-fi / PayPal 링크는 누를 때만 열립니다. iOS의 선택 응원은 Apple 인앱 결제가 처리하며, Ko-fi나 다른 외부 결제 링크는 없습니다. Play에서 설치한 경우 Android가 크래시 정보를 Google Play(Android Vitals)에 볼 수 있습니다. 안정성 확인에만 쓰며 노트 내용은 수집하지 않습니다.",
       },
       {
-        heading: "\uc544\ub3d9, \ubcc0\uacbd, \ubb38\uc758",
-        body: "\ub178\ud2b8\ub294 \uc0ad\uc81c, \uc124\uc815 \ucd08\uae30\ud654, \ub610\ub294 \uc571 \uc0ad\uc81c\uae4c\uc9c0 \uae30\uae30\uc5d0 \uc788\uc2b5\ub2c8\ub2e4. \ubcf8 \uc571\uc740 \ub9cc 13\uc138 \ubbf8\ub9cc, \ud55c\uad6d\uc5d0\uc11c\ub294 \ub9cc 14\uc138 \ubbf8\ub9cc \uc544\ub3d9\uc744 \ub300\uc0c1\uc73c\ub85c \ud558\uc9c0 \uc54a\uc73c\uba70, \uc544\ub3d9\uc758 \uac1c\uc778\uc815\ubcf4\ub97c \uace0\uc758\ub85c \uc218\uc9d1\ud558\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4. \ubc29\uce68\uc774 \ubc14\ub00c\uba74 \uc0c1\ub2e8 \ub0a0\uc9dc\uac00 \uac31\uc2e0\ub429\ub2c8\ub2e4. \ubb38\uc758: contact@jacobs-factory.com.",
+        heading: "아동, 변경, 문의",
+        body: "노트는 삭제, 설정 초기화, 또는 앱 삭제까지 기기에 있습니다. 본 앱은 만 13세 미만, 한국에서는 만 14세 미만 아동을 대상으로 하지 않으며, 아동의 개인정보를 고의로 수집하지 않습니다. 방침이 바뀌면 상단 날짜가 갱신됩니다. 문의: contact@jacobs-factory.com.",
       },
     ],
   },
@@ -95,20 +95,20 @@ export const sayNoteTerms = {
     ],
   },
   ko: {
-    title: "\uc774\uc6a9\uc57d\uad00 \u2014 SayNote",
-    intro: "SayNote\ub97c \uc0ac\uc6a9\ud558\uba74 \uc774 \uc57d\uad00\uc5d0 \ub3d9\uc758\ud55c \uac83\uc73c\ub85c \ubd05\ub2c8\ub2e4.",
+    title: "이용약관 \u2014 SayNote",
+    intro: "SayNote를 사용하면 이 약관에 동의한 것으로 봅니다.",
     blocks: [
       {
-        heading: "\uc571",
-        body: "SayNote\ub294 \ub9d0\ud55c \uac83\uc744 \uc774 \uae30\uae30\uc758 \ub178\ud2b8\ub85c \ub0a8\uae41\ub2c8\ub2e4. \uacc4\uc815\uc740 \uc5c6\uc2b5\ub2c8\ub2e4. \ub178\ud2b8, \uc0ac\uc9c4, \uc124\uc815\uc740 \ubc31\uc5c5\uc744 \ubcf4\ub0b4\uac70\ub098 \uacf5\uc720\ub97c \ub204\ub974\uc9c0 \uc54a\uc73c\uba74 \ud734\ub300\ud3f0\uc5d0 \ub0a8\uc2b5\ub2c8\ub2e4.",
+        heading: "앱",
+        body: "SayNote는 말한 것을 이 기기의 노트로 남깁니다. 계정은 없습니다. 노트, 사진, 설정은 백업을 보내거나 공유를 누르지 않으면 휴대폰에 남습니다.",
       },
       {
-        heading: "\uc788\ub294 \uadf8\ub300\ub85c",
-        body: "\uc571\uc740 \uc788\ub294 \uadf8\ub300\ub85c \uc81c\uacf5\ub418\uba70 \uba85\uc2dc\uc801 \ubcf4\uc99d\uc740 \uc5c6\uc2b5\ub2c8\ub2e4. \ub178\ud2b8 \uc190\uc2e4\uc774\ub098 \uc0ac\uc6a9 \ubd88\uac00\uc5d0 \ub300\ud574 \ucc45\uc784\uc744 \uc9c0\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4. \uc5b8\uc81c\ub4e0\uc9c0 \uc0ac\uc6a9\uc744 \uc911\ub2e8\ud558\uace0 \uc571 \ub610\ub294 \uae30\uae30 \ub370\uc774\ud130\ub97c \uc0ad\uc81c\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4.",
+        heading: "있는 그대로",
+        body: "앱은 있는 그대로 제공되며 명시적 보증은 없습니다. 노트 손실이나 사용 불가에 대해 책임을 지지 않습니다. 언제든지 사용을 중단하고 앱 또는 기기 데이터를 삭제할 수 있습니다.",
       },
       {
-        heading: "\ubb38\uc758",
-        body: "\ubb38\uc758: contact@jacobs-factory.com. \uc57d\uad00\uc774 \ubc14\ub00c\uba74 \uc774 \ubb38\uc11c\uc758 \ub0a0\uc9dc\ub97c \uac31\uc2e0\ud569\ub2c8\ub2e4.",
+        heading: "문의",
+        body: "문의: contact@jacobs-factory.com. 약관이 바뀌면 이 문서의 날짜를 갱신합니다.",
       },
     ],
   },
