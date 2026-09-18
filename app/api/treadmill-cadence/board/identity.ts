@@ -42,8 +42,12 @@ export type AppleVerifyOpts = {
 const JWKS_TTL_MS = 60 * 60_000;
 let jwksCache: { at: number; keys: Jwk[] } | null = null;
 
+/** Native Play Cadence identity-token `aud`. Not a secret. */
+export const DEFAULT_APPLE_CLIENT_ID = "com.jacobsfactory.playcadence";
+
 export function appleAudiencesFromEnv(env: NodeJS.ProcessEnv = process.env): string[] {
-  const ids = [env.APPLE_CLIENT_ID, env.APPLE_SERVICES_ID]
+  const client = (env.APPLE_CLIENT_ID || "").trim() || DEFAULT_APPLE_CLIENT_ID;
+  const ids = [client, env.APPLE_SERVICES_ID]
     .flatMap((raw) => (raw || "").split(","))
     .map((s) => s.trim())
     .filter(Boolean);

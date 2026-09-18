@@ -53,7 +53,7 @@ Do not invent secrets. Identity-token verify uses public JWKS / tokeninfo.
 | `UPSTASH_REDIS_REST_URL` | yes | existing |
 | `UPSTASH_REDIS_REST_TOKEN` | yes | existing |
 | `GOOGLE_WEB_CLIENT_ID` | Android | existing Web client id |
-| `APPLE_CLIENT_ID` | iOS | `com.jacobsfactory.playcadence` (native identity-token `aud`) |
+| `APPLE_CLIENT_ID` | iOS | optional; defaults to `com.jacobsfactory.playcadence` |
 | `APPLE_SERVICES_ID` | no | only if a web Sign in with Apple is added later |
 
 Placeholder for the Vercel UI:

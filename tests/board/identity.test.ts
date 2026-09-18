@@ -54,7 +54,7 @@ test("APPLE_CLIENT_ID and optional Services ID become audiences", () => {
     }),
     [BUNDLE, "com.jacobsfactory.playcadence.web"],
   );
-  assert.deepEqual(appleAudiencesFromEnv({ NODE_ENV: "test" } as NodeJS.ProcessEnv), []);
+  assert.deepEqual(appleAudiencesFromEnv({ NODE_ENV: "test" } as NodeJS.ProcessEnv), [BUNDLE]);
 });
 
 test("appleAccount verifies RS256, iss, aud, exp, and sub", async () => {
