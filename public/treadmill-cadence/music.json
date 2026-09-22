@@ -1,5 +1,5 @@
 {
-  "version": 10,
+  "version": 11,
   "catalog": {
     "youtube": {
       "100": [
@@ -2307,62 +2307,6 @@
         }
       ],
       "110": [
-        {
-          "id": "q0JArRuvCz0",
-          "url": "https://www.youtube.com/watch?v=q0JArRuvCz0",
-          "startSec": 0.0,
-          "durationSec": 611,
-          "bpm": 110.1,
-          "beatAnchors": [
-            [
-              0.54,
-              0
-            ],
-            [
-              299.996,
-              549
-            ],
-            [
-              599.463,
-              1098
-            ],
-            [
-              610.383,
-              1118
-            ]
-          ],
-          "title": "55 bpm Percussion Drumless Track #DrumlessTrack #JamTracks"
-        },
-        {
-          "id": "7T2kXKFNBG0",
-          "url": "https://www.youtube.com/watch?v=7T2kXKFNBG0",
-          "startSec": 0.0,
-          "durationSec": 601,
-          "bpm": 110.1,
-          "beatAnchors": [
-            [
-              0.535,
-              0
-            ],
-            [
-              9.355,
-              16
-            ],
-            [
-              15.007,
-              26
-            ],
-            [
-              315.006,
-              576
-            ],
-            [
-              600.315,
-              1099
-            ]
-          ],
-          "title": "BPM 55 - Funk, Hip Hop - Drum Beat 1 | Backing Tracks"
-        },
         {
           "id": "iCSzzjsmQRA",
           "url": "https://www.youtube.com/watch?v=iCSzzjsmQRA",
