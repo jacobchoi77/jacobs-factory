@@ -1,5 +1,5 @@
 {
-  "version": 11,
+  "version": 12,
   "catalog": {
     "youtube": {
       "100": [
@@ -8580,6 +8580,36 @@
             ]
           ],
           "title": "🔥 Fitness & Gym Motivation 2021 – 126 BPM / 32 Count | Non-Stop Workout Mix (60-Min)"
+        },
+        {
+          "id": "B2mmDEv0OEk",
+          "url": "https://www.youtube.com/watch?v=B2mmDEv0OEk",
+          "startSec": 0.0,
+          "durationSec": 0,
+          "bpm": 126.3,
+          "beatAnchors": [
+            [
+              0.256,
+              0
+            ],
+            [
+              13.619,
+              27
+            ],
+            [
+              68.779,
+              142
+            ],
+            [
+              176.191,
+              369
+            ],
+            [
+              216.835,
+              456
+            ]
+          ],
+          "title": "September"
         }
       ],
       "130": [
